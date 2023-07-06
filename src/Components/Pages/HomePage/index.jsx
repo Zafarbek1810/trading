@@ -1,8 +1,8 @@
 import React from "react";
 import DashboardLayout from "../../Layout";
-import Signal from "./signal";
 import Company from "./Company";
 import FAQ from "./FAQ";
+import Signal from "./Signal"
 import { HomePageWrapper } from "./style";
 
 const HomePage = () => {
