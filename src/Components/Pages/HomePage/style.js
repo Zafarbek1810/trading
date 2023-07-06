@@ -18,13 +18,16 @@ const SignalWrapper = styled.div`
 
       .signal-item-top {
         display: flex !important;
+        align-items: center;
+        margin-bottom: 20px;
         p {
           margin-right: 15px;
         }
         span {
-          font-family: "Inter-SemiBold";
+          font-family: "Inter-Bold";
           font-size: 18px;
           text-transform: uppercase;
+          font-weight: 700;
         }
         span.green {
           color: #03cb9b;
@@ -35,6 +38,8 @@ const SignalWrapper = styled.div`
       }
       .signal-item-center {
         display: flex;
+        align-items: center;
+        margin-bottom: 20px;
         h5 {
           font-family: "Inter-Bold";
           font-size: 24px;

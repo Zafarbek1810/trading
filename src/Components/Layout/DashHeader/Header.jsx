@@ -29,10 +29,10 @@ const Header = () => {
                   </li>
                 </ul>
                 <div class="header-top__btns">
-                  <MyLink class="header-top__btns-search" to="/#">
+                  <a class="header-top__btns-search" href="#">
                     <img src="images/Icons/search.svg" alt="" />
                     Поиск
-                  </MyLink>
+                  </a>
                   <div class="header-top__sel-wrap">
                     <img src="images/Icons/GlobeStand.svg" alt="" />
                     <select>
