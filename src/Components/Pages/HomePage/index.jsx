@@ -2,8 +2,9 @@ import React from "react";
 import DashboardLayout from "../../Layout";
 import Company from "./Company";
 import FAQ from "./FAQ";
-import Signal from "./Signal"
 import { HomePageWrapper } from "./style";
+import SignalComp from "./SignalComp";
+
 
 const HomePage = () => {
   return (
@@ -11,10 +12,10 @@ const HomePage = () => {
       <HomePageWrapper>
       <div className="home-page-wrap">
         <h1>Самые честные обзоры на брокеров</h1>
-        <div class="home-top__right-reklam-block rekl-gradient">
+        <div className="home-top__right-reklam-block rekl-gradient">
           <img src="images/Home-page/333.gif" alt="" />
         </div>
-        <Signal />
+        <SignalComp/>
         <Company/>
         <FAQ/>
       </div>

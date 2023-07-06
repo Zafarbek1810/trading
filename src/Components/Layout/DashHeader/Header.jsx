@@ -6,14 +6,14 @@ import { HeaderWrapper } from "./Header.style";
 const Header = () => {
   return (
     <HeaderWrapper>
-      <div class="header">
-        <div class="header-top-wrap">
-          <div class="container">
+      <div className="header">
+        <div className="header-top-wrap">
+          <div className="container">
             <div className="header-top">
-              <MyLink class="header-top__logo" to="/">
+              <MyLink className="header-top__logo" to="/">
                 <img src="images/Icons/header-logo.svg" alt="logo" />
               </MyLink>
-              <div class="header-top__menu">
+              <div className="header-top__menu">
                 <ul>
                   <li>
                     <MyLink to="/brokers">Брокеры</MyLink>
@@ -28,22 +28,22 @@ const Header = () => {
                     <MyLink to="/complaints">Жалобы</MyLink>
                   </li>
                 </ul>
-                <div class="header-top__btns">
-                  <a class="header-top__btns-search" href="#">
+                <div className="header-top__btns">
+                  <a className="header-top__btns-search" href="#">
                     <img src="images/Icons/search.svg" alt="" />
                     Поиск
                   </a>
-                  <div class="header-top__sel-wrap">
+                  <div className="header-top__sel-wrap">
                     <img src="images/Icons/GlobeStand.svg" alt="" />
                     <select>
-                      <option class="bg-opt">Русский</option>
-                      <option class="bg-opt">English</option>
+                      <option className="bg-opt">Русский</option>
+                      <option className="bg-opt">English</option>
                     </select>
                   </div>
                 </div>
-                <div class="header-top__search">
+                <div className="header-top__search">
                   <input type="text" placeholder="поиск..." />
-                  <button class="header-top__search-close">
+                  <button className="header-top__search-close">
                     <img src="images/Icons/close-black.svg" alt="" />
                   </button>
                 </div>
@@ -52,38 +52,38 @@ const Header = () => {
           </div>
         </div>
 
-        <div class="header-mob-wrap">
-          <div class="container">
-            <div class="header-mob">
-              <MyLink class="header-mob__logo" to="/">
+        <div className="header-mob-wrap">
+          <div className="container">
+            <div className="header-mob">
+              <MyLink className="header-mob__logo" to="/">
                 <img src="images/Icons/footer-logo-333.svg" alt="logo" />
               </MyLink>
 
-              <div class="box-menu">
-                <MyLink to="#" class="search-bnt">
+              <div className="box-menu">
+                <MyLink to="#" className="search-bnt">
                   <img src="images/Icons/search.svg" alt="" />
                 </MyLink>
 
-                <div class="select-wrapper">
+                <div className="select-wrapper">
                   <select>
-                    <option class="bg-opt">RU</option>
-                    <option class="bg-opt">ENG</option>
+                    <option className="bg-opt">RU</option>
+                    <option className="bg-opt">ENG</option>
                   </select>
                 </div>
 
-                <div class="header-mob__burger">
+                <div className="header-mob__burger">
                   <span></span>
                 </div>
               </div>
 
-              <div class="header-mob-search">
+              <div className="header-mob-search">
                 <input type="text" placeholder="Поиск..." />
-                <button class="header-mob-search-close">
+                <button className="header-mob-search-close">
                   <img src="images/Icons/close-black.svg" alt="" />
                 </button>
               </div>
 
-              <nav class="header-mob__menu">
+              <nav className="header-mob__menu">
                 <ul>
                   <li>
                     <MyLink to="/brokers">Брокеры</MyLink>
@@ -99,7 +99,7 @@ const Header = () => {
                   </li>
                 </ul>
 
-                <MyLink class="tg-btn" to="/#">
+                <MyLink className="tg-btn" to="/#">
                   <img src="images/Icons/soc-tg.svg" alt="" />
                   Telegram-канал
                 </MyLink>

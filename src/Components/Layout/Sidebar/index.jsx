@@ -8,10 +8,10 @@ const Sidebar = () => {
         <div className="home-top-sec">
           <div className="home-top-wrap">
             <div className="home-top">
-              <div class="home-top__left">
-                <div class="home-top__left-cont">
-                  <div class="home-top__left-top">
-                    <a class="tg-btn" href="#">
+              <div className="home-top__left">
+                <div className="home-top__left-cont">
+                  <div className="home-top__left-top">
+                    <a className="tg-btn" href="#">
                       <img src="images/Icons/soc-tg.svg" alt="" />
                       Telegram-канал
                     </a>
@@ -34,11 +34,11 @@ const Sidebar = () => {
                     </ul>
                   </div>
 
-                  <div class="home-top__left-center rekl-gradient">
+                  <div className="home-top__left-center rekl-gradient">
                     <img src="images/Home-page/rekl.gif" alt="" />
                   </div>
 
-                  <div class="home-top__left-bottom rekl-gradient">
+                  <div className="home-top__left-bottom rekl-gradient">
                     <img src="images/Home-page/rekl2.jpg" alt="" />
                   </div>
                 </div>

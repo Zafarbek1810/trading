@@ -3,17 +3,17 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <div class="footer">
-        <div class="footer__top-sec">
-          <div class="container">
-            <div class="footer__top">
-              <div class="footer__top-left">
-                <a class="footer__top-left-logo" href="#">
+      <div className="footer">
+        <div className="footer__top-sec">
+          <div className="container">
+            <div className="footer__top">
+              <div className="footer__top-left">
+                <a className="footer__top-left-logo" href="#">
                   <img src="images/Icons/footer-logo-333.svg" alt="" />
                 </a>
               </div>
-              <div class="footer__top-right">
-                <div class="footer__top-right-contact">
+              <div className="footer__top-right">
+                <div className="footer__top-right-contact">
                   <a href="#"> info@gmail.com </a>
                 </div>
               </div>
@@ -21,10 +21,10 @@ const Footer = () => {
           </div>
         </div>
 
-        <div class="footer__center-sec">
-          <div class="container">
-            <div class="footer__center">
-              <a class="tg-btn" href="#">
+        <div className="footer__center-sec">
+          <div className="container">
+            <div className="footer__center">
+              <a className="tg-btn" href="#">
                 <img src="images/Icons/soc-tg.svg" alt="" />
                 Telegram-канал
               </a>
@@ -52,18 +52,18 @@ const Footer = () => {
           </div>
         </div>
 
-        <div class="footer__bottom-sec">
-          <div class="container">
-            <div class="footer__bottom">
+        <div className="footer__bottom-sec">
+          <div className="container">
+            <div className="footer__bottom">
               <a href="#"> Pricacy & Policy </a>
               <a href="#"> Terms of Use </a>
             </div>
           </div>
         </div>
       </div>
-      {/* <div class="reklam-popup">
-        <a class="reklam-popup__area" href="#"></a>
-        <div class="reklam-popup__body">
+      {/* <div className="reklam-popup">
+        <a className="reklam-popup__area" href="#"></a>
+        <div className="reklam-popup__body">
           <button id="popup-btn-close">
             <img src="images/Icons/close-circle-fill2.svg" alt="" />
           </button>
