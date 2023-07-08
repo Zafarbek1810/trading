@@ -15,7 +15,9 @@ const GlobalStyle = createGlobalStyle`
   *, *:after, *:before {
     box-sizing: inherit;
   }
-
+  .home-top-wrap::after {
+    display: none;
+  }
   body {
     margin: 0;
     padding: 0;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { SignalWrapper } from './style';
+import MyLink from '../../Common/MyLink';
 
 const SignalComp = () => {
     return (
@@ -48,9 +49,9 @@ const SignalComp = () => {
                   </div>
                 </div>
     
-                <a className="orange-btn" href="Signal-single.html">
+                <MyLink className="orange-btn" to="/signal-single">
                   Перейти к AUDNZD
-                </a>
+                </MyLink>
               </div>
     
               <div className="signal-item">
@@ -76,10 +77,9 @@ const SignalComp = () => {
                   </div>
                 </div>
     
-                <a className="orange-btn" href="#">
-                  {" "}
-                  Перейти к AUDNZD{" "}
-                </a>
+                <MyLink className="orange-btn" to="/signal-single">
+                  Перейти к AUDNZD
+                </MyLink>
               </div>
     
               <div className="signal-item">
@@ -105,10 +105,9 @@ const SignalComp = () => {
                   </div>
                 </div>
     
-                <a className="orange-btn" href="#">
-                  {" "}
-                  Перейти к AUDNZD{" "}
-                </a>
+                <MyLink className="orange-btn" to="/signal-single">
+                  Перейти к AUDNZD
+                </MyLink>
               </div>
     
               <div className="signal-item last">
@@ -134,10 +133,9 @@ const SignalComp = () => {
                   </div>
                 </div>
     
-                <a className="orange-btn" href="#">
-                  {" "}
-                  Перейти к AUDNZD{" "}
-                </a>
+                <MyLink className="orange-btn" to="/signal-single">
+                  Перейти к AUDNZD
+                </MyLink>
               </div>
     
               <a className="btn-more" href="#">

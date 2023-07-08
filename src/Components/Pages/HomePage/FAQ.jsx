@@ -119,7 +119,7 @@ const FAQ = () => {
       </div>
 
       <div className="home-top__right-reklam-block rekl-gradient mb-0">
-        <img src="images/Home-page/333.gif" alt="" />
+        <img src="/images/Home-page/333.gif" alt="" />
       </div>
     </>
   );

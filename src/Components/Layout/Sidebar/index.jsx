@@ -13,7 +13,7 @@ const Sidebar = () => {
                 <div className="home-top__left-cont">
                   <div className="home-top__left-top">
                     <a className="tg-btn" href="#">
-                      <img src="images/Icons/soc-tg.svg" alt="" />
+                      <img src="/images/Icons/soc-tg.svg" alt="" />
                       Telegram-канал
                     </a>
                     <ul>
@@ -21,26 +21,26 @@ const Sidebar = () => {
                         <MyLink to="/courses">Обучающие курсы</MyLink>
                       </li>
                       <li>
-                        <a href="Brokers-rating.html">Рейтинг броккеров</a>
+                        <MyLink to="/brokers-raiting">Рейтинг броккеров</MyLink>
                       </li>
                       <li>
-                        <a href="News.html">Новости</a>
+                        <MyLink to="/news">Новости</MyLink>
                       </li>
                       <li>
-                        <a href="Partners.html">Наши партнеры</a>
+                        <MyLink to="/partners">Наши партнеры</MyLink>
                       </li>
                       <li>
-                        <a href="Forum.html">Форум</a>
+                        <MyLink to="/forum">Форум</MyLink>
                       </li>
                     </ul>
                   </div>
 
                   <div className="home-top__left-center rekl-gradient">
-                    <img src="images/Home-page/rekl.gif" alt="" />
+                    <img src="/images/Home-page/rekl.gif" alt="" />
                   </div>
 
                   <div className="home-top__left-bottom rekl-gradient">
-                    <img src="images/Home-page/rekl2.jpg" alt="" />
+                    <img src="/images/Home-page/rekl2.jpg" alt="" />
                   </div>
                 </div>
               </div>

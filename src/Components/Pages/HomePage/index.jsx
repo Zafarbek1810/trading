@@ -13,7 +13,7 @@ const HomePage = () => {
       <div className="home-page-wrap">
         <h1>Самые честные обзоры на брокеров</h1>
         <div className="home-top__right-reklam-block rekl-gradient">
-          <img src="images/Home-page/333.gif" alt="" />
+          <img src="/images/Home-page/333.gif" alt="" />
         </div>
         <SignalComp/>
         <Company/>

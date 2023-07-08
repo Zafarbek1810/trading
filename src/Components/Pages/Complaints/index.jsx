@@ -34,16 +34,16 @@ const Complaints = () => {
               <span>добавлена 6 мин. назад </span>
               <div className="complaints__card-items">
                 <div className="card__broker-img">
-                  <img src="images/Brokers/alpari.png" alt="" />
+                  <img src="/images/Brokers/alpari.png" alt="" />
                 </div>
                 <div className="complaints__card-text">
                   <h2>fxclub.org</h2>
                   <div className="number-complaints">
-                    <img src="images/Icons/UsersThree.png" alt="" />
+                    <img src="/images/Icons/UsersThree.png" alt="" />
                     <span>Количество жалоб (11)</span>
                   </div>
                   <div className="arr">
-                    <img src="images/Icons/arr-right.svg" alt="" />
+                    <img src="/images/Icons/arr-right.svg" alt="" />
                   </div>
                 </div>
               </div>
@@ -53,16 +53,16 @@ const Complaints = () => {
               <span>добавлена 6 мин. назад </span>
               <div className="complaints__card-items">
                 <div className="card__broker-img">
-                  <img src="images/Brokers/alpari.png" alt="" />
+                  <img src="/images/Brokers/alpari.png" alt="" />
                 </div>
                 <div className="complaints__card-text">
                   <h2>Binance.com</h2>
                   <div className="number-complaints">
-                    <img src="images/Icons/UsersThree.png" alt="" />
+                    <img src="/images/Icons/UsersThree.png" alt="" />
                     <span>Количество жалоб (11)</span>
                   </div>
                   <div className="arr">
-                    <img src="images/Icons/arr-right.svg" alt="" />
+                    <img src="/images/Icons/arr-right.svg" alt="" />
                   </div>
                 </div>
               </div>
@@ -72,16 +72,16 @@ const Complaints = () => {
               <span>добавлена 6 мин. назад </span>
               <div className="complaints__card-items">
                 <div className="card__broker-img">
-                  <img src="images/Brokers/alpari.png" alt="" />
+                  <img src="/images/Brokers/alpari.png" alt="" />
                 </div>
                 <div className="complaints__card-text">
                   <h2>Alpari.com</h2>
                   <div className="number-complaints">
-                    <img src="images/Icons/UsersThree.png" alt="" />
+                    <img src="/images/Icons/UsersThree.png" alt="" />
                     <span>Количество жалоб (11)</span>
                   </div>
                   <div className="arr">
-                    <img src="images/Icons/arr-right.svg" alt="" />
+                    <img src="/images/Icons/arr-right.svg" alt="" />
                   </div>
                 </div>
               </div>
@@ -91,16 +91,16 @@ const Complaints = () => {
               <span>добавлена 6 мин. назад </span>
               <div className="complaints__card-items">
                 <div className="card__broker-img">
-                  <img src="images/Brokers/alpari.png" alt="" />
+                  <img src="/images/Brokers/alpari.png" alt="" />
                 </div>
                 <div className="complaints__card-text">
                   <h2>fxclub.org</h2>
                   <div className="number-complaints">
-                    <img src="images/Icons/UsersThree.png" alt="" />
+                    <img src="/images/Icons/UsersThree.png" alt="" />
                     <span>Количество жалоб (11)</span>
                   </div>
                   <div className="arr">
-                    <img src="images/Icons/arr-right.svg" alt="" />
+                    <img src="/images/Icons/arr-right.svg" alt="" />
                   </div>
                 </div>
               </div>
@@ -110,16 +110,16 @@ const Complaints = () => {
               <span>добавлена 6 мин. назад </span>
               <div className="complaints__card-items">
                 <div className="card__broker-img">
-                  <img src="images/Brokers/alpari.png" alt="" />
+                  <img src="/images/Brokers/alpari.png" alt="" />
                 </div>
                 <div className="complaints__card-text">
                   <h2>fxclub.org</h2>
                   <div className="number-complaints">
-                    <img src="images/Icons/UsersThree.png" alt="" />
+                    <img src="/images/Icons/UsersThree.png" alt="" />
                     <span>Количество жалоб (11)</span>
                   </div>
                   <div className="arr">
-                    <img src="images/Icons/arr-right.svg" alt="" />
+                    <img src="/images/Icons/arr-right.svg" alt="" />
                   </div>
                 </div>
               </div>
@@ -129,16 +129,16 @@ const Complaints = () => {
               <span>добавлена 6 мин. назад </span>
               <div className="complaints__card-items">
                 <div className="card__broker-img">
-                  <img src="images/Brokers/alpari.png" alt="" />
+                  <img src="/images/Brokers/alpari.png" alt="" />
                 </div>
                 <div className="complaints__card-text">
                   <h2>fxclub.org</h2>
                   <div className="number-complaints">
-                    <img src="images/Icons/UsersThree.png" alt="" />
+                    <img src="/images/Icons/UsersThree.png" alt="" />
                     <span>Количество жалоб (11)</span>
                   </div>
                   <div className="arr">
-                    <img src="images/Icons/arr-right.svg" alt="" />
+                    <img src="/images/Icons/arr-right.svg" alt="" />
                   </div>
                 </div>
               </div>
@@ -150,7 +150,7 @@ const Complaints = () => {
           </a>
 
           <div className="home-top__right-reklam-block rekl-gradient mb-0 mt-5">
-            <img src="images/Home-page/333.gif" alt="" />
+            <img src="/images/Home-page/333.gif" alt="" />
           </div>
         </div>
       </div>

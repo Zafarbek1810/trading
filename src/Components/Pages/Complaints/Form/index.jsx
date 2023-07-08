@@ -52,7 +52,7 @@ const ComplaintsForm = () => {
             <div>
               <p>Прекрипить файл</p>
               <label className="label-file-complaints" >
-                <img src="images/Icons/upload.svg" alt="" />
+                <img src="/images/Icons/upload.svg" alt="" />
                 <span>Загрузить файл</span>
                 <input name="file-complaints" type="file" />
               </label>

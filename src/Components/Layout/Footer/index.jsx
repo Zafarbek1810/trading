@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="footer__top">
               <div className="footer__top-left">
                 <a className="footer__top-left-logo" href="#">
-                  <img src="images/Icons/footer-logo-333.svg" alt="" />
+                  <img src="/images/Icons/footer-logo-333.svg" alt="" />
                 </a>
               </div>
               <div className="footer__top-right">
@@ -25,7 +25,7 @@ const Footer = () => {
           <div className="container">
             <div className="footer__center">
               <a className="tg-btn" href="#">
-                <img src="images/Icons/soc-tg.svg" alt="" />
+                <img src="/images/Icons/soc-tg.svg" alt="" />
                 Telegram-канал
               </a>
               <ul>
@@ -65,9 +65,9 @@ const Footer = () => {
         <a className="reklam-popup__area" href="#"></a>
         <div className="reklam-popup__body">
           <button id="popup-btn-close">
-            <img src="images/Icons/close-circle-fill2.svg" alt="" />
+            <img src="/images/Icons/close-circle-fill2.svg" alt="" />
           </button>
-          <img src="images/popup-rekl.jpg" alt="" />
+          <img src="/images/popup-rekl.jpg" alt="" />
         </div>
       </div> */}
     </>

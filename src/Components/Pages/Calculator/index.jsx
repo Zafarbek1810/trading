@@ -18,7 +18,7 @@ const Calculator = () => {
 
         <a href="#" className="glow-on-hover mb-4">
           Как оставить отзыв — узнать большее
-          <img src="images/Icons/ArrowRight.svg" alt="" />
+          <img src="/images/Icons/ArrowRight.svg" alt="" />
         </a>
 
         <h1>Мультивалютный калькулятор</h1>
@@ -85,7 +85,7 @@ const Calculator = () => {
                       className="calc__item-center-img-box"
                       id="swapButton"
                     >
-                      <img src="images/Icons/ArrowsLeftRight.svg" alt="" />
+                      <img src="/images/Icons/ArrowsLeftRight.svg" alt="" />
                     </button>
                   </div>
 
@@ -159,7 +159,7 @@ const Calculator = () => {
                       id="swap-crypto"
                       type="button"
                     >
-                      <img src="images/Icons/ArrowsLeftRight.svg" alt="" />
+                      <img src="/images/Icons/ArrowsLeftRight.svg" alt="" />
                     </button>
                   </div>
 
@@ -229,7 +229,7 @@ const Calculator = () => {
 
                   <div className="calc__item-center">
                     <button className="calc__item-center-img-box" id="swap-multy">
-                      <img src="images/Icons/ArrowsLeftRight.svg" alt="" />
+                      <img src="/images/Icons/ArrowsLeftRight.svg" alt="" />
                     </button>
                   </div>
 

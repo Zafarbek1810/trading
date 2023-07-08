@@ -1,5 +1,6 @@
 import React from "react";
 import DashboardLayout from "../../Layout";
+import MyLink from "../../Common/MyLink";
 
 const Brokers = () => {
   return (
@@ -18,7 +19,7 @@ const Brokers = () => {
 
         <a href="#" className="glow-on-hover mb-4">
           Как оставить отзыв — узнать большее
-          <img src="images/Icons/ArrowRight.svg" alt="" />
+          <img src="/images/Icons/ArrowRight.svg" alt="" />
         </a>
 
         <div className="brokers-top">
@@ -80,20 +81,20 @@ const Brokers = () => {
                     <div className="brokers-list__item-left-estimates-left-top">
                       <span data-est="">5</span>
                       <h5>Высокий</h5>
-                      <img src="images/Icons/Frame.svg" alt="" />
+                      <img src="/images/Icons/Frame.svg" alt="" />
                     </div>
                     <div className="brokers-list__item-left-estimates-left-bot">
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
                     </div>
                   </div>
 
                   <div className="brokers-list__item-left-estimates-center">
                     <div className="brokers-list__item-left-estimates-center-top">
-                      <img src="images/Icons/reviews.svg" alt="" />
+                      <img src="/images/Icons/reviews.svg" alt="" />
                       <h5>12.1K</h5>
                     </div>
                     <div className="brokers-list__item-left-estimates-center-bot">
@@ -103,7 +104,7 @@ const Brokers = () => {
 
                   <div className="brokers-list__item-left-estimates-right">
                     <div className="brokers-list__item-left-estimates-right-top">
-                      <img src="images/Icons/acc.svg" alt="" />
+                      <img src="/images/Icons/acc.svg" alt="" />
                       <h5>104.9K</h5>
                     </div>
                     <div className="brokers-list__item-left-estimates-right-bot">
@@ -141,15 +142,15 @@ const Brokers = () => {
                   <a className="orange-btn" href="#">
                     Открыть сайт
                   </a>
-                  <a className="gray-btn" href="Brokers-Single.html">
+                  <MyLink className="gray-btn" to="/brokers-single">
                     Alpari обзор
-                  </a>
+                  </MyLink>
                 </div>
               </div>
 
               <div className="brokers-list__item-right">
                 <div className="brokers-list__item-right-img-wrap">
-                  <img src="images/Brokers/alpari.png" alt="" />
+                  <img src="/images/Brokers/alpari.png" alt="" />
                 </div>
               </div>
             </div>
@@ -163,20 +164,20 @@ const Brokers = () => {
                     <div className="brokers-list__item-left-estimates-left-top">
                       <span data-est="">4.52</span>
                       <h5>Высокий</h5>
-                      <img src="images/Icons/Frame.svg" alt="" />
+                      <img src="/images/Icons/Frame.svg" alt="" />
                     </div>
                     <div className="brokers-list__item-left-estimates-left-bot">
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
                     </div>
                   </div>
 
                   <div className="brokers-list__item-left-estimates-center">
                     <div className="brokers-list__item-left-estimates-center-top">
-                      <img src="images/Icons/reviews.svg" alt="" />
+                      <img src="/images/Icons/reviews.svg" alt="" />
                       <h5>12.1K</h5>
                     </div>
                     <div className="brokers-list__item-left-estimates-center-bot">
@@ -186,7 +187,7 @@ const Brokers = () => {
 
                   <div className="brokers-list__item-left-estimates-right">
                     <div className="brokers-list__item-left-estimates-right-top">
-                      <img src="images/Icons/acc.svg" alt="" />
+                      <img src="/images/Icons/acc.svg" alt="" />
                       <h5>104.9K</h5>
                     </div>
                     <div className="brokers-list__item-left-estimates-right-bot">
@@ -224,15 +225,15 @@ const Brokers = () => {
                   <a className="orange-btn" href="#">
                     Открыть сайт
                   </a>
-                  <a className="gray-btn" href="#">
+                  <MyLink className="gray-btn" to="/brokers-single">
                     Alpari обзор
-                  </a>
+                  </MyLink>
                 </div>
               </div>
 
               <div className="brokers-list__item-right">
                 <div className="brokers-list__item-right-img-wrap">
-                  <img src="images/Brokers/Binance.png" alt="" />
+                  <img src="/images/Brokers/Binance.png" alt="" />
                 </div>
               </div>
             </div>
@@ -246,20 +247,20 @@ const Brokers = () => {
                     <div className="brokers-list__item-left-estimates-left-top">
                       <span data-est="">2.02</span>
                       <h5>Средний</h5>
-                      <img src="images/Icons/Frame.svg" alt="" />
+                      <img src="/images/Icons/Frame.svg" alt="" />
                     </div>
                     <div className="brokers-list__item-left-estimates-left-bot">
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
                     </div>
                   </div>
 
                   <div className="brokers-list__item-left-estimates-center">
                     <div className="brokers-list__item-left-estimates-center-top">
-                      <img src="images/Icons/reviews.svg" alt="" />
+                      <img src="/images/Icons/reviews.svg" alt="" />
                       <h5>12.1K</h5>
                     </div>
                     <div className="brokers-list__item-left-estimates-center-bot">
@@ -269,7 +270,7 @@ const Brokers = () => {
 
                   <div className="brokers-list__item-left-estimates-right">
                     <div className="brokers-list__item-left-estimates-right-top">
-                      <img src="images/Icons/acc.svg" alt="" />
+                      <img src="/images/Icons/acc.svg" alt="" />
                       <h5>104.9K</h5>
                     </div>
                     <div className="brokers-list__item-left-estimates-right-bot">
@@ -307,15 +308,15 @@ const Brokers = () => {
                   <a className="orange-btn" href="#">
                     Открыть сайт
                   </a>
-                  <a className="gray-btn" href="#">
+                  <MyLink className="gray-btn" to="/brokers-single">
                     Alpari обзор
-                  </a>
+                  </MyLink>
                 </div>
               </div>
 
               <div className="brokers-list__item-right">
                 <div className="brokers-list__item-right-img-wrap">
-                  <img src="images/Brokers/alpari.png" alt="" />
+                  <img src="/images/Brokers/alpari.png" alt="" />
                 </div>
               </div>
             </div>
@@ -329,20 +330,20 @@ const Brokers = () => {
                     <div className="brokers-list__item-left-estimates-left-top">
                       <span data-est="">1.5</span>
                       <h5>Низкий</h5>
-                      <img src="images/Icons/Frame.svg" alt="" />
+                      <img src="/images/Icons/Frame.svg" alt="" />
                     </div>
                     <div className="brokers-list__item-left-estimates-left-bot">
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
                     </div>
                   </div>
 
                   <div className="brokers-list__item-left-estimates-center">
                     <div className="brokers-list__item-left-estimates-center-top">
-                      <img src="images/Icons/reviews.svg" alt="" />
+                      <img src="/images/Icons/reviews.svg" alt="" />
                       <h5>12.1K</h5>
                     </div>
                     <div className="brokers-list__item-left-estimates-center-bot">
@@ -352,7 +353,7 @@ const Brokers = () => {
 
                   <div className="brokers-list__item-left-estimates-right">
                     <div className="brokers-list__item-left-estimates-right-top">
-                      <img src="images/Icons/acc.svg" alt="" />
+                      <img src="/images/Icons/acc.svg" alt="" />
                       <h5>104.9K</h5>
                     </div>
                     <div className="brokers-list__item-left-estimates-right-bot">
@@ -390,15 +391,15 @@ const Brokers = () => {
                   <a className="orange-btn" href="#">
                     Открыть сайт
                   </a>
-                  <a className="gray-btn" href="#">
+                  <MyLink className="gray-btn" to="/brokers-single">
                     Alpari обзор
-                  </a>
+                  </MyLink>
                 </div>
               </div>
 
               <div className="brokers-list__item-right">
                 <div className="brokers-list__item-right-img-wrap">
-                  <img src="images/Brokers/alpari.png" alt="" />
+                  <img src="/images/Brokers/alpari.png" alt="" />
                 </div>
               </div>
             </div>
@@ -412,20 +413,20 @@ const Brokers = () => {
                     <div className="brokers-list__item-left-estimates-left-top">
                       <span data-est="">2.95</span>
                       <h5>Средний</h5>
-                      <img src="images/Icons/Frame.svg" alt="" />
+                      <img src="/images/Icons/Frame.svg" alt="" />
                     </div>
                     <div className="brokers-list__item-left-estimates-left-bot">
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
                     </div>
                   </div>
 
                   <div className="brokers-list__item-left-estimates-center">
                     <div className="brokers-list__item-left-estimates-center-top">
-                      <img src="images/Icons/reviews.svg" alt="" />
+                      <img src="/images/Icons/reviews.svg" alt="" />
                       <h5>12.1K</h5>
                     </div>
                     <div className="brokers-list__item-left-estimates-center-bot">
@@ -435,7 +436,7 @@ const Brokers = () => {
 
                   <div className="brokers-list__item-left-estimates-right">
                     <div className="brokers-list__item-left-estimates-right-top">
-                      <img src="images/Icons/acc.svg" alt="" />
+                      <img src="/images/Icons/acc.svg" alt="" />
                       <h5>104.9K</h5>
                     </div>
                     <div className="brokers-list__item-left-estimates-right-bot">
@@ -473,15 +474,15 @@ const Brokers = () => {
                   <a className="orange-btn" href="#">
                     Открыть сайт
                   </a>
-                  <a className="gray-btn" href="#">
+                  <MyLink className="gray-btn" to="/brokers-single">
                     Alpari обзор
-                  </a>
+                  </MyLink>
                 </div>
               </div>
 
               <div className="brokers-list__item-right">
                 <div className="brokers-list__item-right-img-wrap">
-                  <img src="images/Brokers/alpari.png" alt="" />
+                  <img src="/images/Brokers/alpari.png" alt="" />
                 </div>
               </div>
             </div>
@@ -495,20 +496,20 @@ const Brokers = () => {
                     <div className="brokers-list__item-left-estimates-left-top">
                       <span data-est="">4.87</span>
                       <h5>Высокий</h5>
-                      <img src="images/Icons/Frame.svg" alt="" />
+                      <img src="/images/Icons/Frame.svg" alt="" />
                     </div>
                     <div className="brokers-list__item-left-estimates-left-bot">
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
                     </div>
                   </div>
 
                   <div className="brokers-list__item-left-estimates-center">
                     <div className="brokers-list__item-left-estimates-center-top">
-                      <img src="images/Icons/reviews.svg" alt="" />
+                      <img src="/images/Icons/reviews.svg" alt="" />
                       <h5>12.1K</h5>
                     </div>
                     <div className="brokers-list__item-left-estimates-center-bot">
@@ -518,7 +519,7 @@ const Brokers = () => {
 
                   <div className="brokers-list__item-left-estimates-right">
                     <div className="brokers-list__item-left-estimates-right-top">
-                      <img src="images/Icons/acc.svg" alt="" />
+                      <img src="/images/Icons/acc.svg" alt="" />
                       <h5>104.9K</h5>
                     </div>
                     <div className="brokers-list__item-left-estimates-right-bot">
@@ -556,15 +557,15 @@ const Brokers = () => {
                   <a className="orange-btn" href="#">
                     Открыть сайт
                   </a>
-                  <a className="gray-btn" href="#">
+                  <MyLink className="gray-btn" to="/brokers-single">
                     Alpari обзор
-                  </a>
+                  </MyLink>
                 </div>
               </div>
 
               <div className="brokers-list__item-right">
                 <div className="brokers-list__item-right-img-wrap">
-                  <img src="images/Brokers/alpari.png" alt="" />
+                  <img src="/images/Brokers/alpari.png" alt="" />
                 </div>
               </div>
             </div>
@@ -578,20 +579,20 @@ const Brokers = () => {
                     <div className="brokers-list__item-left-estimates-left-top">
                       <span data-est="">4.01</span>
                       <h5>Высокий</h5>
-                      <img src="images/Icons/Frame.svg" alt="" />
+                      <img src="/images/Icons/Frame.svg" alt="" />
                     </div>
                     <div className="brokers-list__item-left-estimates-left-bot">
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
                     </div>
                   </div>
 
                   <div className="brokers-list__item-left-estimates-center">
                     <div className="brokers-list__item-left-estimates-center-top">
-                      <img src="images/Icons/reviews.svg" alt="" />
+                      <img src="/images/Icons/reviews.svg" alt="" />
                       <h5>12.1K</h5>
                     </div>
                     <div className="brokers-list__item-left-estimates-center-bot">
@@ -601,7 +602,7 @@ const Brokers = () => {
 
                   <div className="brokers-list__item-left-estimates-right">
                     <div className="brokers-list__item-left-estimates-right-top">
-                      <img src="images/Icons/acc.svg" alt="" />
+                      <img src="/images/Icons/acc.svg" alt="" />
                       <h5>104.9K</h5>
                     </div>
                     <div className="brokers-list__item-left-estimates-right-bot">
@@ -639,15 +640,15 @@ const Brokers = () => {
                   <a className="orange-btn" href="#">
                     Открыть сайт
                   </a>
-                  <a className="gray-btn" href="#">
+                  <MyLink className="gray-btn" to="/brokers-single">
                     Alpari обзор
-                  </a>
+                  </MyLink>
                 </div>
               </div>
 
               <div className="brokers-list__item-right">
                 <div className="brokers-list__item-right-img-wrap">
-                  <img src="images/Brokers/alpari.png" alt="" />
+                  <img src="/images/Brokers/alpari.png" alt="" />
                 </div>
               </div>
             </div>
@@ -661,20 +662,20 @@ const Brokers = () => {
                     <div className="brokers-list__item-left-estimates-left-top">
                       <span data-est="">3.29</span>
                       <h5>Средний</h5>
-                      <img src="images/Icons/Frame.svg" alt="" />
+                      <img src="/images/Icons/Frame.svg" alt="" />
                     </div>
                     <div className="brokers-list__item-left-estimates-left-bot">
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
                     </div>
                   </div>
 
                   <div className="brokers-list__item-left-estimates-center">
                     <div className="brokers-list__item-left-estimates-center-top">
-                      <img src="images/Icons/reviews.svg" alt="" />
+                      <img src="/images/Icons/reviews.svg" alt="" />
                       <h5>12.1K</h5>
                     </div>
                     <div className="brokers-list__item-left-estimates-center-bot">
@@ -684,7 +685,7 @@ const Brokers = () => {
 
                   <div className="brokers-list__item-left-estimates-right">
                     <div className="brokers-list__item-left-estimates-right-top">
-                      <img src="images/Icons/acc.svg" alt="" />
+                      <img src="/images/Icons/acc.svg" alt="" />
                       <h5>104.9K</h5>
                     </div>
                     <div className="brokers-list__item-left-estimates-right-bot">
@@ -722,15 +723,15 @@ const Brokers = () => {
                   <a className="orange-btn" href="#">
                     Открыть сайт
                   </a>
-                  <a className="gray-btn" href="#">
+                  <MyLink className="gray-btn" to="/brokers-single">
                     Alpari обзор
-                  </a>
+                  </MyLink>
                 </div>
               </div>
 
               <div className="brokers-list__item-right">
                 <div className="brokers-list__item-right-img-wrap">
-                  <img src="images/Brokers/alpari.png" alt="" />
+                  <img src="/images/Brokers/alpari.png" alt="" />
                 </div>
               </div>
             </div>
@@ -744,20 +745,20 @@ const Brokers = () => {
                     <div className="brokers-list__item-left-estimates-left-top">
                       <span data-est="">3.85</span>
                       <h5>Высокий</h5>
-                      <img src="images/Icons/Frame.svg" alt="" />
+                      <img src="/images/Icons/Frame.svg" alt="" />
                     </div>
                     <div className="brokers-list__item-left-estimates-left-bot">
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
                     </div>
                   </div>
 
                   <div className="brokers-list__item-left-estimates-center">
                     <div className="brokers-list__item-left-estimates-center-top">
-                      <img src="images/Icons/reviews.svg" alt="" />
+                      <img src="/images/Icons/reviews.svg" alt="" />
                       <h5>12.1K</h5>
                     </div>
                     <div className="brokers-list__item-left-estimates-center-bot">
@@ -767,7 +768,7 @@ const Brokers = () => {
 
                   <div className="brokers-list__item-left-estimates-right">
                     <div className="brokers-list__item-left-estimates-right-top">
-                      <img src="images/Icons/acc.svg" alt="" />
+                      <img src="/images/Icons/acc.svg" alt="" />
                       <h5>104.9K</h5>
                     </div>
                     <div className="brokers-list__item-left-estimates-right-bot">
@@ -805,15 +806,15 @@ const Brokers = () => {
                   <a className="orange-btn" href="#">
                     Открыть сайт
                   </a>
-                  <a className="gray-btn" href="#">
+                  <MyLink className="gray-btn" to="/brokers-single">
                     Alpari обзор
-                  </a>
+                  </MyLink>
                 </div>
               </div>
 
               <div className="brokers-list__item-right">
                 <div className="brokers-list__item-right-img-wrap">
-                  <img src="images/Brokers/alpari.png" alt="" />
+                  <img src="/images/Brokers/alpari.png" alt="" />
                 </div>
               </div>
             </div>
@@ -829,17 +830,17 @@ const Brokers = () => {
                       <h5>Низкий</h5>
                     </div>
                     <div className="brokers-list__item-left-estimates-left-bot">
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
-                      <img src="images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
+                      <img src="/images/Icons/star-icon.svg" alt="" />
                     </div>
                   </div>
 
                   <div className="brokers-list__item-left-estimates-center">
                     <div className="brokers-list__item-left-estimates-center-top">
-                      <img src="images/Icons/reviews.svg" alt="" />
+                      <img src="/images/Icons/reviews.svg" alt="" />
                       <h5>12.1K</h5>
                     </div>
                     <div className="brokers-list__item-left-estimates-center-bot">
@@ -849,7 +850,7 @@ const Brokers = () => {
 
                   <div className="brokers-list__item-left-estimates-right">
                     <div className="brokers-list__item-left-estimates-right-top">
-                      <img src="images/Icons/acc.svg" alt="" />
+                      <img src="/images/Icons/acc.svg" alt="" />
                       <h5>104.9K</h5>
                     </div>
                     <div className="brokers-list__item-left-estimates-right-bot">
@@ -887,15 +888,15 @@ const Brokers = () => {
                   <a className="orange-btn" href="#">
                     Открыть сайт
                   </a>
-                  <a className="gray-btn" href="#">
+                  <MyLink className="gray-btn" to="/brokers-single">
                     Alpari обзор
-                  </a>
+                  </MyLink>
                 </div>
               </div>
 
               <div className="brokers-list__item-right">
                 <div className="brokers-list__item-right-img-wrap">
-                  <img src="images/Brokers/alpari.png" alt="" />
+                  <img src="/images/Brokers/alpari.png" alt="" />
                 </div>
               </div>
             </div>
@@ -907,7 +908,7 @@ const Brokers = () => {
         </div>
 
         <div className="home-top__right-reklam-block rekl-gradient mb-0 mt-5">
-          <img src="images/Home-page/333.gif" alt="" />
+          <img src="/images/Home-page/333.gif" alt="" />
         </div>
       </div>
     </DashboardLayout>

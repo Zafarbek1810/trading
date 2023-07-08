@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Script from 'next/script'
-import Partners from '../src/Components/Pages/Partners'
+import BrokersSingle from '../src/Components/Pages/Brokers/BrokersSingle'
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
         <title>Trading</title>
         <link rel="stylesheet" href="css/style.min.css"/>
         </Head>
-      <Partners/>
+        <BrokersSingle/>
 
       <Script src="js/main.min.js"></Script>
     </>

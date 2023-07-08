@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Script from 'next/script'
+import News from '../src/Components/Pages/News'
 
 
 export default function Home() {
@@ -11,7 +12,7 @@ export default function Home() {
         <title>Trading</title>
         <link rel="stylesheet" href="css/style.min.css"/>
         </Head>
-      news
+      <News/>
 
       <Script src="js/main.min.js"></Script>
     </>

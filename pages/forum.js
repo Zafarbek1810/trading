@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Script from 'next/script'
+import Forum from '../src/Components/Pages/Forum'
 
 export default function Home() {
   return (
@@ -10,7 +11,7 @@ export default function Home() {
         <title>Trading</title>
         <link rel="stylesheet" href="css/style.min.css"/>
         </Head>
-      forum
+      <Forum/>
 
       <Script src="js/main.min.js"></Script>
     </>

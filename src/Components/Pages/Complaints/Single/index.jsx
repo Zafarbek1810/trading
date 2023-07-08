@@ -19,7 +19,7 @@ const ComplaintsSingle = () => {
         <div className="brokers-single__top ">
           <div className="brokers-single__top-left">
             <div className="brokers-single__top-left-logo">
-              <img src="images/Brokers/Binance.png" alt="" />
+              <img src="/images/Brokers/Binance.png" alt="" />
             </div>
             <div className="brokers-single__top-left-cont">
               <div className="brokers-single__top-left-cont-top">
@@ -33,11 +33,11 @@ const ComplaintsSingle = () => {
                 </div>
                 <div className="item">
                   <div className="box">
-                    <img src="images/Brokers/yel-star.svg" alt="" />
-                    <img src="images/Brokers/yel-star.svg" alt="" />
-                    <img src="images/Brokers/yel-star.svg" alt="" />
-                    <img src="images/Brokers/yel-star.svg" alt="" />
-                    <img src="images/Brokers/yel-star.svg" alt="" />
+                    <img src="/images/Brokers/yel-star.svg" alt="" />
+                    <img src="/images/Brokers/yel-star.svg" alt="" />
+                    <img src="/images/Brokers/yel-star.svg" alt="" />
+                    <img src="/images/Brokers/yel-star.svg" alt="" />
+                    <img src="/images/Brokers/yel-star.svg" alt="" />
                   </div>
                   <p>Рейтинги</p>
                 </div>
@@ -58,7 +58,7 @@ const ComplaintsSingle = () => {
           <div className="broker__complaints-cards">
             <div className="broker__complaints-card">
               <div className="broker__complaints-card--top">
-                <img src="images/Ellipse broker-single.jpg" alt="" />
+                <img src="/images/Ellipse broker-single.jpg" alt="" />
                 <div className="broker__complaints-card--top-title">
                   <div>
                     <h3>Я броккер</h3>
@@ -69,7 +69,7 @@ const ComplaintsSingle = () => {
               </div>
               <div className="broker__complaints-card--bottom">
                 <a href="www.binance.com">www.binance.com</a>
-                <a href="images/Ellipse broker-single.jpg" download="">
+                <a href="/images/Ellipse broker-single.jpg" download="">
                   открыть файл
                 </a>
                 <p>
@@ -84,7 +84,7 @@ const ComplaintsSingle = () => {
             </div>
             <div className="broker__complaints-card">
               <div className="broker__complaints-card--top">
-                <img src="images/Ellipse broker-single.jpg" alt="" />
+                <img src="/images/Ellipse broker-single.jpg" alt="" />
                 <div className="broker__complaints-card--top-title">
                   <div>
                     <h3>Я броккер</h3>
@@ -95,7 +95,7 @@ const ComplaintsSingle = () => {
               </div>
               <div className="broker__complaints-card--bottom">
                 <a href="www.binance.com">www.binance.com</a>
-                <a href="images/Ellipse broker-single.jpg" download="">
+                <a href="/images/Ellipse broker-single.jpg" download="">
                   открыть файл
                 </a>
                 <p>
@@ -110,7 +110,7 @@ const ComplaintsSingle = () => {
             </div>
             <div className="broker__complaints-card">
               <div className="broker__complaints-card--top">
-                <img src="images/Ellipse broker-single.jpg" alt="" />
+                <img src="/images/Ellipse broker-single.jpg" alt="" />
                 <div className="broker__complaints-card--top-title">
                   <div>
                     <h3>Я броккер</h3>
@@ -121,7 +121,7 @@ const ComplaintsSingle = () => {
               </div>
               <div className="broker__complaints-card--bottom">
                 <a href="www.binance.com">www.binance.com</a>
-                <a href="images/Ellipse broker-single.jpg" download="">
+                <a href="/images/Ellipse broker-single.jpg" download="">
                   открыть файл
                 </a>
                 <p>
@@ -142,7 +142,7 @@ const ComplaintsSingle = () => {
         </a>
 
         <div className="home-top__right-reklam-block rekl-gradient">
-          <img src="images/Home-page/333.gif" alt="" />
+          <img src="/images/Home-page/333.gif" alt="" />
         </div>
       </div>
     </DashboardLayout>

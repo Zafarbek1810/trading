@@ -31,17 +31,17 @@ const Company = () => {
                   <div className="est">
                     <p>5.0 ПРЕВОСХОДНО</p>
                     <div className="box">
-                      <img src="images/Icons/star-w.svg" alt="" />
-                      <img src="images/Icons/star-w.svg" alt="" />
-                      <img src="images/Icons/star-w.svg" alt="" />
-                      <img src="images/Icons/star-w.svg" alt="" />
-                      <img src="images/Icons/star-w.svg" alt="" />
+                      <img src="/images/Icons/star-w.svg" alt="" />
+                      <img src="/images/Icons/star-w.svg" alt="" />
+                      <img src="/images/Icons/star-w.svg" alt="" />
+                      <img src="/images/Icons/star-w.svg" alt="" />
+                      <img src="/images/Icons/star-w.svg" alt="" />
                     </div>
                   </div>
 
                   <div className="rev">
                     <div className="box">
-                      <img src="images/Icons/reviews.svg" alt="" />
+                      <img src="/images/Icons/reviews.svg" alt="" />
                       <p>15,4k</p>
                     </div>
                     <p>Отзывы</p>
@@ -49,14 +49,14 @@ const Company = () => {
 
                   <div className="acc">
                     <div className="box">
-                      <img src="images/Icons/acc.svg" alt="" />
+                      <img src="/images/Icons/acc.svg" alt="" />
                       <p>105k</p>
                     </div>
                     <p>Счета</p>
                   </div>
 
                   <div className="check">
-                    <img src="images/Icons/Frame.svg" alt="" />
+                    <img src="/images/Icons/Frame.svg" alt="" />
                     <p>Проверено</p>
                   </div>
                 </div>
@@ -68,7 +68,7 @@ const Company = () => {
 
               <div className="rating__content-item-right">
                 <div className="img-box">
-                  <img src="images/Brokers/alpari.png" alt="" />
+                  <img src="/images/Brokers/alpari.png" alt="" />
                   <span className="best">Best</span>
                 </div>
               </div>
@@ -91,17 +91,17 @@ const Company = () => {
                   <div className="est">
                     <p>5.0 ПРЕВОСХОДНО</p>
                     <div className="box">
-                      <img src="images/Icons/star-w.svg" alt="" />
-                      <img src="images/Icons/star-w.svg" alt="" />
-                      <img src="images/Icons/star-w.svg" alt="" />
-                      <img src="images/Icons/star-w.svg" alt="" />
-                      <img src="images/Icons/star-w.svg" alt="" />
+                      <img src="/images/Icons/star-w.svg" alt="" />
+                      <img src="/images/Icons/star-w.svg" alt="" />
+                      <img src="/images/Icons/star-w.svg" alt="" />
+                      <img src="/images/Icons/star-w.svg" alt="" />
+                      <img src="/images/Icons/star-w.svg" alt="" />
                     </div>
                   </div>
 
                   <div className="rev">
                     <div className="box">
-                      <img src="images/Icons/reviews.svg" alt="" />
+                      <img src="/images/Icons/reviews.svg" alt="" />
                       <p>15,4k</p>
                     </div>
                     <p>Отзывы</p>
@@ -109,14 +109,14 @@ const Company = () => {
 
                   <div className="acc">
                     <div className="box">
-                      <img src="images/Icons/acc.svg" alt="" />
+                      <img src="/images/Icons/acc.svg" alt="" />
                       <p>105k</p>
                     </div>
                     <p>Счета</p>
                   </div>
 
                   <div className="check">
-                    <img src="images/Icons/Frame.svg" alt="" />
+                    <img src="/images/Icons/Frame.svg" alt="" />
                     <p>Проверено</p>
                   </div>
                 </div>
@@ -129,7 +129,7 @@ const Company = () => {
 
               <div className="rating__content-item-right">
                 <div className="img-box">
-                  <img src="images/Brokers/alpari.png" alt="" />
+                  <img src="/images/Brokers/alpari.png" alt="" />
                   <span className="scam">Scam</span>
                 </div>
               </div>
@@ -152,17 +152,17 @@ const Company = () => {
                   <div className="est">
                     <p>5.0 ПРЕВОСХОДНО</p>
                     <div className="box">
-                      <img src="images/Icons/star-w.svg" alt="" />
-                      <img src="images/Icons/star-w.svg" alt="" />
-                      <img src="images/Icons/star-w.svg" alt="" />
-                      <img src="images/Icons/star-w.svg" alt="" />
-                      <img src="images/Icons/star-w.svg" alt="" />
+                      <img src="/images/Icons/star-w.svg" alt="" />
+                      <img src="/images/Icons/star-w.svg" alt="" />
+                      <img src="/images/Icons/star-w.svg" alt="" />
+                      <img src="/images/Icons/star-w.svg" alt="" />
+                      <img src="/images/Icons/star-w.svg" alt="" />
                     </div>
                   </div>
 
                   <div className="rev">
                     <div className="box">
-                      <img src="images/Icons/reviews.svg" alt="" />
+                      <img src="/images/Icons/reviews.svg" alt="" />
                       <p>15,4k</p>
                     </div>
                     <p>Отзывы</p>
@@ -170,14 +170,14 @@ const Company = () => {
 
                   <div className="acc">
                     <div className="box">
-                      <img src="images/Icons/acc.svg" alt="" />
+                      <img src="/images/Icons/acc.svg" alt="" />
                       <p>105k</p>
                     </div>
                     <p>Счета</p>
                   </div>
 
                   <div className="check">
-                    <img src="images/Icons/Frame.svg" alt="" />
+                    <img src="/images/Icons/Frame.svg" alt="" />
                     <p>Проверено</p>
                   </div>
                 </div>
@@ -190,7 +190,7 @@ const Company = () => {
 
               <div className="rating__content-item-right">
                 <div className="img-box">
-                  <img src="images/Brokers/alpari.png" alt="" />
+                  <img src="/images/Brokers/alpari.png" alt="" />
                   <span className="best">Best</span>
                 </div>
               </div>
@@ -204,7 +204,7 @@ const Company = () => {
       </div>
 
       <div className="home-top__right-reklam-block rekl-gradient">
-        <img src="images/Home-page/333.gif" alt="" />
+        <img src="/images/Home-page/333.gif" alt="" />
       </div>
     </>
   );

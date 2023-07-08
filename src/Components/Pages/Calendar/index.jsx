@@ -18,7 +18,7 @@ const Calendar = () => {
 
         <a href="#" className="glow-on-hover mb-4">
           Как оставить отзыв — узнать большее
-          <img src="images/Icons/ArrowRight.svg" alt="" />
+          <img src="/images/Icons/ArrowRight.svg" alt="" />
         </a>
 
         <h1>Economic Calendar</h1>
@@ -65,7 +65,7 @@ const Calendar = () => {
                 <p>Выходной</p>
               </div>
               <div className="calendar__item-event-right">
-                <img src="images/Icons/china.png" alt="" />
+                <img src="/images/Icons/china.png" alt="" />
                 <p>Китай - День труда</p>
               </div>
             </div>
@@ -78,11 +78,11 @@ const Calendar = () => {
                 </div>
                 <div className="calendar__item-cont-left-bot">
                   <div className="circle">
-                    <img src="images/Icons/yel-star.svg" alt="" />
+                    <img src="/images/Icons/yel-star.svg" alt="" />
                   </div>
                   <div className="circle"></div>
                   <div className="circle"></div>
-                  <img className="flag-min" src="images/Icons/china.png" alt="" />
+                  <img className="flag-min" src="/images/Icons/china.png" alt="" />
                 </div>
               </div>
 
@@ -118,11 +118,11 @@ const Calendar = () => {
                 </div>
                 <div className="calendar__item-cont-left-bot">
                   <div className="circle">
-                    <img src="images/Icons/yel-star.svg" alt="" />
+                    <img src="/images/Icons/yel-star.svg" alt="" />
                   </div>
                   <div className="circle"></div>
                   <div className="circle"></div>
-                  <img className="flag-min" src="images/Icons/china.png" alt="" />
+                  <img className="flag-min" src="/images/Icons/china.png" alt="" />
                 </div>
               </div>
 
@@ -158,11 +158,11 @@ const Calendar = () => {
                 </div>
                 <div className="calendar__item-cont-left-bot">
                   <div className="circle">
-                    <img src="images/Icons/yel-star.svg" alt="" />
+                    <img src="/images/Icons/yel-star.svg" alt="" />
                   </div>
                   <div className="circle"></div>
                   <div className="circle"></div>
-                  <img className="flag-min" src="images/Icons/china.png" alt="" />
+                  <img className="flag-min" src="/images/Icons/china.png" alt="" />
                 </div>
               </div>
 
@@ -202,7 +202,7 @@ const Calendar = () => {
                 <p>Выходной</p>
               </div>
               <div className="calendar__item-event-right">
-                <img src="images/Icons/germany.png" alt="" />
+                <img src="/images/Icons/germany.png" alt="" />
                 <p>Германия - День труда</p>
               </div>
             </div>
@@ -212,7 +212,7 @@ const Calendar = () => {
                 <h4>04:30</h4>
               </div>
               <div className="calendar__item-cont-right">
-                <img src="images/Icons/germany.png" alt="" />
+                <img src="/images/Icons/germany.png" alt="" />
                 <p>Германия - День труда</p>
               </div>
             </div>
@@ -222,7 +222,7 @@ const Calendar = () => {
                 <h4>04:30</h4>
               </div>
               <div className="calendar__item-cont-right">
-                <img src="images/Icons/germany.png" alt="" />
+                <img src="/images/Icons/germany.png" alt="" />
                 <p>Германия - День труда</p>
               </div>
             </div>
@@ -232,7 +232,7 @@ const Calendar = () => {
                 <h4>04:30</h4>
               </div>
               <div className="calendar__item-cont-right">
-                <img src="images/Icons/germany.png" alt="" />
+                <img src="/images/Icons/germany.png" alt="" />
                 <p>Германия - День труда</p>
               </div>
             </div>
@@ -244,7 +244,7 @@ const Calendar = () => {
         </a>
 
         <div className="home-top__right-reklam-block rekl-gradient mb-0 mt-5">
-          <img src="images/Home-page/333.gif" alt="" />
+          <img src="/images/Home-page/333.gif" alt="" />
         </div>
       </div>
     </DashboardLayout>

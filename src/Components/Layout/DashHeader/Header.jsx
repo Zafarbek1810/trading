@@ -14,7 +14,7 @@ const Header = () => {
           <div className="container">
             <div className="header-top">
               <MyLink className="header-top__logo" to="/">
-                <img src="images/Icons/header-logo.svg" alt="logo" />
+                <img src="/images/Icons/header-logo.svg" alt="logo" />
               </MyLink>
               <div className="header-top__menu">
                 <ul>
@@ -33,11 +33,11 @@ const Header = () => {
                 </ul>
                 <div className="header-top__btns">
                   <a className="header-top__btns-search" href="#">
-                    <img src="images/Icons/search.svg" alt="" />
+                    <img src="/images/Icons/search.svg" alt="" />
                     Поиск
                   </a>
                   <div className="header-top__sel-wrap">
-                    <img src="images/Icons/GlobeStand.svg" alt="" />
+                    <img src="/images/Icons/GlobeStand.svg" alt="" />
                     <select>
                       <option className="bg-opt">Русский</option>
                       <option className="bg-opt">English</option>
@@ -47,7 +47,7 @@ const Header = () => {
                 <div className="header-top__search">
                   <input type="text" placeholder="поиск..." />
                   <button className="header-top__search-close">
-                    <img src="images/Icons/close-black.svg" alt="" />
+                    <img src="/images/Icons/close-black.svg" alt="" />
                   </button>
                 </div>
               </div>
@@ -59,12 +59,12 @@ const Header = () => {
           <div className="container">
             <div className="header-mob">
               <MyLink className="header-mob__logo" to="/">
-                <img src="images/Icons/footer-logo-333.svg" alt="logo" />
+                <img src="/images/Icons/footer-logo-333.svg" alt="logo" />
               </MyLink>
 
               <div className="box-menu">
                 <MyLink to="/" className="search-bnt">
-                  <img src="images/Icons/search.svg" alt="" />
+                  <img src="/images/Icons/search.svg" alt="" />
                 </MyLink>
 
                 <div className="select-wrapper">
@@ -82,7 +82,7 @@ const Header = () => {
               <div className="header-mob-search">
                 <input type="text" placeholder="Поиск..." />
                 <button className="header-mob-search-close">
-                  <img src="images/Icons/close-black.svg" alt="" />
+                  <img src="/images/Icons/close-black.svg" alt="" />
                 </button>
               </div>
 
@@ -103,7 +103,7 @@ const Header = () => {
                 </ul>
 
                 <MyLink className="tg-btn" to="/#">
-                  <img src="images/Icons/soc-tg.svg" alt="" />
+                  <img src="/images/Icons/soc-tg.svg" alt="" />
                   Telegram-канал
                 </MyLink>
 
