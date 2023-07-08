@@ -2,8 +2,11 @@ import React from "react";
 
 import MyLink from "../../Common/MyLink";
 import { HeaderWrapper } from "./Header.style";
+import { useRouter } from "next/router";
 
 const Header = () => {
+  const router = useRouter();
+
   return (
     <HeaderWrapper>
       <div className="header">
@@ -15,16 +18,16 @@ const Header = () => {
               </MyLink>
               <div className="header-top__menu">
                 <ul>
-                  <li>
+                  <li className={router.route === "/brokers" ? "active" : ""}>
                     <MyLink to="/brokers">Брокеры</MyLink>
                   </li>
-                  <li>
+                  <li className={router.route === "/calculator" ? "active" : ""}>
                     <MyLink to="/calculator">Мультивалютный калькулятор</MyLink>
                   </li>
-                  <li>
+                  <li className={router.route === "/calendar"  ? "active" : ""}>
                     <MyLink to="/calendar">Экономический календарь</MyLink>
                   </li>
-                  <li>
+                  <li className={(router.route === "/complaints" || router.route ==="/complaints-single" || router.route ==="/complaints-form") ? "active" : ""}>
                     <MyLink to="/complaints">Жалобы</MyLink>
                   </li>
                 </ul>
@@ -60,7 +63,7 @@ const Header = () => {
               </MyLink>
 
               <div className="box-menu">
-                <MyLink to="#" className="search-bnt">
+                <MyLink to="/" className="search-bnt">
                   <img src="images/Icons/search.svg" alt="" />
                 </MyLink>
 

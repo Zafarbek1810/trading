@@ -1,5 +1,6 @@
 import React from "react";
 import { SidebarWrapper } from "./style";
+import MyLink from "../../Common/MyLink";
 
 const Sidebar = () => {
   return (
@@ -17,7 +18,7 @@ const Sidebar = () => {
                     </a>
                     <ul>
                       <li>
-                        <a href="Courses.html">Обучающие курсы</a>
+                        <MyLink to="/courses">Обучающие курсы</MyLink>
                       </li>
                       <li>
                         <a href="Brokers-rating.html">Рейтинг броккеров</a>

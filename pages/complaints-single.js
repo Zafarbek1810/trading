@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Script from 'next/script'
+import ComplaintsSingle from '../src/Components/Pages/Complaints/Single'
 
 export default function Home() {
   return (
@@ -10,9 +11,10 @@ export default function Home() {
         <title>Trading</title>
         <link rel="stylesheet" href="css/style.min.css"/>
         </Head>
-      brokers raiting
+      <ComplaintsSingle/>
 
       <Script src="js/main.min.js"></Script>
+      <Script src="js/app.min.js"></Script>
     </>
   )
 }
