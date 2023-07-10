@@ -22,6 +22,7 @@ const DashboardLayoutWrapper = styled.div`
     }
         .child{
         width:100%;
+        margin-left: 0px;
     }
     }
 }

@@ -9,7 +9,7 @@ export default function Home() {
       <Head>
         <meta name="viewport" content="width=device-width, user-scalable=no"></meta>
         <link rel="shortcut icon" href="./favicon.ico" />
-        <title>Trading</title>
+        <title>Inlisting</title>
         <link rel="stylesheet" href="css/style.min.css"/>
         </Head>
       <News/>
