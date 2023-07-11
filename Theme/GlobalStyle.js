@@ -27,8 +27,9 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.5;
     font-size: 16px;
     color: #fff;
-    overflow-x: hidden;
-    ;
+    @media (max-width: 500px) {
+    overflow-x:auto;
+  }
   }
   h1,h2,h3,h4,h5,h6 {
     font-family: "Inter", "Arial", sans-serif;
@@ -49,6 +50,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Inter", "Arial", sans-serif;
 
   }
+
+  
   
   svg {
     width: 1em;

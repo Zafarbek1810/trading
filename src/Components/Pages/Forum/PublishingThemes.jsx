@@ -46,7 +46,7 @@ const PublishingThemes = () => {
             </div>
             <div>
               <p>Прикрепить файлы</p>
-              <label className="label-file" for="file">
+              <label className="label-file" >
                 <img src="/images/Icons/upload.svg" alt="" />
                 <span>Загрузить файл</span>
                 <input name="file" type="file" />

@@ -38,6 +38,7 @@ const SignalWrapper = styled.div`
       }
       .signal-item-center {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         margin-bottom: 20px;
         h5 {
@@ -48,6 +49,7 @@ const SignalWrapper = styled.div`
         }
         .box {
           display: flex;
+          flex-wrap: wrap;
 
           .signal-item-center-text {
             display: flex;
@@ -82,6 +84,10 @@ const SignalWrapper = styled.div`
   }
   .sel-box{
     margin-right: 10px;
+  }
+
+  @media (max-width: 500px) {
+    overflow-x:auto;
   }
 `;
 

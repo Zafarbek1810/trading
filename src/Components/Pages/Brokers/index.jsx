@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import DashboardLayout from "../../Layout";
 import MyLink from "../../Common/MyLink";
+import CommonProviders from "../../../Data/Providers/CommonProviders";
+import axios from "axios";
 
 const Brokers = () => {
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: "http://91.200.148.144/api/ads",
+    })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <DashboardLayout>
       <div className="brokers">
