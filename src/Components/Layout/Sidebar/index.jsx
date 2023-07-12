@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SidebarWrapper } from "./style";
 import MyLink from "../../Common/MyLink";
+import axios from "axios";
+import { API_URL } from "../../../HHTP/clients";
 
 const Sidebar = () => {
+  const [ads, setAds] = useState([]);
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `${API_URL}api/ads/`,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => {
+        console.log(res.data);
+        setAds(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <SidebarWrapper>
       <div className="main">
@@ -35,13 +56,25 @@ const Sidebar = () => {
                     </ul>
                   </div>
 
-                  <div className="home-top__left-center rekl-gradient">
-                    <img src="/images/Home-page/rekl.gif" alt="" />
-                  </div>
+                  {ads
+                    .filter((cat) => cat.category_id === 1)
+                    .map((item) => (
+                      <div className="home-top__left-center rekl-gradient">
+                        <a href={item.ads_url}>
+                        <img src={`${API_URL}/${item.file}`} alt="" />
+                        </a>
+                      </div>
+                    ))}
 
-                  <div className="home-top__left-bottom rekl-gradient">
-                    <img src="/images/Home-page/rekl2.jpg" alt="" />
-                  </div>
+                  {ads
+                    .filter((cat) => cat.category_id === 2)
+                    .map((item) => (
+                      <div className="home-top__left-center rekl-gradient">
+                        <a href={item.ads_url}>
+                        <img src={`${API_URL}/${item.file}`} alt="" />
+                        </a>
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>

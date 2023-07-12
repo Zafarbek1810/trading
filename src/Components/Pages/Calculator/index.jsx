@@ -1,7 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import DashboardLayout from "../../Layout";
 
 const Calculator = () => {
+  const [value, setValue] = useState();
+
+  if (value === "all") {
+    document.querySelector(".calc-currency").style.display = "block";
+    document.querySelector(".calc-crypto").style.display = "block";
+    document.querySelector(".calc-multy").style.display = "block";
+  } else if (value === "curr") {
+    document.querySelector(".calc-currency").style.display = "block";
+    document.querySelector(".calc-crypto").style.display = "none";
+    document.querySelector(".calc-multy").style.display = "none";
+  } else if (value === "crypto") {
+    document.querySelector(".calc-currency").style.display = "none";
+    document.querySelector(".calc-crypto").style.display = "block";
+    document.querySelector(".calc-multy").style.display = "none";
+  } else if (value === "multy") {
+    document.querySelector(".calc-currency").style.display = "none";
+    document.querySelector(".calc-crypto").style.display = "none";
+    document.querySelector(".calc-multy").style.display = "block";
+  }
+
+  console.log(value);
   return (
     <DashboardLayout>
       <div className="calculator">
@@ -27,7 +48,10 @@ const Calculator = () => {
           <div className="calc__top">
             <p>Калькулятор</p>
 
-            <div className="sel-box">
+            <form
+              className="sel-box"
+              onChange={(e) => setValue(e.target.value)}
+            >
               <select id="calculator-select">
                 <option value="all" className="bg-opt">
                   Все
@@ -42,7 +66,7 @@ const Calculator = () => {
                   Мультивалютный калькулятор
                 </option>
               </select>
-            </div>
+            </form>
           </div>
 
           <div className="calc__center">
@@ -228,7 +252,10 @@ const Calculator = () => {
                   </div>
 
                   <div className="calc__item-center">
-                    <button className="calc__item-center-img-box" id="swap-multy">
+                    <button
+                      className="calc__item-center-img-box"
+                      id="swap-multy"
+                    >
                       <img src="/images/Icons/ArrowsLeftRight.svg" alt="" />
                     </button>
                   </div>

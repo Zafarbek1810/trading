@@ -1,82 +1,104 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import DashboardLayout from "../../Layout";
+import axios from "axios";
+import MyLink from "../../Common/MyLink";
+import { API_URL } from "../../../HHTP/clients";
 
-const BrokersSingle = () => {
+const BrokersSingle = ({ id }) => {
+  const [brokerDetail, setBrokerDetail] = useState([]);
+
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `${API_URL}api/brokers/${id}`,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => {
+        console.log(res);
+        setBrokerDetail(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <DashboardLayout>
-      <div className="brokers-single">
-        <ul id="breadcrumb">
-          <span>
+      {brokerDetail.map((detail) => (
+        <div className="brokers-single">
+          <ul id="breadcrumb">
             <span>
-              <a href="#">Главная</a>|<a href="#">Брокеры</a>|
-              <span className="breadcrumb_last" aria-current="page">
-                Binance
+              <span>
+                <MyLink to="/">Главная</MyLink>|<MyLink to="/brokers">Брокеры</MyLink>|
+                <span className="breadcrumb_last" aria-current="page">
+                  {detail.name}
+                </span>
               </span>
             </span>
-          </span>
-        </ul>
+          </ul>
 
-        <div className="brokers-single__top">
-          <div className="brokers-single__top-left">
-            <div className="brokers-single__top-left-logo">
-              <img src="/images/Brokers/Binance.png" alt="" />
-            </div>
-            <div className="brokers-single__top-left-cont">
-              <div className="brokers-single__top-left-cont-top">
-                <h4>Binance</h4>
-                <p>Последный визит: 3 дняназад</p>
+          <div className="brokers-single__top">
+            <div className="brokers-single__top-left">
+              <div className="brokers-single__top-left-logo">
+                <img src="/images/Brokers/Binance.png" alt="" />
               </div>
-              <div className="brokers-single__top-left-cont-bot">
-                <div className="item">
-                  <h5>4.58</h5>
-                  <p>10.3K</p>
+              <div className="brokers-single__top-left-cont">
+                <div className="brokers-single__top-left-cont-top">
+                  <h4>{detail.name}</h4>
+                  <p>Последный визит: 3 дня назад</p> 
                 </div>
-                <div className="item">
-                  <div className="box">
-                    <img src="/images/Brokers/yel-star.svg" alt="" />
-                    <img src="/images/Brokers/yel-star.svg" alt="" />
-                    <img src="/images/Brokers/yel-star.svg" alt="" />
-                    <img src="/images/Brokers/yel-star.svg" alt="" />
-                    <img src="/images/Brokers/yel-star.svg" alt="" />
+                <div className="brokers-single__top-left-cont-bot">
+                  <div className="item">
+                    <h5>4.58</h5>
+                    <p>10.3K</p>
                   </div>
-                  <p>Рейтинги</p>
-                </div>
-                <div className="item">
-                  <h5>114.K</h5>
-                  <p>Traders</p>
-                </div>
-                <div className="item">
-                  <h5>6K</h5>
-                  <p>Подписчики</p>
+                  <div className="item">
+                    <div className="box">
+                      <img src="/images/Brokers/yel-star.svg" alt="" />
+                      <img src="/images/Brokers/yel-star.svg" alt="" />
+                      <img src="/images/Brokers/yel-star.svg" alt="" />
+                      <img src="/images/Brokers/yel-star.svg" alt="" />
+                      <img src="/images/Brokers/yel-star.svg" alt="" />
+                    </div>
+                    <p>Рейтинги</p>
+                  </div>
+                  <div className="item">
+                    <h5>114.K</h5>
+                    <p>Traders</p>
+                  </div>
+                  <div className="item">
+                    <h5>6K</h5>
+                    <p>Подписчики</p>
+                  </div>
                 </div>
               </div>
             </div>
+
+            <div className="brokers-single__top-right">
+              <a className="mail" href="#">
+                <img src="/images/Icons/mail.svg" alt="" />
+              </a>
+              <a className="gray-btn" href="#">
+                Подписатся
+              </a>
+              <a className="orange-btn" href="#">
+                Трейдинг
+              </a>
+            </div>
           </div>
 
-          <div className="brokers-single__top-right">
-            <a className="mail" href="#">
-              <img src="/images/Icons/mail.svg" alt="" />
-            </a>
-            <a className="gray-btn" href="#">
-              Подписатся
-            </a>
-            <a className="orange-btn" href="#">
-              Трейдинг
-            </a>
-          </div>
-        </div>
+          <div className="brokers-single-review">
+            <div className="brokers-single-review-item">
+              <div  dangerouslySetInnerHTML={{__html: detail.short_description}}></div>
+            </div>
+            <div className="brokers-single-review-item">
+              <div  dangerouslySetInnerHTML={{__html: detail.full_description}}></div>
+            </div>
 
-        <div className="brokers-single-review">
-          <div className="brokers-single-review-item">
-            <h5>Tradable assets</h5>
-            <ul>
-              <li>Crypto</li>
-              <li>Crypto</li>
-              <li>Crypto</li>
-            </ul>
-          </div>
-
-          <div className="brokers-single-review-item">
+            {/* <div className="brokers-single-review-item">
             <h5>Fees</h5>
             <ul>
               <li>
@@ -137,13 +159,14 @@ const BrokersSingle = () => {
             <a className="brokers-single-review-btn" href="#">
               Read more about how we think and work <span>→</span>
             </a>
+          </div> */}
+          </div>
+
+          <div className="home-top__right-reklam-block rekl-gradient mt-5">
+            <img src="/images/Home-page/333.gif" alt="" />
           </div>
         </div>
-
-        <div className="home-top__right-reklam-block rekl-gradient mt-5">
-          <img src="/images/Home-page/333.gif" alt="" />
-        </div>
-      </div>
+      ))}
     </DashboardLayout>
   );
 };

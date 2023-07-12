@@ -1,6 +1,27 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { API_URL } from "../../../HHTP/clients";
 
 const FAQ = () => {
+  const [ads, setAds] = useState([]);
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `${API_URL}api/ads/`,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => {
+        console.log(res.data);
+        setAds(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <>
       <div className="home-faqs">
@@ -118,9 +139,15 @@ const FAQ = () => {
         </div>
       </div>
 
-      <div className="home-top__right-reklam-block rekl-gradient mb-0">
-        <img src="/images/Home-page/333.gif" alt="" />
-      </div>
+      {ads
+        .filter((cat) => cat.category_id === 4)
+        .map((item) => (
+          <div className="home-top__right-reklam-block rekl-gradient mb-0">
+            <a href={item.ads_url}>
+              <img src={`${API_URL}/${item.file}`} alt="" />
+            </a>
+          </div>
+        ))}
     </>
   );
 };

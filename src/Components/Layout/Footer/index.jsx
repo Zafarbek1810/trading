@@ -1,6 +1,26 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { API_URL } from "../../../HHTP/clients";
 
 const Footer = () => {
+  const [ads, setAds] = useState([]);
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `${API_URL}api/ads/`,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => {
+        console.log(res.data);
+        setAds(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <>
       <div className="footer">
@@ -61,15 +81,20 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      {/* <div className="reklam-popup">
-        <a className="reklam-popup__area" href="#"></a>
-        <div className="reklam-popup__body">
-          <button id="popup-btn-close">
-            <img src="/images/Icons/close-circle-fill2.svg" alt="" />
-          </button>
-          <img src="/images/popup-rekl.jpg" alt="" />
-        </div>
-      </div> */}
+      {ads
+        .filter((cat) => cat.category_id === 5)
+        .map((item) => (
+          <div className="reklam-popup">
+            <div className="reklam-popup__body">
+              <button id="popup-btn-close">
+                <img src="/images/Icons/close-circle-fill2.svg" alt="" />
+              </button>
+              <a href={item.ads_url}>
+                <img src={`${API_URL}/${item.file}`} alt="" />
+              </a>
+            </div>
+          </div>
+        ))}
     </>
   );
 };
