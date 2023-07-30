@@ -1,6 +1,8 @@
 import axios from "axios";
 
-export const API_URL = "http://91.200.148.144:8000/";
+export const API_URL = "https://inlisting.io/io/backend";
+export const IMG_URL = "https://inlisting.io/";
+// export const API_URL = "http://91.200.148.144:8000/";
 
 const client = axios.create({
   withCredentials: true,

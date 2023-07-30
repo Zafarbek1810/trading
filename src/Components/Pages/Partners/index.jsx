@@ -1,121 +1,101 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import DashboardLayout from "../../Layout";
+import axios from "axios";
+import { API_URL, IMG_URL } from "../../../HHTP/clients";
+import { useTranslation } from "react-i18next";
+import MyLink from "../../Common/MyLink";
 
 const Partners = () => {
+  const [partner, setPartners] = useState([]);
+  const [ads, setAds] = useState([]);
+  const {t, i18n}=useTranslation();
+
+  const currentLang = i18n.language;
+
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `${API_URL}/partners/`,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => {
+        console.log(res.data);
+        setPartners(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `${API_URL}/ads/`,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => {
+        console.log(res.data);
+        setAds(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <DashboardLayout>
       <div className="partners">
         <ul id="breadcrumb">
           <span>
             <span>
-              <a href="#">Главная</a>|
+            <MyLink to="/">{t('header.navbar.home')}</MyLink>|
               <span className="breadcrumb_last" aria-current="page">
-                Наши партнеры
+                {t('partners.title')}
               </span>
             </span>
           </span>
         </ul>
 
         <div className="partners__top">
-          <h1>Наши партнеры</h1>
-          <p>Следите за событиями в режиме реального времени</p>
+          <h1>{t('partners.title')}</h1>
+          <p>{t('partners.descr')}</p>
         </div>
 
         <div className="partners__box">
-          <a href="#" className="partners__item">
-            <div className="partners__item-img-box">
-              <img src="/images/Partners/p1.png" alt="" />
-            </div>
-            <div className="partners__item-cont">
-              <h5>Arken</h5>
-              <p className="partners-text">
-                Саудовская Аравия собирается в очередной раз...
-              </p>
-              <div className="partners__item-arr">
-                <img src="/images/Partners/arr-right.svg" alt="" />
+          {partner.map((item, index) => (
+            <div key={index} className="partners__item">
+              <div key={index} className="partners__item-img-box">
+                <img src={`${IMG_URL}media/${item.file}`} alt="" />
+              </div>
+              <div className="partners__item-cont">
+                <h5>{item.name}</h5>
+                <p className="partners-text">{currentLang==='en' ? item.short_description_en : item.short_description_ru}</p>
+                <div className="partners__item-arr">
+                  <img src="/images/Partners/arr-right.svg" alt="" />
+                </div>
               </div>
             </div>
-          </a>
-
-          <a href="#" className="partners__item">
-            <div className="partners__item-img-box">
-              <img src="/images/Partners/p1.png" alt="" />
-            </div>
-            <div className="partners__item-cont">
-              <h5>Arken</h5>
-              <p className="partners-text">
-                Саудовская Аравия собирается в очередной раз...
-              </p>
-              <div className="partners__item-arr">
-                <img src="/images/Partners/arr-right.svg" alt="" />
-              </div>
-            </div>
-          </a>
-
-          <a href="#" className="partners__item">
-            <div className="partners__item-img-box">
-              <img src="/images/Partners/p1.png" alt="" />
-            </div>
-            <div className="partners__item-cont">
-              <h5>Arken</h5>
-              <p className="partners-text">
-                Саудовская Аравия собирается в очередной раз...
-              </p>
-              <div className="partners__item-arr">
-                <img src="/images/Partners/arr-right.svg" alt="" />
-              </div>
-            </div>
-          </a>
-
-          <a href="#" className="partners__item">
-            <div className="partners__item-img-box">
-              <img src="/images/Partners/p1.png" alt="" />
-            </div>
-            <div className="partners__item-cont">
-              <h5>Arken</h5>
-              <p className="partners-text">
-                Саудовская Аравия собирается в очередной раз...
-              </p>
-              <div className="partners__item-arr">
-                <img src="/images/Partners/arr-right.svg" alt="" />
-              </div>
-            </div>
-          </a>
-
-          <a href="#" className="partners__item">
-            <div className="partners__item-img-box">
-              <img src="/images/Partners/p1.png" alt="" />
-            </div>
-            <div className="partners__item-cont">
-              <h5>Arken</h5>
-              <p className="partners-text">
-                Саудовская Аравия собирается в очередной раз...
-              </p>
-              <div className="partners__item-arr">
-                <img src="/images/Partners/arr-right.svg" alt="" />
-              </div>
-            </div>
-          </a>
-
-          <a href="#" className="partners__item">
-            <div className="partners__item-img-box">
-              <img src="/images/Partners/p1.png" alt="" />
-            </div>
-            <div className="partners__item-cont">
-              <h5>Arken</h5>
-              <p className="partners-text">
-                Саудовская Аравия собирается в очередной раз...
-              </p>
-              <div className="partners__item-arr">
-                <img src="/images/Partners/arr-right.svg" alt="" />
-              </div>
-            </div>
-          </a>
+          ))}
         </div>
 
-        <div className="home-top__right-reklam-block rekl-gradient">
-          <img src="/images/Home-page/333.gif" alt="" />
-        </div>
+        {ads
+          .filter((cat) => cat.category_id === 4)
+          .map((item) => (
+            <div
+              key={item.id}
+              className="home-top__right-reklam-block rekl-gradient mb-0"
+            >
+              <a href={item.ads_url}>
+                <img src={`${IMG_URL}/${item.file}`} alt="" />
+              </a>
+            </div>
+          ))}
       </div>
     </DashboardLayout>
   );

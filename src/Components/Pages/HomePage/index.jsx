@@ -4,15 +4,16 @@ import Company from "./Company";
 import FAQ from "./FAQ";
 import { HomePageWrapper } from "./style";
 import SignalComp from "./SignalComp";
-import { API_URL } from "../../../HHTP/clients";
+import { API_URL, IMG_URL } from "../../../HHTP/clients";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 const HomePage = () => {
   const [ads, setAds] = useState([]);
   useEffect(() => {
     axios({
       method: "get",
-      url: `${API_URL}api/ads/`,
+      url: `${API_URL}/ads/`,
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -27,17 +28,22 @@ const HomePage = () => {
       });
   }, []);
 
+  const { t } = useTranslation()
+
   return (
     <DashboardLayout>
       <HomePageWrapper>
         <div className="home-page-wrap">
-          <h1>Самые честные обзоры на брокеров</h1>
+          <h1>{t('homepage.title')}</h1>
           {ads
             .filter((cat) => cat.category_id === 3)
             .map((item) => (
-              <div className="home-top__right-reklam-block rekl-gradient">
+              <div
+                key={item.id}
+                className="home-top__right-reklam-block rekl-gradient"
+              >
                 <a href={item.ads_url}>
-                  <img src={`${API_URL}/${item.file}`} alt="" />
+                  <img src={`${IMG_URL}/${item.file}`} alt="" />
                 </a>
               </div>
             ))}

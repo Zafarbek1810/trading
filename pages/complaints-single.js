@@ -1,8 +1,11 @@
 import Head from 'next/head'
 import Script from 'next/script'
 import ComplaintsSingle from '../src/Components/Pages/Complaints/Single'
+import { useRouter } from 'next/router';
 
 export default function Home() {
+  const router = useRouter();
+  const id = router.query.id;
   return (
     <>
       <Head>
@@ -11,7 +14,7 @@ export default function Home() {
         <title>Inlisting</title>
         <link rel="stylesheet" href="css/style.min.css"/>
         </Head>
-      <ComplaintsSingle/>
+      <ComplaintsSingle id={id}/>
 
       <Script src="js/main.min.js"></Script>
       <Script src="js/app.min.js"></Script>

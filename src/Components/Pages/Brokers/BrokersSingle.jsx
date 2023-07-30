@@ -2,15 +2,37 @@ import React, { useEffect, useState } from "react";
 import DashboardLayout from "../../Layout";
 import axios from "axios";
 import MyLink from "../../Common/MyLink";
-import { API_URL } from "../../../HHTP/clients";
+import { API_URL, IMG_URL } from "../../../HHTP/clients";
+import { useTranslation } from "react-i18next";
 
 const BrokersSingle = ({ id }) => {
   const [brokerDetail, setBrokerDetail] = useState([]);
+  const [ads, setAds] = useState([]);
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language;
 
   useEffect(() => {
     axios({
       method: "get",
-      url: `${API_URL}api/brokers/${id}`,
+      url: `${API_URL}/ads/`,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => {
+        console.log(res.data);
+        setAds(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `${API_URL}/brokers/${id}/`,
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -28,11 +50,12 @@ const BrokersSingle = ({ id }) => {
   return (
     <DashboardLayout>
       {brokerDetail.map((detail) => (
-        <div className="brokers-single">
+        <div key={detail.id} className="brokers-single">
           <ul id="breadcrumb">
             <span>
               <span>
-                <MyLink to="/">Главная</MyLink>|<MyLink to="/brokers">Брокеры</MyLink>|
+                <MyLink to="/">{t('header.navbar.home')}</MyLink>|
+                <MyLink to="/brokers">{t('header.navbar.broker')}</MyLink>|
                 <span className="breadcrumb_last" aria-current="page">
                   {detail.name}
                 </span>
@@ -43,12 +66,12 @@ const BrokersSingle = ({ id }) => {
           <div className="brokers-single__top">
             <div className="brokers-single__top-left">
               <div className="brokers-single__top-left-logo">
-                <img src="/images/Brokers/Binance.png" alt="" />
+                <img src={`${IMG_URL}/media/${detail.file}`} />
               </div>
               <div className="brokers-single__top-left-cont">
                 <div className="brokers-single__top-left-cont-top">
                   <h4>{detail.name}</h4>
-                  <p>Последный визит: 3 дня назад</p> 
+                  {/* <p>Последный визит: 3 дня назад</p> */}
                 </div>
                 <div className="brokers-single__top-left-cont-bot">
                   <div className="item">
@@ -63,15 +86,15 @@ const BrokersSingle = ({ id }) => {
                       <img src="/images/Brokers/yel-star.svg" alt="" />
                       <img src="/images/Brokers/yel-star.svg" alt="" />
                     </div>
-                    <p>Рейтинги</p>
+                    <p>{t('brokers.reyting')}</p>
                   </div>
                   <div className="item">
                     <h5>114.K</h5>
-                    <p>Traders</p>
+                    <p>{t('brokers.traders')}</p>
                   </div>
                   <div className="item">
                     <h5>6K</h5>
-                    <p>Подписчики</p>
+                    <p>{t('brokers.subscribes')}</p>
                   </div>
                 </div>
               </div>
@@ -82,89 +105,39 @@ const BrokersSingle = ({ id }) => {
                 <img src="/images/Icons/mail.svg" alt="" />
               </a>
               <a className="gray-btn" href="#">
-                Подписатся
+              {t('brokers.subs')}
               </a>
               <a className="orange-btn" href="#">
-                Трейдинг
+              {t('brokers.treyd')}
               </a>
             </div>
           </div>
 
           <div className="brokers-single-review">
             <div className="brokers-single-review-item">
-              <div  dangerouslySetInnerHTML={{__html: detail.short_description}}></div>
+              <div
+                dangerouslySetInnerHTML={{ __html:currentLang==="en" ? detail.short_description_en : detail.short_description_ru }}
+              ></div>
             </div>
             <div className="brokers-single-review-item">
-              <div  dangerouslySetInnerHTML={{__html: detail.full_description}}></div>
+              <div
+                dangerouslySetInnerHTML={{ __html:currentLang==="en" ? detail.full_description_en : detail.full_description_ru }}
+              ></div>
             </div>
-
-            {/* <div className="brokers-single-review-item">
-            <h5>Fees</h5>
-            <ul>
-              <li>
-                Fees as low as 0.02% on Spot, and 0.01% on Futures Liquidity
-                providers can enjoy up to 0.01% on Spot and 0.05% rebate on
-                Futures No hidden fees or spreads
-              </li>
-              <li>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                perspiciatis esse quia
-              </li>
-            </ul>
           </div>
 
-          <div className="brokers-single-review-item">
-            <h5>About</h5>
-            <p>
-              Binance.com is the largest cryptocurrency exchange in the world,
-              serving users from more than 180 countries and regions, with an
-              average daily transaction volume of more than 65 billion US
-              dollars. Trusted by millions of users around the world, Binance
-              features an unmatched portfolio of financial product offerings.
-              This includes spot and margin trading, contract and options
-              trading, staking services, support for fiat currency channels, and
-              more.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim,
-              animi.
-            </p>
-          </div>
-
-          <div className="brokers-single-review-item">
-            <h5>Contacts</h5>
-            <ul>
-              <li>
-                <a href="#">www.binance.com</a>
-              </li>
-              <li>
-                <a href="#">t.me@binance</a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="brokers-single-review-item">
-            <h4>The magic of software</h4>
-            <p>
-              Computers used to be magical. But much of that magic has been lost
-              over time, replaced by subpar tools and practices that slow teams
-              down and hold great work back.
-            </p>
-            <p>
-              Frustrated with building and managing software projects in
-              high-growth companies ourselves, we founded a company to build
-              something better.
-            </p>
-            <p>We named it Linear to signify progress.</p>
-            <a className="brokers-single-review-btn" href="#">
-              Read more about how we think and work <span>→</span>
-            </a>
-          </div> */}
-          </div>
-
-          <div className="home-top__right-reklam-block rekl-gradient mt-5">
-            <img src="/images/Home-page/333.gif" alt="" />
-          </div>
+          {ads
+            .filter((cat) => cat.category_id === 4)
+            .map((item) => (
+              <div
+                key={item.id}
+                className="home-top__right-reklam-block rekl-gradient mb-0"
+              >
+                <a href={item.ads_url}>
+                  <img src={`${IMG_URL}/${item.file}`} alt="" />
+                </a>
+              </div>
+            ))}
         </div>
       ))}
     </DashboardLayout>

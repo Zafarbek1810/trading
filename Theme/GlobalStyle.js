@@ -40,6 +40,21 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+  .ant-select{
+    input{
+      color: #fff !important;
+    }
+  }
+
+  .ant-rate-star-zero{
+        svg{
+            fill: #d9d9d9;
+        }
+    }
+
+    .ant-modal-footer{
+      display: none;
+    }
 
   a {
     text-decoration: none;

@@ -1,66 +1,86 @@
 import React from 'react';
 import DashboardLayout from '../../Layout';
+import MyLink from '../../Common/MyLink';
+import { useTranslation } from 'react-i18next';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import { API_URL } from '../../../HHTP/clients';
 
 const PublishingThemes = () => {
+  const { register, handleSubmit, setValue, control, reset } = useForm();
+  const { t } = useTranslation();
+
+  const onSubmit = (values) => {
+    console.log(values);
+    axios({
+      method: "post",
+      url: `${API_URL}/forum/comments/`,
+      data: {
+        forum_id: id,
+        fullName: values.name,
+        comment: values.comment,
+      },
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => {
+        console.log(res);
+        toast.success("Ваш коментарий успешно добавлен");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    reset();
+  };
     return (
         <DashboardLayout>
-            <div className="brokers-single">
+           <div className="brokers-single">
         <ul id="breadcrumb">
           <span>
             <span>
-              <a href="#">Главная</a>|<a href="#">Форум</a>|
+            <MyLink to="/">{t('header.navbar.home')}</MyLink>|<MyLink to="/forum">{t('forum.title')}</MyLink>|
               <span className="breadcrumb_last" aria-current="page">
-                Форум Форма
+              {t('forum.form')}
               </span>
             </span>
           </span>
         </ul>
 
         <div className="new__theme">
-          <h1>Опубликуйте Ваш Коментарий</h1>
-          <form className="form-theme" action="#" method="post">
+          <h1>{t('forum.postComment')}</h1>
+          <form className="form-theme" onSubmit={handleSubmit(onSubmit)}>
             <div>
-              <p>Введите свое имя*</p>
+              <p>{t('forum.name')}*</p>
               <input
-                placeholder="Ваше имя"
-                name="username"
+                placeholder={t('forum.namePlaceholder')}
                 type="text"
                 required
+                {...register("name", { required: true })}
               />
             </div>
             <div>
-              <p>Электронная почта*</p>
-              <input placeholder="E-mail" name="email" type="email" required />
+              <p>{t('forum.email')}*</p>
+              <input placeholder={t('forum.emailPlaceholder')} name="email" type="email" required />
             </div>
 
             <div>
-              <p>Напишите Ваш коментарий*</p>
-              <textarea
-                placeholder="Описание"
-                name="text"
-                id=""
-                cols="30"
-                rows="10"
+              <p>{t('forum.comment')}*</p>
+              <input
+                placeholder={t('forum.commentPlaceholder')}
+                type="text"
                 required
-              ></textarea>
+                {...register("comment", { required: true })}
+              />
             </div>
-            <div>
-              <p>Прикрепить файлы</p>
-              <label className="label-file" >
-                <img src="/images/Icons/upload.svg" alt="" />
-                <span>Загрузить файл</span>
-                <input name="file" type="file" />
-              </label>
-            </div>
+
             <button className="btn-blue" type="submit">
-              Отправить
+            {t('forum.send')}
             </button>
           </form>
         </div>
 
-        <div className="home-top__right-reklam-block rekl-gradient mb-0 mt-5">
-          <img src="/images/Home-page/333.gif" alt="" />
-        </div>
       </div>
         </DashboardLayout>
     );

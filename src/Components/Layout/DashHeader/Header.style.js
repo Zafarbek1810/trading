@@ -14,6 +14,10 @@ const HeaderWrapper = styled.div`
       margin-right: 20px !important;
     }
   }
+  option{
+    background: #000;
+  }
+
 `;
 
 export { HeaderWrapper };

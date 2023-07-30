@@ -1,24 +1,28 @@
 import React from "react";
 import DashboardLayout from "../../../Layout";
+import MyLink from "../../../Common/MyLink";
+import { useTranslation } from "react-i18next";
 
 const ComplaintsForm = () => {
+  const {t}=useTranslation();
+
   return (
     <DashboardLayout>
       <div className="brokers-single">
         <ul id="breadcrumb">
           <span>
             <span>
-              <a href="#">Главная</a>|
+            <MyLink to="/">{t('header.navbar.home')}</MyLink>|
               <span className="breadcrumb_last" aria-current="page">
-                Жалобы
+                {t('complaints.title')}
               </span>
             </span>
           </span>
         </ul>
 
         <div className="complaints">
-          <h1>Пожаловатся</h1>
-          <h2>Практика и анализ статистики</h2>
+          <h1>{t('complaints.btn')}</h1>
+          <h2>{t('complaints.form.title')}</h2>
 
           <form
             action="#"
@@ -27,20 +31,20 @@ const ComplaintsForm = () => {
             // enctype="multipart/form-data"
           >
             <div>
-              <p>Название брокера / биржи*</p>
+              <p>{t('complaints.form.input1')}*</p>
               <input
                 type="text"
                 name="exchange-name"
-                placeholder="Название"
+                placeholder={t('complaints.form.placeholder1')}
                 required
               />
             </div>
             <div>
-              <p>Ссылка на сайт *</p>
-              <input type="text" name="link" placeholder="Сайт" required />
+              <p>{t('complaints.form.input2')} *</p>
+              <input type="text" name="link" placeholder={t('complaints.form.placeholder2')} required />
             </div>
             <div>
-              <p>Описание ситуация *</p>
+              <p>{t('complaints.form.input3')} *</p>
               <textarea
                 name="text"
                 id=""
@@ -50,24 +54,24 @@ const ComplaintsForm = () => {
               ></textarea>
             </div>
             <div>
-              <p>Прекрипить файл</p>
+              <p>{t('complaints.form.input4')}</p>
               <label className="label-file-complaints" >
                 <img src="/images/Icons/upload.svg" alt="" />
-                <span>Загрузить файл</span>
+                <span>{t('complaints.form.placeholder4')}</span>
                 <input name="file-complaints" type="file" />
               </label>
             </div>
             <div>
-              <p>Ваш e-mail *</p>
+              <p>{t('complaints.form.input5')} *</p>
               <input
                 type="text"
-                placeholder="e-mail"
+                placeholder={t('complaints.form.placeholder5')}
                 name="e-mail-complaints"
                 required
               />
             </div>
             <button className="btn-blue" type="submit">
-              Оставить жалобы
+            {t('complaints.form.formBtn')}
             </button>
           </form>
         </div>

@@ -3,9 +3,20 @@ import React from "react";
 import MyLink from "../../Common/MyLink";
 import { HeaderWrapper } from "./Header.style";
 import { useRouter } from "next/router";
+import { useTranslation } from "react-i18next";
+import { Select } from "antd";
+import { Option } from "antd/lib/mentions";
 
 const Header = () => {
   const router = useRouter();
+  const { t, i18n } = useTranslation();
+  const defaultLang = i18n.language;
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    localStorage.setItem("siteLang", e.target.value);
+    i18n.changeLanguage(e.target.value);
+  };
 
   return (
     <HeaderWrapper>
@@ -19,28 +30,46 @@ const Header = () => {
               <div className="header-top__menu">
                 <ul>
                   <li className={router.route === "/brokers" ? "active" : ""}>
-                    <MyLink to="/brokers">Брокеры</MyLink>
+                    <MyLink to="/brokers">{t('header.navbar.broker')}</MyLink>
                   </li>
-                  <li className={router.route === "/calculator" ? "active" : ""}>
-                    <MyLink to="/calculator">Мультивалютный калькулятор</MyLink>
+                  <li
+                    className={router.route === "/calculator" ? "active" : ""}
+                  >
+                    <MyLink to="/calculator">{t('header.navbar.calculator')}</MyLink>
                   </li>
-                  <li className={router.route === "/calendar"  ? "active" : ""}>
-                    <MyLink to="/calendar">Экономический календарь</MyLink>
+                  <li className={router.route === "/calendar" ? "active" : ""}>
+                    <MyLink to="/calendar">{t('header.navbar.calendar')}</MyLink>
                   </li>
-                  <li className={(router.route === "/complaints" || router.route ==="/complaints-single" || router.route ==="/complaints-form") ? "active" : ""}>
-                    <MyLink to="/complaints">Жалобы</MyLink>
+                  <li
+                    className={
+                      router.route === "/complaints" ||
+                      router.route === "/complaints-single" ||
+                      router.route === "/complaints-form"
+                        ? "active"
+                        : ""
+                    }
+                  >
+                    <MyLink to="/complaints">{t('header.navbar.complaints')}</MyLink>
                   </li>
                 </ul>
                 <div className="header-top__btns">
-                  <a className="header-top__btns-search" href="#">
+                  {/* <a className="header-top__btns-search" href="#">
                     <img src="/images/Icons/search.svg" alt="" />
-                    Поиск
-                  </a>
+                    {t('header.search')}
+                  </a> */}
                   <div className="header-top__sel-wrap">
                     <img src="/images/Icons/GlobeStand.svg" alt="" />
-                    <select>
-                      <option className="bg-opt">Русский</option>
-                      <option className="bg-opt">English</option>
+                    <select
+                      value={defaultLang}
+                      bordered={false}
+                      onChange={handleChange}
+                    >
+                      <option value="ru" className="options">
+                        Русский
+                      </option>
+                      <option value="en" className="options">
+                        English
+                      </option>
                     </select>
                   </div>
                 </div>
@@ -63,15 +92,23 @@ const Header = () => {
               </MyLink>
 
               <div className="box-menu">
-                <MyLink to="/" className="search-bnt">
+                {/* <MyLink to="/" className="search-bnt">
                   <img src="/images/Icons/search.svg" alt="" />
-                </MyLink>
+                </MyLink> */}
 
                 <div className="select-wrapper">
-                  <select>
-                    <option className="bg-opt">RU</option>
-                    <option className="bg-opt">ENG</option>
-                  </select>
+                <select
+                      value={defaultLang}
+                      bordered={false}
+                      onChange={handleChange}
+                    >
+                      <option value="ru" className="options">
+                        Русский
+                      </option>
+                      <option value="en" className="options">
+                        English
+                      </option>
+                    </select>
                 </div>
 
                 <div className="header-mob__burger">

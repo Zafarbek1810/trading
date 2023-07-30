@@ -1,16 +1,20 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { API_URL } from "../../../HHTP/clients";
+import { API_URL, IMG_URL } from "../../../HHTP/clients";
 import MyLink from "../../Common/MyLink";
+import Rating from "../Brokers-raiting/Rating";
+import { useTranslation } from "react-i18next";
 
 const Company = () => {
   const [ads, setAds] = useState([]);
   const [brokers, setBrokers] = useState([]);
+  const [tft, setTft] = useState([]);
+  const { t } = useTranslation()
 
   useEffect(() => {
     axios({
       method: "get",
-      url: `${API_URL}api/brokers`,
+      url: `${API_URL}/brokers/`,
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -27,7 +31,7 @@ const Company = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: `${API_URL}api/ads/`,
+      url: `${API_URL}/ads/`,
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -42,43 +46,59 @@ const Company = () => {
       });
   }, []);
 
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `${API_URL}/tft/`,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+
+      .then((res) => {
+        console.log(res.data);
+        setTft(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <>
       <div className="company">
         <div className="company__top">
-          <h2 style={{ fontWeight: 900 }}>Рейтинг брокеров</h2>
+          <h2 style={{ fontWeight: 900 }}>{t('homepage.companyTitle')}</h2>
           <h3>
-            На нашем сайте мы собрали всю необходимую информацию о торговых
-            платформах
+          {t('homepage.companyDescr')}
           </h3>
         </div>
 
         <div className="rating">
           <div className="rating__content-box">
-            {brokers.map((broker) => (
-              <div key={broker.id} className="rating__content-item">
+          {brokers.map((item) => (
+              <div key={item.id} className="rating__content-item">
                 <div className="rating__content-item-left">
-                  <span className="top-num"> №1 </span>
+                  <span className="top-num">№{item.topNumber}</span>
                   <div className="rating__content-item-left-top">
-                    <h3>{broker.name}</h3>
-                    <span className="green"> Можно доверять </span>
+                    <h3>{item.name}</h3>
+                    {item.isTrusted ? (
+                      <span className="green">{t('homepage.canTrust')}</span>
+                    ) : (
+                      <></>
+                    )}
                   </div>
 
                   <h4>
-                    Инструменты для торговли:
-                    <span>Криптовалюты</span>
+                  {t('homepage.toolsTrading')}
+                    <span>{tft.filter((pro) => pro.id === item.id).map((obj)=>{return obj.title})}</span>
                   </h4>
 
                   <div className="rating__content-item-left-bot">
                     <div className="est">
-                      <p>5.0 ПРЕВОСХОДНО</p>
-                      <div className="box">
-                        <img src="/images/Icons/star-w.svg" alt="" />
-                        <img src="/images/Icons/star-w.svg" alt="" />
-                        <img src="/images/Icons/star-w.svg" alt="" />
-                        <img src="/images/Icons/star-w.svg" alt="" />
-                        <img src="/images/Icons/star-w.svg" alt="" />
-                      </div>
+                      <p>5.0 {t('homepage.perfect')}</p>
+                      {/* <Rating id={item.id} /> */}
                     </div>
 
                     <div className="rev">
@@ -86,7 +106,7 @@ const Company = () => {
                         <img src="/images/Icons/reviews.svg" alt="" />
                         <p>15,4k</p>
                       </div>
-                      <p>Отзывы</p>
+                      <p>{t('homepage.reviews')}</p>
                     </div>
 
                     <div className="acc">
@@ -94,26 +114,31 @@ const Company = () => {
                         <img src="/images/Icons/acc.svg" alt="" />
                         <p>105k</p>
                       </div>
-                      <p>Счета</p>
+                      <p>{t('homepage.acc')}</p>
                     </div>
 
-                    <div className="check">
-                      <img src="/images/Icons/Frame.svg" alt="" />
-                      <p>Проверено</p>
-                    </div>
+                    {item.isChecked ? (
+                      <div className="check">
+                        <img src="/images/Icons/Frame.svg" alt="" />
+                        <p>{t('homepage.checked')}</p>
+                      </div>
+                    ) : (
+                      <></>
+                    )}
                   </div>
+
                   <MyLink
                     className="gray-btn"
-                    to={`/brokers-single?id=${broker.id}`}
+                    to={`/brokers-raiting-single?id=${item.id}`}
                   >
-                    Узнать больше 
+                    {t('homepage.learnMore')}
                   </MyLink>
                 </div>
 
                 <div className="rating__content-item-right">
                   <div className="img-box">
-                    <img src={`${API_URL}/media/${broker.file}`} />
-                    <span className="best">Best</span>
+                    <img src={`${IMG_URL}/media/${item.file}`} />
+                    {item.isBest ? <span className="best">Best</span> : <></>}
                   </div>
                 </div>
               </div>
@@ -121,7 +146,7 @@ const Company = () => {
           </div>
 
           <a className="btn-more-grad" href="#">
-            <span> Смотреть все </span>
+            <span>{t('homepage.seeAll')} </span>
           </a>
         </div>
       </div>
@@ -129,9 +154,12 @@ const Company = () => {
       {ads
         .filter((cat) => cat.category_id === 4)
         .map((item) => (
-          <div className="home-top__right-reklam-block rekl-gradient">
+          <div
+            key={item.id}
+            className="home-top__right-reklam-block rekl-gradient"
+          >
             <a href={item.ads_url}>
-              <img src={`${API_URL}/${item.file}`} alt="" />
+              <img src={`${IMG_URL}/${item.file}`} alt="" />
             </a>
           </div>
         ))}

@@ -1,114 +1,110 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import DashboardLayout from "../../Layout";
 import MyLink from "../../Common/MyLink";
+import axios from "axios";
+import { API_URL, IMG_URL } from "../../../HHTP/clients";
+import { useTranslation } from "react-i18next";
+import moment from "moment/moment";
 
 const News = () => {
+  const [news, setNews] = useState([]);
+  const [ads, setAds] = useState([]);
+  const {t, i18n} = useTranslation()
+
+  const currentLang = i18n.language
+
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `${API_URL}/ads/`,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => {
+        console.log(res.data);
+        setAds(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `${API_URL}/news/`,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => {
+        console.log(res.data);
+        setNews(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <DashboardLayout>
       <div className="news">
         <ul id="breadcrumb">
           <span>
             <span>
-              <a href="#">Главная</a>|
+              <MyLink to="/">{t('header.navbar.home')}</MyLink>|
               <span className="breadcrumb_last" aria-current="page">
-                Новости
+              {t('news.title')}
               </span>
             </span>
           </span>
         </ul>
 
         <div className="news__top">
-          <h1>Новости</h1>
-          <p>Следите за событиями в режиме реального времени</p>
+          <h1>{t('news.title')}</h1>
+          <p>{t('news.descr')}</p>
         </div>
 
         <div className="news__box">
-          <MyLink to="/news-single" className="news__item">
-            <div className="news__item-top">
-              <p>24 мин.назад</p>
-              <h6>ЭКОНОМИКА</h6>
-            </div>
-            <div className="news__item-center">
-              <img src="/images/News/n1.jpg" alt="" />
-            </div>
-            <div className="news__item-bot">
-              <p>Саудовская Аравия собирается в очередной раз...</p>
-            </div>
-          </MyLink>
-
-          <MyLink to="/news-single" className="news__item">
-            <div className="news__item-top">
-              <p>40 мин.назад</p>
-              <h6>ФОНДОВЫЙ РЫНОК</h6>
-            </div>
-            <div className="news__item-center">
-              <img src="/images/News/n2.jpg" alt="" />
-            </div>
-            <div className="news__item-bot">
-              <p>Мосбиржа переведет акции и валютные...</p>
-            </div>
-          </MyLink>
-
-          <MyLink to="/news-single" className="news__item">
-            <div className="news__item-top">
-              <p>17.05.2023</p>
-              <h6>ФОРЕКС</h6>
-            </div>
-            <div className="news__item-center">
-              <img src="/images/News/n3.jpg" alt="" />
-            </div>
-            <div className="news__item-bot">
-              <p>Доллар перешел к росту к евро и иене...</p>
-            </div>
-          </MyLink>
-
-          <MyLink to="/news-single" className="news__item">
-            <div className="news__item-top">
-              <p>12.05.2023</p>
-              <h6>КРИПТОВАЛЮТЫ</h6>
-            </div>
-            <div className="news__item-center">
-              <img src="/images/News/n4.jpg" alt="" />
-            </div>
-            <div className="news__item-bot">
-              <p>Евросоюз утвердил правила использования...</p>
-            </div>
-          </MyLink>
-
-          <MyLink to="/news-single" className="news__item">
-            <div className="news__item-top">
-              <p>17.05.2023</p>
-              <h6>ФОРЕКС</h6>
-            </div>
-            <div className="news__item-center">
-              <img src="/images/News/n3.jpg" alt="" />
-            </div>
-            <div className="news__item-bot">
-              <p>Доллар перешел к росту к евро и иене...</p>
-            </div>
-          </MyLink>
-
-          <MyLink to="/news-single" className="news__item">
-            <div className="news__item-top">
-              <p>12.05.2023</p>
-              <h6>КРИПТОВАЛЮТЫ</h6>
-            </div>
-            <div className="news__item-center">
-              <img src="/images/News/n4.jpg" alt="" />
-            </div>
-            <div className="news__item-bot">
-              <p>Евросоюз утвердил правила использования...</p>
-            </div>
-          </MyLink>
+          {news.map((item) => (
+            <MyLink
+              key={item.id}
+              to={`/news-single?id=${item.id}`}
+              className="news__item"
+            >
+              <div className="news__item-top">
+                <p>{moment(item.created_at).format("MMM MM / YYYY")}</p>
+                <h6>{item.category_id===1 && (currentLang==='en' ? "News" : "Новости")}</h6>
+              </div>
+              <div className="news__item-center">
+                <img src={`${IMG_URL}/${item.file}`} style={{height:"300px", objectFit:"cover"}} alt="" />
+              </div>
+              <div className="news__item-bot">
+                <p>{currentLang==="en" ? item.short_description_en : item.short_description_ru}</p>
+              </div>
+            </MyLink>
+          ))}
         </div>
 
         <a className="btn-more" href="#">
-          <span>Загрузить еще</span>
+          <span>{t('homepage.more')}</span>
         </a>
 
-        <div className="home-top__right-reklam-block rekl-gradient mb-0 mt-5">
-          <img src="/images/Home-page/333.gif" alt="" />
-        </div>
+        {ads
+        .filter((cat) => cat.category_id === 4)
+        .map((item) => (
+          <div
+            key={item.id}
+            className="home-top__right-reklam-block rekl-gradient mb-0 mt-5"
+          >
+            <a href={item.ads_url}>
+              <img src={`${IMG_URL}/${item.file}`} alt="" />
+            </a>
+          </div>
+        ))}
       </div>
     </DashboardLayout>
   );

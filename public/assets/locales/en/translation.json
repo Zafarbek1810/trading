@@ -1,0 +1,144 @@
+{
+    "header":{
+        "navbar":{
+            "home":"Home",
+            "broker":"Brokers",
+            "calculator":"Multicurrency Calculator",
+            "calendar":"Economic calendar",
+            "complaints":"Complaints"
+        },
+        "search":"Search"
+    },
+    "sidebar":{
+        "telegram":"Telegram channel",
+        "courses":"Training courses",
+        "brokers-raiting":"Broker Rating",
+        "news":"News",
+        "partners":"Our partners",
+        "forum":"Forum"
+    }, 
+    "footer":{
+        "telegram":"Telegram-канал",
+        "news":"News flow",
+        "house":"house rules",
+        "web":"Website and brokerage solution",
+        "broker":"Brokers",
+        "ads":"Advertising",
+        "policy":"Privacy Policy",
+        "terms":"Terms of Use"
+    },
+    "homepage":{
+        "title":"The most honest broker reviews",
+        "signalTitle":"Trading signals",
+        "tools":"Tools",
+        "signal":"Signals",
+        "more":"Load more",
+        "companyTitle":"Broker rating",
+        "companyDescr":"On our website we have collected all the necessary information about trading platforms",
+        "canTrust":"Can trust",
+        "toolsTrading":"Tools for trading",
+        "perfect":"PERFECT",
+        "reviews":"Reviews",
+        "acc":"Accounts",
+        "checked":"Checked",
+        "learnMore":"To learn more",
+        "seeAll":"See all",
+        "faqTitle":"Frequently asked questions"
+    },
+    "brokers":{
+        "title":"Proven and reliable brokers",
+        "descr":"Take more risks than others think is safe. Dream more than others think is practical. Take more risks than others think is safe. Dream more than others think is practical.",
+        "reliable":"Reliable Brokers",
+        "reviewMan":"People's reviews",
+        "high":"High",
+        "reviews":"Reviews",
+        "acc":"Accounts",
+        "assets":"Bargain. assets:",
+        "vlad":"Min. vlad",
+        "app":"Mobile app",
+        "site":"Open site",
+        "obzor":"review",
+        "reyting":"Rating",
+        "traders":"Traders",
+        "subscribes":"Subscribers",
+        "subs":"Subscribe",
+        "treyd":"Trading"
+    },
+    "calculator":{
+        "title":"Multicurrency calculator",
+        "calculator":"Calculator",
+        "all":"All",
+        "select1":"Currency Converter",
+        "select2":"Cryptocurrency calculator",
+        "select3":"Multicurrency calculator"
+    },
+    "calendar":{
+        "title":"Economic calendar",
+        "filter":"Filters"
+    },
+    "complaints":{
+        "title":"Complaints",
+        "descr":"Here we publish user complaints about brokers. If a broker scammed you...",
+        "btn":"Complain",
+        "numberComplaint":"Number of complaints",
+        "form":{
+            "title":"Practice and analysis of statistics",
+            "input1":"Broker/exchange name",
+            "placeholder1":"Name",
+            "input2":"Link",
+            "placeholder2":"Website",
+            "input3":"Description of the situation",
+            "input4":"Attach file",
+            "placeholder4":"Upload file",
+            "input5":"Your e-mail",
+            "placeholder5":"Email",
+            "formBtn":"Leave complaints"
+        }
+    },
+    "course":{
+      "title":"Training courses",
+      "descr1":"Here you can find training courses in various fields...",
+      "descr2":"We want everyone to be able to afford to master modern trends.",
+      "whatLearn":"What will you learn?",
+      "whyBest":"Why is this course the best?",
+      "courseDescr":"Description",
+      "cost":"Course fee",
+      "take":"Get a course",
+      "notfree":"Why not free?",
+      "freeDescr":"Our team offers everything for free to its users. Token fee for the course...",
+      "purchase":"To purchase courses, please contact us.",
+      "contactUs":"Contact us"
+    },
+    "brokerRaiting":{
+      "descr1":"On our website, we provide a rating of companies based on an objective assessment...",
+      "descr2":"The rating is based on indicators such as popularity, the number of positive reviews..."
+    },
+    "news":{
+      "title":"News",
+      "descr":"Follow events in real time",
+      "single":"Single"
+    },
+    "partners":{
+      "title":"Our partners",
+      "descr":"Follow events in real time"
+    },
+    "forum":{
+      "title":"Forum",
+      "descr":"On our forum you can participate in the discussion of any topic...",
+      "add":"Add a theme",
+      "subject":"Subject",
+      "author":"Author",
+      "leaveComment":"leave a comment",
+      "single":"Forum Single",
+      "form":"Forum Form",
+      "postComment":"Post your comment",
+      "name":"Enter your name",
+      "namePlaceholder":"your name",
+      "email":"Email",
+      "emailPlaceholder":"Email",
+      "comment":"Write your comment",
+      "commentPlaceholder":"Description",
+      "send":"Send"
+    }
+    
+}

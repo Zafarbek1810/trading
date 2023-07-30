@@ -1,153 +1,99 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import DashboardLayout from "../../Layout";
+import axios from "axios";
+import { API_URL } from "../../../HHTP/clients";
+import moment from "moment";
+import MyLink from "../../Common/MyLink";
+import { useTranslation } from "react-i18next";
 
-const ForumSingle = () => {
+const ForumSingle = ({ id }) => {
+  const [forum, setForum] = useState([]);
+  const [comment, setComment] = useState([]);
+  const {t} = useTranslation();
+
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `${API_URL}/forum/${id}/`,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => {
+        console.log(res.data);
+        setForum(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `${API_URL}/forum/comments/${id}/`,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => {
+        console.log(res.data);
+        setComment(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <DashboardLayout>
       <div className="forum-single">
         <ul id="breadcrumb">
           <span>
             <span>
-              <a href="#">Главная</a>|<a href="#">Форум</a>|
+              <MyLink to="/">{t('header.navbar.home')}</MyLink>|<MyLink to="/forum">{t('forum.title')}</MyLink>
+              |
               <span className="breadcrumb_last" aria-current="page">
-                Форум Сингл
+              {t('forum.single')}
               </span>
             </span>
           </span>
         </ul>
+        {forum.map((item) => (
+          <div key={item.id}>
+            <div className="forum-single__top">
+              <h1>{item.short_description}</h1>
+            </div>
 
-        <div className="forum-single__top">
-          <h1>
-            DXY: Dollar Regains Momentum to 7-week High as Naysayers Get Knocked
-          </h1>
-        </div>
-
-        <div className="forum-single__cont">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-            voluptatum consequatur dicta consectetur autem. Consequuntur.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo
-            voluptates officiis in doloremque ratione sunt repellendus tempore.
-            Officia corporis rerum eum, maxime nobis accusamus pariatur
-            doloribus dicta quisquam delectus. Cum, molestiae! Expedita
-            voluptatum, veniam sequi corporis atque reprehenderit. Rerum iusto
-            temporibus in nostrum aperiam, dolorem dolore esse similique illum
-            unde.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
-            eveniet necessitatibus ad eligendi excepturi praesentium laboriosam
-            blanditiis, nihil similique totam vitae exercitationem temporibus,
-            esse veniam.
-          </p>
-        </div>
-
+            <div className="forum-single__cont">
+              <div
+                dangerouslySetInnerHTML={{ __html: item.full_description }}
+              ></div>
+            </div>
+          </div>
+        ))}
         <div className="forum-single__box">
-          <div className="forum-single__item">
-            <div className="forum-single__item-top">
-              <img src="/images/Forum-single/a1.jpg" alt="" />
-              <h4>Павел Дуров</h4>
-              <p>сегодня</p>
-            </div>
-            <div className="forum-single__item-bot">
-              <p>
-                The dollar index climbed to a peak of 103.70 as short-sellers
-                were caught off guard amid a flurry of events.
-              </p>
-            </div>
-          </div>
-
-          <div className="forum-single__item">
-            <div className="forum-single__item-top">
-              <img src="/images/Forum-single/a2.jpg" alt="" />
-              <h4>Инесса Павлова</h4>
-              <p>вчера</p>
-            </div>
-            <div className="forum-single__item-bot">
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque
-                minus vero dolorum laboriosam a obcaecati aut amet molestiae
-                dolores, quidem odit sunt ipsum voluptates beatae quo
-                repudiandae adipisci tempore quod omnis doloribus aliquid
-                similique. Beatae odio perspiciatis sequi, incidunt libero
-                numquam fugit tempora molestias suscipit.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Delectus voluptatem officiis officia facere.
-              </p>
-            </div>
-          </div>
-
-          <div className="forum-single__item">
-            <div className="forum-single__item-top">
-              <img src="/images/Forum-single/a3.jpg" alt="" />
-              <h4>Вася Пупкин</h4>
-              <p>21/02/2023</p>
-            </div>
-            <div className="forum-single__item-bot">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. In,
-                adipisci!
-              </p>
-            </div>
-          </div>
-
-          <div className="forum-single__item">
-            <div className="forum-single__item-top">
-              <img src="/images/Forum-single/a1.jpg" alt="" />
-              <h4>Павел Дуров</h4>
-              <p>сегодня</p>
-            </div>
-            <div className="forum-single__item-bot">
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Distinctio maiores repellat facilis, tenetur aliquam architecto
-                ipsa vero. Molestias ipsam repellendus consectetur cum vel
-                necessitatibus expedita quas esse nostrum amet. Voluptatum,
-                consectetur natus repudiandae maiores soluta porro quas
-                perspiciatis nisi odio aut voluptatem laudantium doloribus
-                quaerat tenetur a corporis iure ea quibusdam ab eum
-                necessitatibus laboriosam minima molestiae quasi. Aspernatur
-                veniam possimus hic numquam delectus! Debitis minima repellendus
-                voluptate cupiditate aperiam, aut eum! Eveniet repellat iste,
-                facilis ex autem fuga dolore.
-              </p>
-            </div>
-          </div>
-
-          <div className="forum-single__item">
-            <div className="forum-single__item-top">
-              <img src="/images/Forum-single/a2.jpg" alt="" />
-              <h4>Инесса Павлова</h4>
-              <p>вчера</p>
-            </div>
-            <div className="forum-single__item-bot">
-              <p>Lorem ipsum dolor sit amet.</p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-                similique, aspernatur ab numquam architecto quis natus
-                dignissimos sapiente, dolores placeat vitae distinctio
-                repellendus adipisci hic!
-              </p>
-            </div>
-          </div>
-
-          <div className="forum-single__item">
-            <div className="forum-single__item-top">
-              <img src="/images/Forum-single/a3.jpg" alt="" />
-              <h4>Вася Пупкин</h4>
-              <p>21/02/2023</p>
-            </div>
-            <div className="forum-single__item-bot">
-              <p>
-                The dollar index climbed to a peak of 103.70 as short-sellers
-                were caught off guard amid a flurry of events.
-              </p>
-            </div>
-          </div>
+          {comment.length ? (
+            comment?.map((item) => (
+              <div key={item.id} className="forum-single__item">
+                <div className="forum-single__item-top">
+                  <img src="/images/Forum-single/a1.jpg" alt="" />
+                  <h4>{item.fullName}</h4>
+                  <p>{moment(item.created_at).format("MMM MM / YYYY")}</p>
+                </div>
+                <div className="forum-single__item-bot">
+                  <p>
+                    <div
+                      dangerouslySetInnerHTML={{ __html: item.comment }}
+                    ></div>
+                  </p>
+                </div>
+              </div>
+            ))
+          ) : (
+            <></>
+          )}
         </div>
 
         <div className="home-top__right-reklam-block rekl-gradient">
@@ -157,5 +103,7 @@ const ForumSingle = () => {
     </DashboardLayout>
   );
 };
+
+
 
 export default ForumSingle;

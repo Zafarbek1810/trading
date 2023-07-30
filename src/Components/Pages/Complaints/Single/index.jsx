@@ -1,14 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import DashboardLayout from "../../../Layout";
+import axios from "axios";
+import { API_URL, IMG_URL } from "../../../../HHTP/clients";
+import MyLink from "../../../Common/MyLink";
+import { useTranslation } from "react-i18next";
 
-const ComplaintsSingle = () => {
+const ComplaintsSingle = ({ id }) => {
+  const [reportDetail, setReportDetail] = useState([]);
+  const {t} =useTranslation()
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `${API_URL}/reports/`,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => {
+        console.log(res.data.filter((item) => item.id == id)[0]);
+        setReportDetail(res.data.filter((item) => item.id == id)[0]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <DashboardLayout>
       <div className="broker__complaints-single">
         <ul id="breadcrumb">
           <span>
             <span>
-              <a href="#">Главная</a>|<a href="#">Брокеры</a>|
+            <MyLink to="/">{t('header.navbar.home')}</MyLink>|
+              <MyLink to="/complaints">{t('complaints.title')}</MyLink>|
               <span className="breadcrumb_last" aria-current="page">
                 Binance
               </span>
@@ -19,12 +44,12 @@ const ComplaintsSingle = () => {
         <div className="brokers-single__top ">
           <div className="brokers-single__top-left">
             <div className="brokers-single__top-left-logo">
-              <img src="/images/Brokers/Binance.png" alt="" />
+              <img src={`${IMG_URL}media/${reportDetail.logo}`} alt="" />
             </div>
             <div className="brokers-single__top-left-cont">
               <div className="brokers-single__top-left-cont-top">
-                <h4>Binance</h4>
-                <p>Последный визит: 3 дняназад</p>
+                <h4>{reportDetail.brokerName}</h4>
+                {/* <p>Последный визит: 3 дняназад</p> */}
               </div>
               <div className="brokers-single__top-left-cont-bot">
                 <div className="item">
@@ -39,15 +64,15 @@ const ComplaintsSingle = () => {
                     <img src="/images/Brokers/yel-star.svg" alt="" />
                     <img src="/images/Brokers/yel-star.svg" alt="" />
                   </div>
-                  <p>Рейтинги</p>
+                  <p>{t('brokers.reyting')}</p>
                 </div>
                 <div className="item">
                   <h5>114.K</h5>
-                  <p>Traders</p>
+                  <p>{t('brokers.traders')}</p>
                 </div>
                 <div className="item">
                   <h5>6K</h5>
-                  <p>Подписчики</p>
+                  <p>{t('brokers.subscribes')}</p>
                 </div>
               </div>
             </div>
@@ -58,87 +83,30 @@ const ComplaintsSingle = () => {
           <div className="broker__complaints-cards">
             <div className="broker__complaints-card">
               <div className="broker__complaints-card--top">
-                <img src="/images/Ellipse broker-single.jpg" alt="" />
+              <img src={`${IMG_URL}media/${reportDetail.avatar}`} alt="" />
                 <div className="broker__complaints-card--top-title">
                   <div>
                     <h3>Я броккер</h3>
-                    <span>30 дней назад</span>
+                    {/* <span>30 дней назад</span> */}
                   </div>
-                  <a href="mailto:yabrokker@gmail.com">yabrokker@gmail.com</a>
+                  <a href={`mailto:${reportDetail.email}`}>
+                    {reportDetail.email}
+                  </a>
                 </div>
               </div>
               <div className="broker__complaints-card--bottom">
-                <a href="www.binance.com">www.binance.com</a>
+                <a href={reportDetail.url}>{reportDetail.url}</a>
                 <a href="/images/Ellipse broker-single.jpg" download="">
                   открыть файл
                 </a>
-                <p>
-                  The dollar index climbed to a peak of 103.70 as short-sellers
-                  were caught off guard amid a flurry of events. The dollar
-                  index climbed to a peak of 103.70 as short-sellers were caught
-                  off guard amid a flurry of events. The dollar index climbed to
-                  a peak of 103.70 as short-sellers were caught off guard amid a
-                  flurry of events.
-                </p>
-              </div>
-            </div>
-            <div className="broker__complaints-card">
-              <div className="broker__complaints-card--top">
-                <img src="/images/Ellipse broker-single.jpg" alt="" />
-                <div className="broker__complaints-card--top-title">
-                  <div>
-                    <h3>Я броккер</h3>
-                    <span>30 дней назад</span>
-                  </div>
-                  <a href="mailto:yabrokker@gmail.com">yabrokker@gmail.com</a>
-                </div>
-              </div>
-              <div className="broker__complaints-card--bottom">
-                <a href="www.binance.com">www.binance.com</a>
-                <a href="/images/Ellipse broker-single.jpg" download="">
-                  открыть файл
-                </a>
-                <p>
-                  The dollar index climbed to a peak of 103.70 as short-sellers
-                  were caught off guard amid a flurry of events. The dollar
-                  index climbed to a peak of 103.70 as short-sellers were caught
-                  off guard amid a flurry of events. The dollar index climbed to
-                  a peak of 103.70 as short-sellers were caught off guard amid a
-                  flurry of events.
-                </p>
-              </div>
-            </div>
-            <div className="broker__complaints-card">
-              <div className="broker__complaints-card--top">
-                <img src="/images/Ellipse broker-single.jpg" alt="" />
-                <div className="broker__complaints-card--top-title">
-                  <div>
-                    <h3>Я броккер</h3>
-                    <span>30 дней назад</span>
-                  </div>
-                  <a href="mailto:yabrokker@gmail.com">yabrokker@gmail.com</a>
-                </div>
-              </div>
-              <div className="broker__complaints-card--bottom">
-                <a href="www.binance.com">www.binance.com</a>
-                <a href="/images/Ellipse broker-single.jpg" download="">
-                  открыть файл
-                </a>
-                <p>
-                  The dollar index climbed to a peak of 103.70 as short-sellers
-                  were caught off guard amid a flurry of events. The dollar
-                  index climbed to a peak of 103.70 as short-sellers were caught
-                  off guard amid a flurry of events. The dollar index climbed to
-                  a peak of 103.70 as short-sellers were caught off guard amid a
-                  flurry of events.
-                </p>
+                <p>{reportDetail.situation_description}</p>
               </div>
             </div>
           </div>
         </div>
 
         <a className="btn-more-blue" href="#">
-          <span>Загрузить еще</span>
+        <span>{t('homepage.more')}</span>
         </a>
 
         <div className="home-top__right-reklam-block rekl-gradient">

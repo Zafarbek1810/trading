@@ -3,8 +3,10 @@ import { SignalWrapper } from "./style";
 import MyLink from "../../Common/MyLink";
 import CommonProviders from "../../../Data/Providers/CommonProviders";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 const SignalComp = () => {
+  const { t } = useTranslation()
   useEffect(() => {
     CommonProviders.getAds()
       .then((res) => {
@@ -15,7 +17,7 @@ const SignalComp = () => {
       });
     axios({
       method: "get",
-      url: "http://91.200.148.144:8000/api/ads/",
+      url: "https://inlisting.io/io/backend/ads/",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -32,21 +34,21 @@ const SignalComp = () => {
   return (
     <SignalWrapper>
       <div className="home-top__right-signal">
-        <h4>Торговые сигналы</h4>
+        <h4>{t('homepage.signalTitle')}</h4>
         <div className="home-top__right-signal-select">
           <div className="sel-box">
             <select>
-              <option className="bg-opt">Инструменты</option>
-              <option className="bg-opt">Инструменты-2</option>
-              <option className="bg-opt">Инструменты-3</option>
+              <option className="bg-opt">{t('homepage.tools')}</option>
+              <option className="bg-opt">{t('homepage.tools')}-2</option>
+              <option className="bg-opt">{t('homepage.tools')}-3</option>
             </select>
           </div>
 
           <div className="sel-box">
             <select>
-              <option className="bg-opt">Сигналы</option>
-              <option className="bg-opt">Сигналы-2</option>
-              <option className="bg-opt">Сигналы-3</option>
+              <option className="bg-opt">{t('homepage.signal')}</option>
+              <option className="bg-opt">{t('homepage.signal')}-2</option>
+              <option className="bg-opt">{t('homepage.signal')}-3</option>
             </select>
           </div>
         </div>
@@ -165,7 +167,7 @@ const SignalComp = () => {
           </div>
 
           <a className="btn-more" href="#">
-            <span> Загрузить еще </span>
+            <span>{t('homepage.more')}</span>
           </a>
         </div>
       </div>

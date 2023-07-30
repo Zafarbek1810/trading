@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import DashboardLayout from "../../Layout";
+import { useTranslation } from "react-i18next";
+import MyLink from "../../Common/MyLink";
 
 const Calculator = () => {
   const [value, setValue] = useState();
+  const { t } = useTranslation();
 
   if (value === "all") {
     document.querySelector(".calc-currency").style.display = "block";
@@ -29,24 +32,24 @@ const Calculator = () => {
         <ul id="breadcrumb">
           <span>
             <span>
-              <a href="#">Главная</a>|
+            <MyLink to="/">{t('header.navbar.home')}</MyLink>|
               <span className="breadcrumb_last" aria-current="page">
-                Мультивалютный калькулятор
+              {t('calculator.title')}
               </span>
             </span>
           </span>
         </ul>
 
-        <a href="#" className="glow-on-hover mb-4">
+        {/* <a href="#" className="glow-on-hover mb-4">
           Как оставить отзыв — узнать большее
           <img src="/images/Icons/ArrowRight.svg" alt="" />
-        </a>
+        </a> */}
 
-        <h1>Мультивалютный калькулятор</h1>
+        <h1>{t('calculator.title')}</h1>
 
         <div className="calc">
           <div className="calc__top">
-            <p>Калькулятор</p>
+            <p>{t('calculator.calculator')}</p>
 
             <form
               className="sel-box"
@@ -54,16 +57,16 @@ const Calculator = () => {
             >
               <select id="calculator-select">
                 <option value="all" className="bg-opt">
-                  Все
+                {t('calculator.all')}
                 </option>
                 <option value="curr" className="bg-opt">
-                  Калькулятор валют
+                {t('calculator.select1')}
                 </option>
                 <option value="crypto" className="bg-opt">
-                  Калькулятор криптовалют
+                {t('calculator.select2')}
                 </option>
                 <option value="multy" className="bg-opt">
-                  Мультивалютный калькулятор
+                {t('calculator.select3')}
                 </option>
               </select>
             </form>
@@ -71,7 +74,7 @@ const Calculator = () => {
 
           <div className="calc__center">
             <div className="calc__item calc-currency" data-calc="curr">
-              <p>Калькулятор валют</p>
+              <p>{t('calculator.select1')}</p>
 
               <div className="form-currency">
                 <div className="calc__item-box">
@@ -145,7 +148,7 @@ const Calculator = () => {
             </div>
 
             <div className="calc__item calc-crypto" data-calc="crypto">
-              <p>Калькулятор криптовалют</p>
+              <p>{t('calculator.select2')}</p>
 
               <div className="form-crypto">
                 <div className="calc__item-box">
@@ -219,7 +222,7 @@ const Calculator = () => {
             </div>
 
             <div className="calc__item calc-multy" data-calc="multy">
-              <p>Мультивалютный калькулятор</p>
+              <p>{t('calculator.select3')}</p>
 
               <div className="form-multy">
                 <div className="calc__item-box">
@@ -294,7 +297,7 @@ const Calculator = () => {
         </div>
         <div className="test"></div>
 
-        <div className="methods">
+        {/* <div className="methods">
           <div className="title">
             <h3>Методы</h3>
             <p>Практика и анализ статистики</p>
@@ -343,7 +346,7 @@ const Calculator = () => {
               </ul>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </DashboardLayout>
   );

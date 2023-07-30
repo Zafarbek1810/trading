@@ -1,13 +1,17 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { API_URL } from "../../../HHTP/clients";
+import { API_URL, IMG_URL } from "../../../HHTP/clients";
+import { useTranslation } from "react-i18next";
+import MyLink from "../../Common/MyLink";
 
 const Footer = () => {
   const [ads, setAds] = useState([]);
+  const [tglink, setTglink] = useState({});
+  const { t } = useTranslation()
   useEffect(() => {
     axios({
       method: "get",
-      url: `${API_URL}api/ads/`,
+      url: `${API_URL}/ads/`,
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -21,6 +25,24 @@ const Footer = () => {
         console.log(err);
       });
   }, []);
+  useEffect(() => {
+      axios({
+        method: "get",
+        url: `${API_URL}/tglink/`,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      })
+        .then((res) => {
+          console.log(res.data);
+          setTglink(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }, []);
+
   return (
     <>
       <div className="footer">
@@ -28,9 +50,9 @@ const Footer = () => {
           <div className="container">
             <div className="footer__top">
               <div className="footer__top-left">
-                <a className="footer__top-left-logo" href="#">
+                <MyLink className="footer__top-left-logo" to="/">
                   <img src="/images/Icons/footer-logo-333.svg" alt="" />
-                </a>
+                </MyLink>
               </div>
               <div className="footer__top-right">
                 <div className="footer__top-right-contact">
@@ -44,28 +66,25 @@ const Footer = () => {
         <div className="footer__center-sec">
           <div className="container">
             <div className="footer__center">
-              <a className="tg-btn" href="#">
+              <a className="tg-btn" href={tglink.link}>
                 <img src="/images/Icons/soc-tg.svg" alt="" />
-                Telegram-канал
+                {t('footer.telegram')}
               </a>
               <ul>
                 <li>
-                  <a href="#"> News flow </a>
+                  <a href="#">{t('footer.news')} </a>
                 </li>
                 <li>
-                  <a href="#"> House rules </a>
+                  <a href="#">{t('footer.house')} </a>
                 </li>
                 <li>
-                  <a href="#"> Web site & brokker solution </a>
+                  <a href="#">{t('footer.web')} </a>
                 </li>
                 <li>
-                  <a href="#"> Web site & brokker solution </a>
+                  <a href="#">{t('footer.broker')} </a>
                 </li>
                 <li>
-                  <a href="#"> Брокеры </a>
-                </li>
-                <li>
-                  <a href="#"> Advertising </a>
+                  <a href="#"> {t('footer.ads')} </a>
                 </li>
               </ul>
             </div>
@@ -75,8 +94,8 @@ const Footer = () => {
         <div className="footer__bottom-sec">
           <div className="container">
             <div className="footer__bottom">
-              <a href="#"> Pricacy & Policy </a>
-              <a href="#"> Terms of Use </a>
+              <a href="#">{t('footer.policy')}</a>
+              <a href="#"> {t('footer.terms')}</a>
             </div>
           </div>
         </div>
@@ -84,14 +103,14 @@ const Footer = () => {
       {ads
         .filter((cat) => cat.category_id === 5)
         .map((item) => (
-          <div className="reklam-popup">
+          <div key={item.id} className="reklam-popup">
             <div className="reklam-popup__body">
               <button id="popup-btn-close">
                 <img src="/images/Icons/close-circle-fill2.svg" alt="" />
               </button>
-              <a href={item.ads_url}>
-                <img src={`${API_URL}/${item.file}`} alt="" />
-              </a>
+              <MyLink href={item.ads_url}>
+                <img src={`${IMG_URL}/${item.file}`} alt="" />
+              </MyLink>
             </div>
           </div>
         ))}

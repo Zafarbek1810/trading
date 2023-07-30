@@ -13,7 +13,7 @@ const DashboardLayoutWrapper = styled.div`
 
     .child{
         width:calc( 100% - 260px);
-        margin-left: 80px;
+        /* margin-left: 80px; */
     }
 
     @media (max-width: 1200px) {
