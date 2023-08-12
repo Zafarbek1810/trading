@@ -87,8 +87,8 @@ const Complaints = () => {
                   <div className="complaints__card-text">
                     <h2>{item.brokerName}</h2>
                     <div className="number-complaints">
-                      <img src="/images/Icons/UsersThree.png" alt="" />
-                      <span>{t('complaints.numberComplaint')} (11)</span>
+                      {/* <img src="/images/Icons/UsersThree.png" alt="" /> */}
+                      {/* <span>{t('complaints.numberComplaint')} (11)</span> */}
                     </div>
                     <div className="arr">
                       <img src="/images/Icons/arr-right.svg" alt="" />

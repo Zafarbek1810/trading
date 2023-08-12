@@ -5,7 +5,17 @@ import { useEffect, useState } from 'react';
 import Loader from '../src/Components/Common/Loader';
 
 export default function Home() {
-  
+  const [loading, setLoading] = useState(true);
+  const [loading2, setLoading2] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+      setLoading2(true);
+    }, 1500);
+  }, []);
 
   return (
     <>
@@ -15,7 +25,10 @@ export default function Home() {
         <title>Inlisting</title>
         <link rel="stylesheet" href="css/style.min.css"/>
         </Head>
-        <HomePage/>
+        {
+          loading ? <Loader loading2={loading2}/> : <HomePage/>
+        }
+        
 
       <Script src="js/main.min.js"></Script>
     </>

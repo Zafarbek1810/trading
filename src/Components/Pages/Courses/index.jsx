@@ -60,7 +60,7 @@ const Courses = () => {
                 <div className="right_img">
                   <img src={`${IMG_URL}/${item.file}`} />
                 </div>
-                <div className="courses__item-left">
+                <div className="courses__item-left mt-5">
                   <h3>{currentLang==="en" ? item.name_en : item.name_ru}</h3>
 
                   <ul className="nav nav-tabs" id="myTab" role="tablist">
@@ -75,10 +75,10 @@ const Courses = () => {
                         aria-controls="home"
                         aria-selected="true"
                       >
-                        {t('course.courseDescr')}
+                        {t('course.whatLearn')}
                       </button>
                     </li>
-                    {/*<li className="nav-item" role="presentation">
+                    <li className="nav-item" role="presentation">
                       <button
                         className="nav-link"
                         id="profile-tab"
@@ -91,10 +91,10 @@ const Courses = () => {
                       >
                        {t('course.whyBest')}
                       </button>
-                    </li> */}
-                    {/* <li className="nav-item" role="presentation">
+                    </li>
+                    <li className="nav-item" role="presentation">
                       <button
-                        className="nav-link active"
+                        className="nav-link"
                         id="contact-tab"
                         data-bs-toggle="tab"
                         data-bs-target="#contact"
@@ -105,7 +105,7 @@ const Courses = () => {
                       >
                         {t('course.courseDescr')}
                       </button>
-                    </li> */}
+                    </li>
                   </ul>
                   <div className="tab-content" id="myTabContent">
                     <div
@@ -125,7 +125,7 @@ const Courses = () => {
                       aria-labelledby="profile-tab"
                     >
                       <div
-                        dangerouslySetInnerHTML={{ __html: item.description2 }}
+                        dangerouslySetInnerHTML={{ __html:currentLang==="en"?  item.description_en2 : item.description_ru2 }}
                       />
                     </div>
                     <div
@@ -135,7 +135,7 @@ const Courses = () => {
                       aria-labelledby="contact-tab"
                     >
                       <div
-                        dangerouslySetInnerHTML={{ __html:currentLang==="en"?  item.description_en : item.description_ru }}
+                        dangerouslySetInnerHTML={{ __html:currentLang==="en"?  item.description_en3 : item.description_ru3 }}
                       />
                     </div>
                   </div>
@@ -143,17 +143,18 @@ const Courses = () => {
                   <div className="courses__item-left-bot">
                     <div className="courses__item-left-bot-price">
                       <p>{t('course.cost')}:</p>
-                      <h6>{item.cost}$</h6>
+                      <h5>{item.cost}$</h5>
+                      <h6>{item.cost - (item.cost * item.discount / 100)}$</h6>
                     </div>
                     <div className="courses__item-left-bot-btn">
-                      <a className="orange-btn" href="#">
+                      <a className="orange-btn" href="https://t.me/inlisting_admin">
                       {t('course.take')}
                       </a>
                     </div>
                   </div>
                 </div>
                 <div className="courses__item-right">
-                  <a href={item.course_url}>
+                  <a href="https://t.me/inlisting_admin">
                     <img src="images/Icons/soc-tg.svg" alt="" />
                   </a>
                 </div>
@@ -167,7 +168,7 @@ const Courses = () => {
             {t('course.freeDescr')}
             </p>
             <h5>{t('course.purchase')} &darr;</h5>
-            <a className="tg-btn-call" href="">
+            <a className="tg-btn-call" href="https://t.me/inlisting_admin">
               <img src="images/Icons/soc-tg.svg" alt="" />
               {t('course.contactUs')}
             </a>

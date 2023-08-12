@@ -5,11 +5,14 @@ import { API_URL } from "../../../HHTP/clients";
 import moment from "moment";
 import MyLink from "../../Common/MyLink";
 import { useTranslation } from "react-i18next";
+import styled from "styled-components";
 
 const ForumSingle = ({ id }) => {
   const [forum, setForum] = useState([]);
   const [comment, setComment] = useState([]);
-  const {t} = useTranslation();
+  const {t, i18n} = useTranslation();
+
+  const currentLang=i18n.language;
 
   useEffect(() => {
     axios({
@@ -45,10 +48,10 @@ const ForumSingle = ({ id }) => {
         console.log(err);
       });
   }, []);
-
+console.log(forum);
   return (
     <DashboardLayout>
-      <div className="forum-single">
+      <Styled className="forum-single">
         <ul id="breadcrumb">
           <span>
             <span>
@@ -63,12 +66,12 @@ const ForumSingle = ({ id }) => {
         {forum.map((item) => (
           <div key={item.id}>
             <div className="forum-single__top">
-              <h1>{item.short_description}</h1>
+              <h1>{currentLang==="ru" ? item.short_description_ru : item.short_description_en }</h1>
             </div>
 
             <div className="forum-single__cont">
               <div
-                dangerouslySetInnerHTML={{ __html: item.full_description }}
+                dangerouslySetInnerHTML={{ __html: currentLang==="ru" ? item.full_description_ru : item.full_description_en }}
               ></div>
             </div>
           </div>
@@ -78,7 +81,7 @@ const ForumSingle = ({ id }) => {
             comment?.map((item) => (
               <div key={item.id} className="forum-single__item">
                 <div className="forum-single__item-top">
-                  <img src="/images/Forum-single/a1.jpg" alt="" />
+                <span className="span_img">{item.fullName.substring(0, 1)}</span>
                   <h4>{item.fullName}</h4>
                   <p>{moment(item.created_at).format("MMM MM / YYYY")}</p>
                 </div>
@@ -96,13 +99,27 @@ const ForumSingle = ({ id }) => {
           )}
         </div>
 
-        <div className="home-top__right-reklam-block rekl-gradient">
-          <img src="/images/Home-page/333.gif" alt="" />
-        </div>
-      </div>
+      </Styled>
     </DashboardLayout>
   );
 };
+
+const Styled = styled.div`
+    .span_img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      font-weight: 600;
+      color: #000000;
+      margin-right: 10px;
+    }
+
+`;
 
 
 

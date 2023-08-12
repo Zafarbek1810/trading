@@ -1,22 +1,62 @@
-import React from "react";
+import React, { lazy, useEffect, useState } from "react";
 import DashboardLayout from "../../Layout";
+import axios from "axios";
+import { API_URL, IMG_URL } from "../../../HHTP/clients";
+
+import { SingleWrapper } from "./style";
+import { useRouter } from "next/router";
+const TradingView = lazy(()=> import("./TradingView"))
 
 const SignalSIngle = () => {
+  const [ads, setAds] = useState([]);
+  const router = useRouter();
+  const [view, setView] = useState(false);
+
+  useEffect(()=>{
+      setView(true);
+  }, [])
+
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `${API_URL}/ads/`,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => {
+        console.log(res.data);
+        setAds(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+
+
+
   return (
     <DashboardLayout>
-      <div className="signal-single">
-        <ul id="breadcrumb">
-          <span>
+      <SingleWrapper>
+        <div className="signal-single">
+          <ul id="breadcrumb">
             <span>
-              <a href="#">Главная</a>|
-              <span className="breadcrumb_last" aria-current="page">
-                AUDNZD H1
+              <span>
+                <a href="#">Главная</a>|
+                <span className="breadcrumb_last" aria-current="page">
+                  {router.query.key}
+                </span>
               </span>
             </span>
-          </span>
-        </ul>
+          </ul>
 
-        <div className="signal-single__top">
+          <div className="signal-single__top mb-5">
+            {view && <TradingView/>}
+          </div>
+
+          {/* <div className="signal-single__top">
           <img src="/images/Signal-single/top-img.svg" alt="" />
           <div className="signal-single__top-cont">
             <div className="top">
@@ -38,70 +78,79 @@ const SignalSIngle = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        <div className="signal-single-list">
-          <ul className="list-top">
-            <li>01:00</li>
-            <li>03:30</li>
-            <li>05:00</li>
-            <li>07:30</li>
-            <li>09:00</li>
-            <li>11:30</li>
-            <li>13:00</li>
-          </ul>
+          {/* <div className="signal-single-list">
+            <ul className="list-top">
+              <li>01:00</li>
+              <li>03:30</li>
+              <li>05:00</li>
+              <li>07:30</li>
+              <li>09:00</li>
+              <li>11:30</li>
+              <li>13:00</li>
+            </ul>
 
-          <ul className="list-bot">
-            <li className="active">
-              <div className="box">
-                <h5>Сегодня</h5>
-                <p className="red">-0.27%</p>
-              </div>
-            </li>
-            <li className="">
-              <div className="box">
-                <h5>За неделю</h5>
-                <p className="green">0.15%</p>
-              </div>
-            </li>
-            <li className="">
-              <div className="box">
-                <h5>Месяц</h5>
-                <p className="green">0.15%</p>
-              </div>
-            </li>
-            <li className="">
-              <div className="box">
-                <h5>6 Месяцев</h5>
-                <p className="red">-2.03%</p>
-              </div>
-            </li>
-            <li className="">
-              <div className="box">
-                <h5>С начала года</h5>
-                <p className="red">-0.32%</p>
-              </div>
-            </li>
-            <li className="">
-              <div className="box">
-                <h5>Год</h5>
-                <p className="red">-3.29%</p>
-              </div>
-            </li>
-            <li className="">
-              <div className="box">
-                <h5>За всё время</h5>
-                <p className="red">-21.66%</p>
-              </div>
-            </li>
-          </ul>
-        </div>
+            <ul className="list-bot">
+              <li className="active">
+                <div className="box">
+                  <h5>Сегодня</h5>
+                  <p className="red">-0.27%</p>
+                </div>
+              </li>
+              <li className="">
+                <div className="box">
+                  <h5>За неделю</h5>
+                  <p className="green">0.15%</p>
+                </div>
+              </li>
+              <li className="">
+                <div className="box">
+                  <h5>Месяц</h5>
+                  <p className="green">0.15%</p>
+                </div>
+              </li>
+              <li className="">
+                <div className="box">
+                  <h5>6 Месяцев</h5>
+                  <p className="red">-2.03%</p>
+                </div>
+              </li>
+              <li className="">
+                <div className="box">
+                  <h5>С начала года</h5>
+                  <p className="red">-0.32%</p>
+                </div>
+              </li>
+              <li className="">
+                <div className="box">
+                  <h5>Год</h5>
+                  <p className="red">-3.29%</p>
+                </div>
+              </li>
+              <li className="">
+                <div className="box">
+                  <h5>За всё время</h5>
+                  <p className="red">-21.66%</p>
+                </div>
+              </li>
+            </ul>
+          </div> */}
 
-        <div className="home-top__right-reklam-block rekl-gradient mb-5">
-          <img src="/images/Home-page/333.gif" alt="" />
-        </div>
+          {ads
+            .filter((cat) => cat.category_id === 4)
+            .map((item) => (
+              <div
+                key={item.id}
+                className="home-top__right-reklam-block rekl-gradient"
+              >
+                <a href={item.ads_url}>
+                  <img src={`${IMG_URL}/${item.file}`} alt="" />
+                </a>
+              </div>
+            ))}
 
-        <div className="methods">
+          {/* <div className="methods">
           <div className="title">
             <h3>Методы</h3>
             <p>Практика и анализ статистики</p>
@@ -150,8 +199,9 @@ const SignalSIngle = () => {
               </ul>
             </div>
           </div>
+        </div> */}
         </div>
-      </div>
+      </SingleWrapper>
     </DashboardLayout>
   );
 };

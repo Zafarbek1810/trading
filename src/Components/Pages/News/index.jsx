@@ -9,6 +9,7 @@ import moment from "moment/moment";
 const News = () => {
   const [news, setNews] = useState([]);
   const [ads, setAds] = useState([]);
+  const [category, setCategory] = useState([]);
   const {t, i18n} = useTranslation()
 
   const currentLang = i18n.language
@@ -25,6 +26,23 @@ const News = () => {
       .then((res) => {
         console.log(res.data);
         setAds(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `${API_URL}/categories/`,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => {
+        console.log(res.data);
+        setCategory(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -76,11 +94,15 @@ const News = () => {
               className="news__item"
             >
               <div className="news__item-top">
-                <p>{moment(item.created_at).format("MMM MM / YYYY")}</p>
-                <h6>{item.category_id===1 && (currentLang==='en' ? "News" : "Новости")}</h6>
+                <p>{moment(item.created_at).format("DD.MM.YYYY HH:mm")}</p>
+                {
+                  category.filter((cat) => cat.id === item.category_id).map((cat) => (
+                    <h6 key={cat}>{currentLang==='en' ? cat.title_en : cat.title_ru}</h6>
+                  ))
+                }
               </div>
               <div className="news__item-center">
-                <img src={`${IMG_URL}/${item.file}`} style={{height:"300px", objectFit:"cover"}} alt="" />
+                <img src={`${IMG_URL}/${item.file}`} style={{height:"180px", objectFit:"cover"}} alt="" />
               </div>
               <div className="news__item-bot">
                 <p>{currentLang==="en" ? item.short_description_en : item.short_description_ru}</p>

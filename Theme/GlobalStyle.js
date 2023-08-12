@@ -23,13 +23,15 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     min-height: 100vh;
     min-height: -webkit-fill-available;
-    background-color: #010313;
+    background-color: #000212;
     line-height: 1.5;
     font-size: 16px;
     color: #fff;
     @media (max-width: 500px) {
     overflow-x:auto;
+    position: relative;
   }
+
   }
   h1,h2,h3,h4,h5,h6 {
     font-family: "Inter", "Arial", sans-serif;
@@ -46,6 +48,10 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .header{
+    overflow: initial !important;
+  }
+
   .ant-rate-star-zero{
         svg{
             fill: #d9d9d9;
@@ -56,6 +62,7 @@ const GlobalStyle = createGlobalStyle`
       display: none;
     }
 
+
   a {
     text-decoration: none;
     font-family: "Inter", "Arial", sans-serif;
@@ -65,6 +72,37 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Inter", "Arial", sans-serif;
 
   }
+
+.home-page-wrap{
+    .active{
+    display: block;
+    position: fixed;
+    padding: 15% 30%;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+  } 
+  .remove{
+    display: none;
+  } 
+}
+  
+@media (max-width: 540px) {
+  .home-page-wrap{
+    .active{
+    display: flex;
+    padding: 5%;
+  } 
+
+  .remove{
+    display: none;
+  } 
+ 
+}
+}
+ 
+
+ 
 
   
   

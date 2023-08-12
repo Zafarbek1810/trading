@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import DashboardLayout from "../../Layout";
 import axios from "axios";
-import { API_URL } from "../../../HHTP/clients";
+import { API_URL, IMG_URL } from "../../../HHTP/clients";
 import moment from "moment/moment";
 import { useTranslation } from "react-i18next";
 import MyLink from "../../Common/MyLink";
 
 const NewsSingle = ({ id }) => {
   const [news, setNews] = useState([]);
-  const {t, i18n} = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const currentLang = i18n.language;
 
@@ -36,9 +36,10 @@ const NewsSingle = ({ id }) => {
         <ul id="breadcrumb">
           <span>
             <span>
-            <MyLink to="/">{t('header.navbar.home')}</MyLink>|<a href="#">{t('news.title')}</a>|
+              <MyLink to="/">{t("header.navbar.home")}</MyLink>|
+              <MyLink to="/news">{t("news.title")}</MyLink>|
               <span className="breadcrumb_last" aria-current="page">
-              {t('news.single')}
+                {t("news.single")}
               </span>
             </span>
           </span>
@@ -46,18 +47,36 @@ const NewsSingle = ({ id }) => {
 
         {news.map((item) => (
           <div key={item.id}>
-            <p>{moment(item.created_at).format("MMM MM / YYYY")}</p>
+            <div className="news-single__top">
+              <h1>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      currentLang === "en"
+                        ? item.short_description_en
+                        : item.short_description_ru,
+                  }}
+                ></div>
+              </h1>
+              <p>
+                <p>{moment(item.created_at).format("DD.MM.YYYY HH:mm")}</p>
+              </p>
+            </div>
+            <div className="main-image mb-5">
+            <img src={`${IMG_URL}/${item.file}`} style={{height:"380px", objectFit:"cover"}} alt="" />
+            </div>
             <div className="news-single__cont">
               <div
-                dangerouslySetInnerHTML={{ __html:currentLang==='en' ? item.full_description_en : item.full_description_ru }}
+                dangerouslySetInnerHTML={{
+                  __html:
+                    currentLang === "en"
+                      ? item.full_description_en
+                      : item.full_description_ru,
+                }}
               ></div>
             </div>
           </div>
         ))}
-
-        <div className="home-top__right-reklam-block rekl-gradient">
-          <img src="/images/Home-page/333.gif" alt="" />
-        </div>
       </div>
     </DashboardLayout>
   );

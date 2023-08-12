@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
 const Styled = styled.div`
-position: relative;
-  height: 30vh;
+  position: relative;
+  height: 100vh;
+  z-index: 9999;
+
   .wrapper img{
     position: absolute;
     top: 50%;

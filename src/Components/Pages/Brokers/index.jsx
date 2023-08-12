@@ -136,7 +136,7 @@ const Brokers = () => {
           <img src="/images/Icons/ArrowRight.svg" alt="" />
         </a> */}
 
-        <div className="brokers-top">
+        {/* <div className="brokers-top">
           <h1>{t('brokers.title')}</h1>
           <p>
           {t('brokers.descr')}
@@ -152,7 +152,7 @@ const Brokers = () => {
               <h5>81724134</h5>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="brokers-list">
           {/* <div className="brokers-list__top">
@@ -190,25 +190,39 @@ const Brokers = () => {
                 className="brokers-list__item"
                 data-cat="forex"
               >
-                <div className="brokers-list__item-left">
+                <div className="brokers-list__item-left"  style={{width:"70%"}}>
                   <h3>{broker.name}</h3>
 
                   <div className="brokers-list__item-left-estimates">
                     <div className="brokers-list__item-left-estimates-left">
                       <div className="brokers-list__item-left-estimates-left-top">
-                        <span data-est="">5</span>
-                        <h5>{t('brokers.high')}</h5>
+                        <span data-est="">{broker.stars_count}.0  {
+                        broker.stars_count === 1 ? t("homepage.yomon") : 
+                        ((broker.stars_count===2 || broker.stars_count===3) ? t("homepage.ortacha") : 
+                        (broker.stars_count===4 ? t("homepage.yaxshi") : t("homepage.perfect"))) 
+                      }</span>
                         <img src="/images/Icons/Frame.svg" alt="" />
                       </div>
                       <div className="brokers-list__item-left-estimates-left-bot">
-                        <Rate onChange={(v) => handleRate(v, broker.id)} />
+                      {[1, 2, 3, 4, 5].map((value) => (
+                        <span
+                          key={value}
+                          // onClick={() => handleStarClick(value)}
+                          style={{
+                            cursor: "pointer",
+                            color: value <= broker.stars_count ? "gold" : "gray",
+                          }}
+                        >
+                          ★
+                        </span>
+                      ))}
                       </div>
                     </div>
 
                     <div className="brokers-list__item-left-estimates-center">
                       <div className="brokers-list__item-left-estimates-center-top">
                         <img src="/images/Icons/reviews.svg" alt="" />
-                        <h5>12.1K</h5>
+                        <h5>{broker.reviews_count}</h5>
                       </div>
                       <div className="brokers-list__item-left-estimates-center-bot">
                         <p>{t('brokers.reviews')}</p>
@@ -218,7 +232,7 @@ const Brokers = () => {
                     <div className="brokers-list__item-left-estimates-right">
                       <div className="brokers-list__item-left-estimates-right-top">
                         <img src="/images/Icons/acc.svg" alt="" />
-                        <h5>104.9K</h5>
+                        <h5>{broker.balance}</h5>
                       </div>
                       <div className="brokers-list__item-left-estimates-right-bot">
                         <p>{t('brokers.acc')}</p>
@@ -226,7 +240,7 @@ const Brokers = () => {
                     </div>
                   </div>
 
-                  <div className="brokers-list__item-left-assets">
+                  {/* <div className="brokers-list__item-left-assets">
                     <div className="brokers-list__item-left-assets-item">
                       <h6>786+</h6>
                       <p>{t('brokers.assets')}</p>
@@ -239,7 +253,7 @@ const Brokers = () => {
                       <h6>347+</h6>
                       <p>{t('brokers.app')}</p>
                     </div>
-                  </div>
+                  </div> */}
 
                   <div className="brokers-list__item-left-text">
                     <div className="top">

@@ -7,12 +7,19 @@ const CoursesWrapper=styled.div`
     .right_img{
         position: absolute;
         right: -10%;
-        top: 25%;
+        top: 35%;
         img{
             width: 150px;
             height: 150px;
         }
 
+    }
+
+    .courses__item-left-bot-price{
+        h5{
+            text-decoration: line-through;
+            margin-right: 20px;
+        }
     }
 `
 

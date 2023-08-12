@@ -52,7 +52,7 @@ const ComplaintsSingle = ({ id }) => {
                 {/* <p>Последный визит: 3 дняназад</p> */}
               </div>
               <div className="brokers-single__top-left-cont-bot">
-                <div className="item">
+                {/* <div className="item">
                   <h5>4.58</h5>
                   <p>10.3K</p>
                 </div>
@@ -73,7 +73,7 @@ const ComplaintsSingle = ({ id }) => {
                 <div className="item">
                   <h5>6K</h5>
                   <p>{t('brokers.subscribes')}</p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -96,9 +96,7 @@ const ComplaintsSingle = ({ id }) => {
               </div>
               <div className="broker__complaints-card--bottom">
                 <a href={reportDetail.url}>{reportDetail.url}</a>
-                <a href="/images/Ellipse broker-single.jpg" download="">
-                  открыть файл
-                </a>
+                <img className="mb-3" src={`${IMG_URL}media/${reportDetail.logo}`} alt="" />
                 <p>{reportDetail.situation_description}</p>
               </div>
             </div>
@@ -109,9 +107,6 @@ const ComplaintsSingle = ({ id }) => {
         <span>{t('homepage.more')}</span>
         </a>
 
-        <div className="home-top__right-reklam-block rekl-gradient">
-          <img src="/images/Home-page/333.gif" alt="" />
-        </div>
       </div>
     </DashboardLayout>
   );

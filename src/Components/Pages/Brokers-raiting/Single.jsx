@@ -113,47 +113,40 @@ const Single = ({ id }) => {
                     {/* <p>Последный визит: 3 дня назад</p> */}
                   </div>
                   <div className="brokers-single__top-left-cont-bot">
-                    <div className="item">
+                    {/* <div className="item">
                       <h5>{average}</h5>
                       <p>{ratingPerson > 1000 ? (ratingPerson / 1000).toFixed(1)+ "K" : ratingPerson}</p>
-                    </div>
+                    </div> */}
                     <div className="item">
                       <div className="box">
                       {[1, 2, 3, 4, 5].map((value) => (
-                          <span
-                            key={value}
-                            // onClick={() => handleStarClick(value)}
-                            style={{
-                              cursor: "pointer",
-                              color: value <= average ? "gold" : "gray",
-                            }}
-                          >
-                            ★
-                          </span>
-                        ))}
-                        {/* <div className="stars">
-                          <StarSvg />
-                          <StarSvg />
-                          <StarSvg />
-                          <StarSvg />
-                          <StarSvg />
-                        </div> */}
+                        <span
+                          key={value}
+                          // onClick={() => handleStarClick(value)}
+                          style={{
+                            cursor: "pointer",
+                            color: value <= detail.stars_count ? "gold" : "gray",
+                          }}
+                        >
+                          ★
+                        </span>
+                      ))}
                       </div>
                       <p>{t('brokers.reyting')}</p>
                     </div>
                     <div className="item">
-                      <h5>114.K</h5>
-                      <p>{t('brokers.traders')}</p>
-                    </div>
-                    <div className="item">
+                    <h5>{detail.reviews_count}</h5>
+                    <p>{t('brokers.reviews')}</p>
+                  </div>
+                    {/* <div className="item">
                       <h5>6K</h5>
                       <p>{t('brokers.subscribes')}</p>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
 
-              <div className="brokers-single__top-right">
+              {/* <div className="brokers-single__top-right">
                 <a className="mail" href="#">
                   <img src="/images/Icons/mail.svg" alt="" />
                 </a>
@@ -163,7 +156,7 @@ const Single = ({ id }) => {
                 <a className="orange-btn" href="#">
                 {t('brokers.treyd')}
                 </a>
-              </div>
+              </div> */}
             </div>
 
             <div className="brokers-single-review">

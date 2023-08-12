@@ -4,7 +4,6 @@ import {GlobalStyle, defaultTheme} from "../Theme/GlobalStyle";
 import {ThemeProvider} from "styled-components";
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from "react";
-import Loader from "../src/Components/Common/Loader/";
 import i18n from "i18next";
 import { initReactI18next, useTranslation } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
@@ -59,7 +58,7 @@ function MyApp({ Component, pageProps }) {
     <ThemeProvider theme={defaultTheme}>
         <GlobalStyle/>
         <Component {...pageProps} />
-        {loading && <Loader loading2={loading2}/>}
+        {/* {loading && <Loader loading2={loading2}/>} */}
         <ToastContainer
           position="top-right"
           autoClose={3000}

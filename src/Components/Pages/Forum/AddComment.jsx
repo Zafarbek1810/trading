@@ -6,10 +6,12 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import MyLink from "../../Common/MyLink";
+import { useRouter } from "next/router";
 
 const AddComment = ({ id }) => {
   const { register, handleSubmit, setValue, control, reset } = useForm();
   const { t } = useTranslation();
+  const router = useRouter()
 
   const onSubmit = (values) => {
     console.log(values);
@@ -29,6 +31,7 @@ const AddComment = ({ id }) => {
       .then((res) => {
         console.log(res);
         toast.success("Ваш коментарий успешно добавлен");
+        router.push(`/forum/`);
       })
       .catch((err) => {
         console.log(err);

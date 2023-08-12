@@ -51,6 +51,8 @@ const HomePage = () => {
           <Company />
           <FAQ />
         </div>
+
+        
       </HomePageWrapper>
     </DashboardLayout>
   );

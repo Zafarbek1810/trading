@@ -48,6 +48,15 @@ const Partners = () => {
       });
   }, []);
 
+  const toggleBtn = () => {
+      const full_descr = document.querySelector('.full-descr');
+      const btn = document.querySelector('.btn');
+
+      full_descr.style.display === 'none' ? full_descr.style.display = 'block' : full_descr.style.display = 'none'
+      full_descr.style.transition = 'display 0.5s ease-in-out'
+      btn.style.transform === 'rotate(180deg)' ? btn.style.transform = 'rotate(0deg)' : btn.style.transform = 'rotate(180deg)'
+  };
+
   return (
     <DashboardLayout>
       <div className="partners">
@@ -64,7 +73,7 @@ const Partners = () => {
 
         <div className="partners__top">
           <h1>{t('partners.title')}</h1>
-          <p>{t('partners.descr')}</p>
+          {/* <p>{t('partners.descr')}</p> */}
         </div>
 
         <div className="partners__box">
@@ -76,8 +85,16 @@ const Partners = () => {
               <div className="partners__item-cont">
                 <h5>{item.name}</h5>
                 <p className="partners-text">{currentLang==='en' ? item.short_description_en : item.short_description_ru}</p>
-                <div className="partners__item-arr">
-                  <img src="/images/Partners/arr-right.svg" alt="" />
+                <div className="full-descr"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    currentLang === "en"
+                      ? item.full_description_en
+                      : item.full_description_ru,
+                }}
+              ></div>
+                <div className="btn" onClick={toggleBtn}>
+                  <img src="/images/Partners/arr-down.svg" alt="" />
                 </div>
               </div>
             </div>

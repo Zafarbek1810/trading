@@ -6,6 +6,8 @@ const HomePageWrapper = styled.div`
     font-size: 32px;
     font-weight: bold;
   }
+
+  
 `;
 
 const SignalWrapper = styled.div`
@@ -91,4 +93,11 @@ const SignalWrapper = styled.div`
   }
 `;
 
-export { HomePageWrapper, SignalWrapper };
+const SingleWrapper = styled.div`
+  .signal-single__top{
+    height: 70vh;
+    width: 100%;
+  }
+`
+
+export { HomePageWrapper, SignalWrapper, SingleWrapper };

@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 const Sidebar = () => {
   const [ads, setAds] = useState([]);
   const [tglink, setTglink] = useState({});
-  const { t }=useTranslation();
+  const { t } = useTranslation();
   const router = useRouter();
 
   useEffect(() => {
@@ -59,40 +59,74 @@ const Sidebar = () => {
                   <div className="home-top__left-top">
                     <a className="tg-btn" href={tglink.link}>
                       <img src="/images/Icons/soc-tg.svg" alt="" />
-                      {t('sidebar.telegram')}
+                      {t("sidebar.telegram")}
                     </a>
                     <ul>
                       <li>
-                        <MyLink to="/courses" className={router.route==='/courses' ? "active" : ""}>{t('sidebar.courses')}</MyLink>
+                        <MyLink
+                          to="/courses"
+                          className={
+                            router.route === "/courses" ? "active" : ""
+                          }
+                        >
+                          {t("sidebar.courses")}
+                        </MyLink>
                       </li>
                       <li>
-                        <MyLink to="/brokers-raiting" className={router.route==='/brokers-raiting' ? "active" : ""}>{t('sidebar.brokers-raiting')}</MyLink>
+                        <MyLink
+                          to="/brokers-raiting"
+                          className={
+                            router.route === "/brokers-raiting" ? "active" : ""
+                          }
+                        >
+                          {t("sidebar.brokers-raiting")}
+                        </MyLink>
                       </li>
                       <li>
-                        <MyLink to="/news" className={router.route==='/news' ? "active" : ""}>{t('sidebar.news')}</MyLink>
+                        <MyLink
+                          to="/news"
+                          className={router.route === "/news" ? "active" : ""}
+                        >
+                          {t("sidebar.news")}
+                        </MyLink>
                       </li>
                       <li>
-                        <MyLink to="/partners" className={router.route==='/partners' ? "active" : ""}>{t('sidebar.partners')}</MyLink>
+                        <MyLink
+                          to="/partners"
+                          className={
+                            router.route === "/partners" ? "active" : ""
+                          }
+                        >
+                          {t("sidebar.partners")}
+                        </MyLink>
                       </li>
                       <li>
-                        <MyLink to="/forum" className={router.route==='/forum' ? "active" : ""}>{t('sidebar.forum')}</MyLink>
+                        <MyLink
+                          to="/forum"
+                          className={router.route === "/forum" ? "active" : ""}
+                        >
+                          {t("sidebar.forum")}
+                        </MyLink>
                       </li>
                     </ul>
                   </div>
 
-                  {ads?.length ?
-                    ads.filter((cat) => cat.category_id === 1)
-                    .map((item) => (
-                      <div
-                        key={item.id}
-                        className="home-top__left-center rekl-gradient"
-                      >
-                        <a href={item.ads_url}>
-                          <img src={`${IMG_URL}/${item.file}`} alt="" />
-                        </a>
-                      </div>
-                    )) 
-                  : <></>}
+                  {ads?.length ? (
+                    ads
+                      .filter((cat) => cat.category_id === 1)
+                      .map((item) => (
+                        <div
+                          key={item.id}
+                          className="home-top__left-center rekl-gradient"
+                        >
+                          <a href={item.ads_url}>
+                            <img src={`${IMG_URL}/${item.file}`} alt="" />
+                          </a>
+                        </div>
+                      ))
+                  ) : (
+                    <></>
+                  )}
 
                   {ads
                     .filter((cat) => cat.category_id === 2)

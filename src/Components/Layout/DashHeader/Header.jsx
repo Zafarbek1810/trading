@@ -18,6 +18,16 @@ const Header = () => {
     i18n.changeLanguage(e.target.value);
   };
 
+  const burgerClick = () => {
+    const burger = document.querySelector(".header-mob__burger");
+    const menu = document.querySelector(".header-mob__menu");
+    const body = document.querySelector("body");
+    burger.classList.toggle("active");
+    menu.classList.toggle("active");
+    body.classList.toggle("lock");
+  };
+  
+
   return (
     <HeaderWrapper>
       <div className="header">
@@ -96,31 +106,24 @@ const Header = () => {
                   <img src="/images/Icons/search.svg" alt="" />
                 </MyLink> */}
 
-                <div className="select-wrapper">
+                <div className="select-wrapper me-5">
                 <select
                       value={defaultLang}
                       bordered={false}
                       onChange={handleChange}
                     >
                       <option value="ru" className="options">
-                        Русский
+                        Рус
                       </option>
                       <option value="en" className="options">
-                        English
+                        Eng
                       </option>
                     </select>
                 </div>
 
-                <div className="header-mob__burger">
+                <div className="header-mob__burger" onClick={burgerClick}>
                   <span></span>
                 </div>
-              </div>
-
-              <div className="header-mob-search">
-                <input type="text" placeholder="Поиск..." />
-                <button className="header-mob-search-close">
-                  <img src="/images/Icons/close-black.svg" alt="" />
-                </button>
               </div>
 
               <nav className="header-mob__menu">

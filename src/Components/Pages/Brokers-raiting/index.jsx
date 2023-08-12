@@ -12,7 +12,7 @@ const BrokersRaiting = () => {
   const [tft, setTft] = useState([]);
   const [ads, setAds] = useState([]);
   const [rating, setRating] = useState(0); // Initial rating is 0
-  const {t} = useTranslation()
+  const { t } = useTranslation();
 
   useEffect(() => {
     axios({
@@ -60,7 +60,7 @@ const BrokersRaiting = () => {
       },
     })
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data, "brokers");
         setBrokers(res.data);
       })
       .catch((err) => {
@@ -77,7 +77,6 @@ const BrokersRaiting = () => {
         Accept: "application/json",
       },
     })
-
       .then((res) => {
         console.log(res.data);
         setTft(res.data);
@@ -87,11 +86,6 @@ const BrokersRaiting = () => {
       });
   }, []);
 
-  const handleStarClick = (selectedRating) => {
-    setRating(selectedRating);
-  };
-  
-  console.log(tft.map((obj)=>(obj.title) ));
 
   return (
     <DashboardLayout>
@@ -99,25 +93,21 @@ const BrokersRaiting = () => {
         <ul id="breadcrumb">
           <span>
             <span>
-              <MyLink to="/">{t('header.navbar.home')}</MyLink>|
+              <MyLink to="/">{t("header.navbar.home")}</MyLink>|
               <span className="breadcrumb_last" aria-current="page">
-                {t('sidebar.brokers-raiting')}
+                {t("sidebar.brokers-raiting")}
               </span>
             </span>
           </span>
         </ul>
 
         <div className="rating__top">
-          <h1>{t('sidebar.brokers-raiting')}</h1>
-          <p>
-          {t('brokerRaiting.descr1')}
-          </p>
+          <h1>{t("sidebar.brokers-raiting")}</h1>
+          <p>{t("brokerRaiting.descr1")}</p>
         </div>
 
         <div className="rating__content">
-          <p className="rating__content-text">
-          {t('brokerRaiting.descr2')}
-          </p>
+          <p className="rating__content-text">{t("brokerRaiting.descr2")}</p>
 
           <div className="rating__content-box">
             {brokers.map((item) => (
@@ -126,44 +116,70 @@ const BrokersRaiting = () => {
                   <span className="top-num">№{item.topNumber}</span>
                   <div className="rating__content-item-left-top">
                     <h3>{item.name}</h3>
-                    {item.isTrusted ? (
-                      <span className="green">{t('homepage.canTrust')}</span>
+                    {item.isTrusted === "1" ? (
+                      <span></span>
+                    ) : item.isTrusted === "0" ? (
+                      <span className="red">{t("homepage.nocanTrust")}</span>
                     ) : (
-                      <></>
+                      <span className="green">{t("homepage.canTrust")}</span>
                     )}
+                    
                   </div>
 
                   <h4>
-                  {t('homepage.toolsTrading')} {" "}
-                    <span>{tft.filter((pro) => pro.id === item.id).map((obj)=>{return obj.title})}</span>
+                    {t("homepage.toolsTrading")}{" "}
+                    <span className="m-3">
+                      {tft
+                        .filter((pro) => pro.id === item.tools_id)
+                        .map((obj) => {
+                          return obj.title;
+                        })}
+                    </span>
                   </h4>
 
                   <div className="rating__content-item-left-bot">
                     <div className="est">
-                      <p>5.0 {t('homepage.perfect')}</p>
-                      <Rating id={item.id} />
+                      <p>{item.stars_count}.0 
+                      {
+                        item.stars_count === 1 ? t("homepage.yomon") : 
+                        ((item.stars_count===2 || item.stars_count===3) ? t("homepage.ortacha") : 
+                        (item.stars_count===4 ? t("homepage.yaxshi") : t("homepage.perfect"))) 
+                      }
+                      </p>
+                      {[1, 2, 3, 4, 5].map((value) => (
+                        <span
+                          key={value}
+                          // onClick={() => handleStarClick(value)}
+                          style={{
+                            cursor: "pointer",
+                            color: value <= item.stars_count ? "gold" : "gray",
+                          }}
+                        >
+                          ★
+                        </span>
+                      ))}
                     </div>
 
                     <div className="rev">
                       <div className="box">
                         <img src="/images/Icons/reviews.svg" alt="" />
-                        <p>15,4k</p>
+                        <p>{item.reviews_count}</p>
                       </div>
-                      <p>{t('homepage.reviews')}</p>
+                      <p>{t("homepage.reviews")}</p>
                     </div>
 
                     <div className="acc">
                       <div className="box">
                         <img src="/images/Icons/acc.svg" alt="" />
-                        <p>105k</p>
+                        <p>{item.balance}</p>
                       </div>
-                      <p>{t('homepage.acc')}</p>
+                      <p>{t("homepage.acc")}</p>
                     </div>
 
                     {item.isChecked ? (
                       <div className="check">
                         <img src="/images/Icons/Frame.svg" alt="" />
-                        <p>{t('homepage.checked')}</p>
+                        <p>{t("homepage.checked")}</p>
                       </div>
                     ) : (
                       <></>
@@ -174,22 +190,28 @@ const BrokersRaiting = () => {
                     className="gray-btn"
                     to={`/brokers-raiting-single?id=${item.id}`}
                   >
-                    {t('homepage.learnMore')}
+                    {t("homepage.learnMore")}
                   </MyLink>
                 </div>
 
                 <div className="rating__content-item-right">
                   <div className="img-box">
                     <img src={`${IMG_URL}/media/${item.file}`} />
-                    {item.isBest ? <span className="best">Best</span> : <></>}
+                    {item.isBest === "1" ? (
+                      <span></span>
+                    ) : item.isBest === "0" ? (
+                      <span className="scam">Scam</span>
+                    ) : (
+                      <span className="best">Best</span>
+                    )}
                   </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <a className="btn-more-grad" href="#">
-          {t('homepage.more')}
+          <a className="btn-more" href="#">
+            <span>{t("homepage.more")}</span>
           </a>
 
           {ads

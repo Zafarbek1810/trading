@@ -21,8 +21,8 @@
         "telegram":"Telegram-канал",
         "news":"News flow",
         "house":"house rules",
-        "web":"Website and brokerage solution",
-        "broker":"Brokers",
+        "web":"Dismailer",
+        "broker":"About Us",
         "ads":"Advertising",
         "policy":"Privacy Policy",
         "terms":"Terms of Use"
@@ -36,14 +36,19 @@
         "companyTitle":"Broker rating",
         "companyDescr":"On our website we have collected all the necessary information about trading platforms",
         "canTrust":"Can trust",
+        "nocanTrust":"Scammer",
         "toolsTrading":"Tools for trading",
-        "perfect":"PERFECT",
+        "perfect":" PERFECT",
+        "yaxshi":" GOOD",
+        "ortacha":" MEDIUM",
+        "yomon":" BAD",
         "reviews":"Reviews",
         "acc":"Accounts",
         "checked":"Checked",
         "learnMore":"To learn more",
         "seeAll":"See all",
-        "faqTitle":"Frequently asked questions"
+        "faqTitle":"Frequently asked questions",
+        "go":"Go to "
     },
     "brokers":{
         "title":"Proven and reliable brokers",
@@ -78,7 +83,7 @@
     },
     "complaints":{
         "title":"Complaints",
-        "descr":"Here we publish user complaints about brokers. If a broker scammed you...",
+        "descr":"If you were deceived by the broker, or you noticed the fact of fraud, please describe the situation, attach screenshots (if any), a link to the site, and send it to us. We will immediately investigate and publish information about the scammers.",
         "btn":"Complain",
         "numberComplaint":"Number of complaints",
         "form":{
@@ -87,35 +92,38 @@
             "placeholder1":"Name",
             "input2":"Link",
             "placeholder2":"Website",
-            "input3":"Description of the situation",
+            "input3":"Complain name",
             "input4":"Attach file",
             "placeholder4":"Upload file",
             "input5":"Your e-mail",
+            "placeholder6":"Upload file",
+            "input6":"Avatar",
             "placeholder5":"Email",
-            "formBtn":"Leave complaints"
+            "formBtn":"Leave complaints",
+            "textarea":"Description"
         }
     },
     "course":{
       "title":"Training courses",
-      "descr1":"Here you can find training courses in various fields...",
-      "descr2":"We want everyone to be able to afford to master modern trends.",
+      "descr1":"Here you can find training courses in various fields. These courses are purchased from TOP authors, and have been fully tested by our team.",
+      "descr2":"We are like Robin Hood, we bought courses for a lot of money, and now we give them to you, almost for free. We want everyone to be able allow yourself to master modern trends.",
       "whatLearn":"What will you learn?",
       "whyBest":"Why is this course the best?",
       "courseDescr":"Description",
       "cost":"Course fee",
       "take":"Get a course",
       "notfree":"Why not free?",
-      "freeDescr":"Our team offers everything for free to its users. Token fee for the course...",
+      "freeDescr":"Our team offers everything for free to its users.The symbolic course fee is support for the existence and operation of the site. Thanks to each of you. Thanks to your support, the number of useful courses on our site is increasing. ",
       "purchase":"To purchase courses, please contact us.",
       "contactUs":"Contact us"
     },
     "brokerRaiting":{
-      "descr1":"On our website, we provide a rating of companies based on an objective assessment...",
-      "descr2":"The rating is based on indicators such as popularity, the number of positive reviews..."
+      "descr1":"We provide a rating of companies based on the assessment and analysis carried out by a team of professionals",
+      "descr2":"The rating is determined by a survey of a large group of traders, as well as by checking companies by our experts"
     },
     "news":{
       "title":"News",
-      "descr":"Follow events in real time",
+      "descr":"Stay up to date with all the latest news in the world of economics and finance",
       "single":"Single"
     },
     "partners":{
@@ -124,7 +132,7 @@
     },
     "forum":{
       "title":"Forum",
-      "descr":"On our forum you can participate in the discussion of any topic...",
+      "descr":"On our forum, you can participate in the discussion of any topic, or add your own to get the opinion of other people",
       "add":"Add a theme",
       "subject":"Subject",
       "author":"Author",
