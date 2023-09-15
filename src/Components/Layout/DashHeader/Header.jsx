@@ -152,7 +152,7 @@ const Header = () => {
                     <MyLink to="/courses">Обучающие курсы</MyLink>
                   </li>
                   <li>
-                    <MyLink to="/brokers-rating">Рейтинг броккеров</MyLink>
+                    <MyLink to="/brokers-raiting">Рейтинг броккеров</MyLink>
                   </li>
                   <li>
                     <MyLink to="/news">Новости</MyLink>

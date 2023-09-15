@@ -42,3 +42,49 @@
     font-display: swap;
 }
 
+.privacy h1 {
+    font-family: "Inter-Bold";
+    font-size: 42px;
+    line-height: 45px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #fff;
+    max-width: fit-content;
+    padding-bottom: 5px;
+  }
+  .privacy__content h3 {
+    font-family: 'Inter-Medium';
+    font-size: 25px;
+    line-height: 28px;
+    color: rgba(255, 255, 255, .7);
+    margin-bottom: 30px;
+  }
+  .privacy__content p {
+    color: rgba(255, 255, 255, .7);
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 20px;
+  }
+  .privacy__content p.lh28 {
+    line-height: 29px;
+  }
+  .privacy__content p a {
+    color: #fff;
+  }
+  .privacy__content p a:hover {
+    text-decoration: underline;
+  }
+  .privacy__content ul {
+    color: rgba(255, 255, 255, .7);
+    padding-left: 17px;
+    margin-bottom: 20px;
+  }
+  .privacy__content ul li {
+    color: rgba(255, 255, 255, .7);
+    font-size: 18px;
+    line-height: 24px;
+    list-style: disc;
+  }
+  .privacy__content ul li:not(:last-of-type) {
+    margin-bottom: 15px;
+  }
+  

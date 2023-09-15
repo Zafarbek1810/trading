@@ -9,7 +9,7 @@ const Company = () => {
   const [ads, setAds] = useState([]);
   const [brokers, setBrokers] = useState([]);
   const [tft, setTft] = useState([]);
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   useEffect(() => {
     axios({
@@ -55,7 +55,6 @@ const Company = () => {
         Accept: "application/json",
       },
     })
-
       .then((res) => {
         console.log(res.data);
         setTft(res.data);
@@ -69,39 +68,47 @@ const Company = () => {
     <>
       <div className="company">
         <div className="company__top">
-          <h2 style={{ fontWeight: 900 }}>{t('homepage.companyTitle')}</h2>
-          <h3>
-          {t('homepage.companyDescr')}
-          </h3>
+          <h2 style={{ fontWeight: 900 }}>{t("homepage.companyTitle")}</h2>
+          <h3>{t("homepage.companyDescr")}</h3>
         </div>
 
         <div className="rating">
           <div className="rating__content-box">
-          {brokers.map((item) => (
+            {brokers.map((item) => (
               <div key={item.id} className="rating__content-item">
                 <div className="rating__content-item-left">
                   <span className="top-num">№{item.topNumber}</span>
                   <div className="rating__content-item-left-top">
                     <h3>{item.name}</h3>
-                    {item.isTrusted ? (
-                      <span className="green">{t('homepage.canTrust')}</span>
+                    {item.isTrusted === "1" ? (
+                      <span></span>
+                    ) : item.isTrusted === "0" ? (
+                      <span className="red">{t("homepage.nocanTrust")}</span>
                     ) : (
-                      <span className="red">{t('homepage.nocanTrust')}</span>
+                      <span className="green">{t("homepage.canTrust")}</span>
                     )}
                   </div>
 
                   <h4>
-                  {t('homepage.toolsTrading')}
-                    <span className="ms-3">{tft.filter((pro) => pro.id === item.id).map((obj)=>{return obj.title})}</span>
+                    {t("homepage.toolsTrading")}
+                    <span className="ms-3">
+                      {tft
+                        .filter((pro) => pro.id === item.tools_id)
+                        .map((obj) => {
+                          return obj.title;
+                        })}
+                    </span>
                   </h4>
 
                   <div className="rating__content-item-left-bot">
                     <div className="est">
-                      <p>{item.stars_count}.0  {
+                    <p>{item.stars_count}.0 
+                      {
                         item.stars_count === 1 ? t("homepage.yomon") : 
                         ((item.stars_count===2 || item.stars_count===3) ? t("homepage.ortacha") : 
-                        (item.stars_count===4 ? t("homepage.yaxshi") : item.stars_count===5)) 
-                      }</p>
+                        (item.stars_count===4 ? t("homepage.yaxshi") : t("homepage.perfect"))) 
+                      }
+                      </p>
                       {[1, 2, 3, 4, 5].map((value) => (
                         <span
                           key={value}
@@ -135,7 +142,7 @@ const Company = () => {
                     {item.isChecked ? (
                       <div className="check">
                         <img src="/images/Icons/Frame.svg" alt="" />
-                        <p>{t('homepage.checked')}</p>
+                        <p>{t("homepage.checked")}</p>
                       </div>
                     ) : (
                       <></>
@@ -146,14 +153,20 @@ const Company = () => {
                     className="gray-btn"
                     to={`/brokers-raiting-single?id=${item.id}`}
                   >
-                    {t('homepage.learnMore')}
+                    {t("homepage.learnMore")}
                   </MyLink>
                 </div>
 
                 <div className="rating__content-item-right">
                   <div className="img-box">
                     <img src={`${IMG_URL}/media/${item.file}`} />
-                    {item.isBest ? <span className="best">Best</span> : <span className="scam">Scam</span>}
+                    {item.isBest === "1" ? (
+                      <span></span>
+                    ) : item.isBest === "0" ? (
+                      <span className="scam">Scam</span>
+                    ) : (
+                      <span className="best">Best</span>
+                    )}
                   </div>
                 </div>
               </div>
@@ -161,7 +174,7 @@ const Company = () => {
           </div>
 
           <a className="btn-more-grad" href="#">
-            <span>{t('homepage.seeAll')} </span>
+            <span>{t("homepage.seeAll")} </span>
           </a>
         </div>
       </div>

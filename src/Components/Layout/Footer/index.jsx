@@ -7,7 +7,8 @@ import MyLink from "../../Common/MyLink";
 const Footer = () => {
   const [ads, setAds] = useState([]);
   const [tglink, setTglink] = useState({});
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
   useEffect(() => {
     axios({
       method: "get",
@@ -56,7 +57,7 @@ const Footer = () => {
               </div>
               <div className="footer__top-right">
                 <div className="footer__top-right-contact">
-                  <a href="#"> info@gmail.com </a>
+                  {/* <a href="#"> info@gmail.com </a> */}
                 </div>
               </div>
             </div>
@@ -72,20 +73,17 @@ const Footer = () => {
               </a>
               <ul>
                 <li>
-                <a href="#">{t("footer.policy")}</a>
+                <a href={i18n.language === "ru" ? "/privacy-ru" : "/privacy-en"}>{t("footer.policy")}</a>
                 </li>
-                <li>
+                {/* <li>
                 <a href="#"> {t("footer.terms")}</a>
-                </li>
+                </li> */}
                  <li>
-                  <a href="#">{t("footer.web")} </a>
+                  <a href={i18n.language === "ru" ? "/disclaimer-ru" : "/disclaimer-en"}>{t("footer.web")} </a>
                 </li>
                 <li>
-                  <a href="#">{t("footer.broker")} </a>
+                  <a href={i18n.language==="ru" ? "/about-ru" : "/about-en"}>{t("footer.broker")} </a>
                 </li>
-                {/*<li>
-                  <a href="#"> {t("footer.ads")} </a>
-                </li> */}
               </ul>
             </div>
           </div>

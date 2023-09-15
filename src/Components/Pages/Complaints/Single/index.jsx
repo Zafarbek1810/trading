@@ -24,7 +24,7 @@ const ComplaintsSingle = ({ id }) => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [id]);
 
   return (
     <DashboardLayout>
@@ -44,11 +44,11 @@ const ComplaintsSingle = ({ id }) => {
         <div className="brokers-single__top ">
           <div className="brokers-single__top-left">
             <div className="brokers-single__top-left-logo">
-              <img src={`${IMG_URL}media/${reportDetail.logo}`} alt="" />
+              <img src={`${IMG_URL}media/${reportDetail?.logo}`} alt="" />
             </div>
             <div className="brokers-single__top-left-cont">
               <div className="brokers-single__top-left-cont-top">
-                <h4>{reportDetail.brokerName}</h4>
+                <h4>{reportDetail?.brokerName}</h4>
                 {/* <p>Последный визит: 3 дняназад</p> */}
               </div>
               <div className="brokers-single__top-left-cont-bot">
@@ -83,21 +83,21 @@ const ComplaintsSingle = ({ id }) => {
           <div className="broker__complaints-cards">
             <div className="broker__complaints-card">
               <div className="broker__complaints-card--top">
-              <img src={`${IMG_URL}media/${reportDetail.avatar}`} alt="" />
+              <img src={`${IMG_URL}media/${reportDetail?.avatar}`} alt="" />
                 <div className="broker__complaints-card--top-title">
                   <div>
-                    <h3>Я броккер</h3>
+                    <h3>{reportDetail?.reporterName}</h3>
                     {/* <span>30 дней назад</span> */}
                   </div>
-                  <a href={`mailto:${reportDetail.email}`}>
-                    {reportDetail.email}
+                  <a href={`mailto:${reportDetail?.email}`}>
+                    {reportDetail?.email}
                   </a>
                 </div>
               </div>
               <div className="broker__complaints-card--bottom">
-                <a href={reportDetail.url}>{reportDetail.url}</a>
-                <img className="mb-3" src={`${IMG_URL}media/${reportDetail.logo}`} alt="" />
-                <p>{reportDetail.situation_description}</p>
+                <a href={reportDetail?.url}>{reportDetail?.url}</a>
+                <img className="mb-3" src={`${IMG_URL}media/${reportDetail?.logo}`} alt="" />
+                <p>{reportDetail?.situation_description}</p>
               </div>
             </div>
           </div>

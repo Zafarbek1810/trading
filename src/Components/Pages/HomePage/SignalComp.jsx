@@ -100,7 +100,7 @@ const SignalComp = () => {
           {currency.map((item, index) => (
             <div className="signal-item" key={index}>
               <div className="signal-item-top">
-                <p>{moment(item.created_at).format("MMM MM / YYYY HH:mm")}</p>
+                <p>{moment(item.created_at).format("DD.MM.YYYY HH:mm")}</p>
                 {item.buyorsell === "1" ? (
                   <span className="green">BUY </span>
                 ) : (

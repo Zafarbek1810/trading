@@ -115,7 +115,7 @@ const Forum = () => {
                 <div className="forum__item-bottom">
                   <div className="author">
                     {/* <span>{item.fullName.substring(0, 1)}</span> */}
-                    <img src={`${IMG_URL}/media/${item.avatar}`} />
+                    <img style={{height:50,width:50, objectFit:"cover"}} src={`${IMG_URL}/media/${item.avatar}`} />
                     <div className="author-cont">
                       <h6>{item.fullName}</h6>
                       <p>{t("forum.author")}</p>

@@ -100,8 +100,11 @@
             "input6":"Avatar",
             "placeholder5":"Email",
             "formBtn":"Leave complaints",
-            "textarea":"Description"
-        }
+            "textarea":"Description",
+            "screenshoot":"Screenshoots",
+            "success":"Your complaint has been successfully sent!"
+        },
+        "img-info":"Please upload only files named with Latin letters! Otherwise, your file will not load."
     },
     "course":{
       "title":"Training courses",
@@ -132,6 +135,7 @@
     },
     "forum":{
       "title":"Forum",
+      "title-name":"Forum name",
       "descr":"On our forum, you can participate in the discussion of any topic, or add your own to get the opinion of other people",
       "add":"Add a theme",
       "subject":"Subject",
@@ -146,6 +150,8 @@
       "emailPlaceholder":"Email",
       "comment":"Write your comment",
       "commentPlaceholder":"Description",
+      "fullPlaceholder": "Full Description",
+      "shortPlaceholder": "Short Description",
       "send":"Send"
     }
     

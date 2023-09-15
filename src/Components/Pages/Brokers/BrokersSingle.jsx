@@ -45,7 +45,7 @@ const BrokersSingle = ({ id }) => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [id]);
 
   return (
     <DashboardLayout>

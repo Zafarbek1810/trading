@@ -16,12 +16,13 @@ const DashboardLayoutWrapper = styled.div`
         position: absolute;
         content: "";
         top: 0;
-        right: 0;
-        width: 100%;
+        right: -10%;
+        width: 250vw;
+        /* width: 150%; */
         height: 100%;
-        border-radius: 2355px;
+        border-radius: 2355px !important;
         background: #141630;
-        filter: blur(197px);
+        filter: blur(130px);
         z-index: -10 !important;
     }
 

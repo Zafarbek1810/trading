@@ -28,7 +28,7 @@ const NewsSingle = ({ id }) => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [id]);
 
   return (
     <DashboardLayout>

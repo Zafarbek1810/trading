@@ -21,6 +21,10 @@ const CoursesWrapper=styled.div`
             margin-right: 20px;
         }
     }
+
+    .courses__why{
+        max-width: 100% !important;
+    }
 `
 
 export{CoursesWrapper}

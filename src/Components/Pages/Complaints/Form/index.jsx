@@ -7,6 +7,7 @@ import axios from "axios";
 import { API_URL } from "../../../../HHTP/clients";
 import { useRouter } from "next/router";
 import StyledWrapper from "./style";
+import { toast } from "react-toastify";
 
 const ComplaintsForm = () => {
   const { t } = useTranslation();
@@ -37,6 +38,7 @@ const ComplaintsForm = () => {
     })
       .then((res) => {
         console.log(res.data);
+        toast.success(t('complaints.form.success'));
         router.push("/complaints");
       })
       .catch((err) => {
@@ -67,7 +69,12 @@ const ComplaintsForm = () => {
     const imgFile = e.target.files[0];
     const formData = new FormData();
     formData.append("file", imgFile);
-    setImg(imgFile);
+    const charCode = imgFile.name.charCodeAt(0)
+    if (charCode >= 0x0400 && charCode <= 0x04FF) {
+      toast.error('Файл не должен содержать кириллицу')
+    } else {
+      setImg(imgFile);
+    }
 
     console.log(formData);
   };
@@ -76,9 +83,12 @@ const ComplaintsForm = () => {
     const imgFile = e.target.files[0];
     const formData = new FormData();
     formData.append("file", imgFile);
-    setAvatar(imgFile);
-
-    console.log(formData);
+    const charCode = imgFile.name.charCodeAt(0)
+    if (charCode >= 0x0400 && charCode <= 0x04FF) {
+      toast.error('Файл не должен содержать кириллицу')
+    } else {
+      setAvatar(imgFile);
+    }
   };
 
   const handleSkrinshotBtn = () => {
@@ -148,6 +158,7 @@ const ComplaintsForm = () => {
                 {...register("e-mail-complaints", { required: true })}
               />
             </div>
+            <div style={{width:"100%"}}><p>{t("complaints.img-info")}</p></div>
             <div>
               <p>{t("complaints.form.input6")}</p>
               <label className="label-file-complaints">
@@ -163,15 +174,6 @@ const ComplaintsForm = () => {
                 <span>{t("complaints.form.placeholder4")}</span>
                 <input type="file" onChange={handleImg} />
               </label>
-            </div>
-            <div>
-              <button
-                className="btn-blue mt-5"
-                onClick={handleSkrinshotBtn}
-                type="button"
-              >
-                +Скриншот
-              </button>
             </div>
             <button disabled={loading} className="btn-blue mt-5" type="submit">
               {t("complaints.form.formBtn")}

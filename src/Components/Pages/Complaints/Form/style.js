@@ -8,6 +8,14 @@ const StyledWrapper=styled.div`
             cursor: not-allowed;
         }
     }
+
+    .complaints__form{
+        display: flex;
+        flex-direction: column;
+        div{
+            width: 100% !important;
+        }
+    }
 `
 
 export default StyledWrapper;

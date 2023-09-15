@@ -80,7 +80,7 @@ const Partners = () => {
           {partner.map((item, index) => (
             <div key={index} className="partners__item">
               <div key={index} className="partners__item-img-box">
-                <img src={`${IMG_URL}media/${item.file}`} alt="" />
+                <img src={`${IMG_URL}media/${item.file}`} style={{height:"100%"}} alt="" />
               </div>
               <div className="partners__item-cont">
                 <h5>{item.name}</h5>

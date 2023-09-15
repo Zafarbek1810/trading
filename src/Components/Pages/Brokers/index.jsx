@@ -18,7 +18,24 @@ const Brokers = () => {
   const { t, i18n } = useTranslation();
 
   const currentLang = i18n.language;
-
+  const [tft, setTft] = useState([]);
+  useEffect(() => {
+     axios({
+       method: "get",
+       url: `${API_URL}/tft/`,
+       headers: {
+         "Content-Type": "application/json",
+         Accept: "application/json",
+       },
+     })
+       .then((res) => {
+         console.log(res.data);
+         setTft(res.data);
+       })
+       .catch((err) => {
+         console.log(err);
+       });
+   }, []);
   useEffect(() => {
     axios({
       method: "get",
@@ -131,67 +148,151 @@ const Brokers = () => {
           </span>
         </ul>
 
-        {/* <a href="#" className="glow-on-hover mb-4">
-          Как оставить отзыв — узнать большее
-          <img src="/images/Icons/ArrowRight.svg" alt="" />
-        </a> */}
-
-        {/* <div className="brokers-top">
-          <h1>{t('brokers.title')}</h1>
-          <p>
-          {t('brokers.descr')}
-          </p>
-          <div className="brokers-top__box">
-            <div className="brokers-top__box-item">
-              <h6>{t('brokers.reliable')}</h6>
-              <h5>16672</h5>
-            </div>
-
-            <div className="brokers-top__box-item">
-              <h6>{t('brokers.reviewMan')}</h6>
-              <h5>81724134</h5>
-            </div>
-          </div>
-        </div> */}
-
-        <div className="brokers-list">
-          {/* <div className="brokers-list__top">
-            <div className="sel-box">
-              <select id="brokers-select">
-                <option value="all" className="bg-opt">
-                  Все
-                </option>
-                <option value="best" className="bg-opt">
-                  Высокий рейтинг
-                </option>
-                <option value="average" className="bg-opt">
-                  Средний рейтинг
-                </option>
-                <option value="worst" className="bg-opt">
-                  Низкий рейтинг
-                </option>
-              </select>
-            </div>
-            <a className="active" href="#" data-filter="all">
-              Все броккеры
-            </a>
-            <a href="#" data-filter="forex">
-              Forex
-            </a>
-            <a href="#" data-filter="crypto">
-              Crypto
-            </a>
-          </div> */}
-
+        <div className="rating">
           <div className="brokers-list__box">
-            {brokers.map((broker) => (
+          <div className="rating__content-box">
+            {brokers.map((item) => (
+              <div key={item.id} className="rating__content-item">
+                <div className="rating__content-item-left">
+                  {/* <span className="top-num">№{item.topNumber}</span> */}
+                  <div className="rating__content-item-left-top">
+                    <h3>{item.name}</h3>
+                    {item.isTrusted === "1" ? (
+                      <span></span>
+                    ) : item.isTrusted === "0" ? (
+                      <span className="red">{t("homepage.nocanTrust")}</span>
+                    ) : (
+                      <span className="green">{t("homepage.canTrust")}</span>
+                    )}
+                    
+                  </div>
+
+                  <h4>
+                    {t("homepage.toolsTrading")}{" "}
+                    <span className="m-3">
+                      {tft
+                        .filter((pro) => pro.id === item.tools_id)
+                        .map((obj) => {
+                          return obj.title;
+                        })}
+                    </span>
+                  </h4>
+
+                  <div className="rating__content-item-left-bot">
+                    <div className="est">
+                      <p>{item.stars_count}.0 
+                      {
+                        item.stars_count === 1 ? t("homepage.yomon") : 
+                        ((item.stars_count===2 || item.stars_count===3) ? t("homepage.ortacha") : 
+                        (item.stars_count===4 ? t("homepage.yaxshi") : t("homepage.perfect"))) 
+                      }
+                      </p>
+                      {[1, 2, 3, 4, 5].map((value) => (
+                        <span
+                          key={value}
+                          // onClick={() => handleStarClick(value)}
+                          style={{
+                            cursor: "pointer",
+                            color: value <= item.stars_count ? "gold" : "gray",
+                          }}
+                        >
+                          ★
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="rev">
+                      <div className="box">
+                        <img src="/images/Icons/reviews.svg" alt="" />
+                        <p>{item.reviews_count}</p>
+                      </div>
+                      <p>{t("homepage.reviews")}</p>
+                    </div>
+
+                    <div className="acc">
+                      <div className="box">
+                        <img src="/images/Icons/acc.svg" alt="" />
+                        <p>{item.balance}</p>
+                      </div>
+                      <p>{t("homepage.acc")}</p>
+                    </div>
+
+                    {item.isChecked ? (
+                      <div className="check">
+                        <img src="/images/Icons/Frame.svg" alt="" />
+                        <p>{t("homepage.checked")}</p>
+                      </div>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+
+                  <div className="brokers-list__item-left-text">
+                    <div className="top">
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: currentLang === "ru" ? item.short_description_ru : item.short_description_en,
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="brokers-list__item-left-btns">
+                    <a className="orange-btn" href={item.url}>
+                    {t('brokers.site')}
+                    </a>
+                    <MyLink
+                      className="gray-btn"
+                      to={`/brokers-single?id=${item.id}`}
+                    >
+                      {item.name} {t('brokers.obzor')}
+                    </MyLink>
+                  </div>
+                </div>
+
+                <div className="rating__content-item-right">
+                  <div className="img-box">
+                    <img src={`${IMG_URL}/media/${item.file}`} />
+                    {item.isBest === "1" ? (
+                      <span></span>
+                    ) : item.isBest === "0" ? (
+                      <span className="scam">Scam</span>
+                    ) : (
+                      <span className="best">Best</span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+            {/* {brokers.map((broker) => (
               <div
                 key={broker.id}
                 className="brokers-list__item"
                 data-cat="forex"
               >
                 <div className="brokers-list__item-left"  style={{width:"70%"}}>
-                  <h3>{broker.name}</h3>
+                <span className="top-num">№{broker.topNumber}</span>
+                  <div className="rating__content-item-left-top">
+                    <h3>{broker.name}</h3>
+                    {broker.isTrusted === "1" ? (
+                      <span></span>
+                    ) : broker.isTrusted === "0" ? (
+                      <span className="red">{t("homepage.nocanTrust")}</span>
+                    ) : (
+                      <span className="green">{t("homepage.canTrust")}</span>
+                    )}
+                  </div>
+                  <h4>
+                    {t("homepage.toolsTrading")}
+                    <span className="ms-3">
+                      {tft
+                        .filter((pro) => pro.id === broker.tools_id)
+                        .map((obj) => {
+                          return obj.title;
+                        })}
+                    </span>
+                  </h4>
 
                   <div className="brokers-list__item-left-estimates">
                     <div className="brokers-list__item-left-estimates-left">
@@ -240,21 +341,6 @@ const Brokers = () => {
                     </div>
                   </div>
 
-                  {/* <div className="brokers-list__item-left-assets">
-                    <div className="brokers-list__item-left-assets-item">
-                      <h6>786+</h6>
-                      <p>{t('brokers.assets')}</p>
-                    </div>
-                    <div className="brokers-list__item-left-assets-item">
-                      <h6>250+</h6>
-                      <p>{t('brokers.vlad')}</p>
-                    </div>
-                    <div className="brokers-list__item-left-assets-item">
-                      <h6>347+</h6>
-                      <p>{t('brokers.app')}</p>
-                    </div>
-                  </div> */}
-
                   <div className="brokers-list__item-left-text">
                     <div className="top">
                       <div
@@ -284,7 +370,7 @@ const Brokers = () => {
                   </div>
                 </div>
               </div>
-            ))}
+            ))} */}
           </div>
 
           <a className="btn-more-grad" href="#">
