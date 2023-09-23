@@ -1,35 +1,38 @@
-import React, { useState } from "react";
+import React, {useEffect,  useState} from "react";
 import DashboardLayout from "../../Layout";
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 import MyLink from "../../Common/MyLink";
 
 const Calculator = () => {
-  const [value, setValue] = useState();
-  const { t } = useTranslation();
+    const [value, setValue] = useState();
+    const {t} = useTranslation();
 
-  if (value === "all") {
-    document.querySelector(".calc-currency").style.display = "block";
-    document.querySelector(".calc-crypto").style.display = "block";
-    document.querySelector(".calc-multy").style.display = "block";
-  } else if (value === "curr") {
-    document.querySelector(".calc-currency").style.display = "block";
-    document.querySelector(".calc-crypto").style.display = "none";
-    document.querySelector(".calc-multy").style.display = "none";
-  } else if (value === "crypto") {
-    document.querySelector(".calc-currency").style.display = "none";
-    document.querySelector(".calc-crypto").style.display = "block";
-    document.querySelector(".calc-multy").style.display = "none";
-  } else if (value === "multy") {
-    document.querySelector(".calc-currency").style.display = "none";
-    document.querySelector(".calc-crypto").style.display = "none";
-    document.querySelector(".calc-multy").style.display = "block";
-  }
 
-  console.log(value);
-  return (
-    <DashboardLayout>
-      <div className="calculator">
-        <ul id="breadcrumb">
+    useEffect(() => {
+        if (value === "all") {
+            document.querySelector(".calc-currency").style.display = "block";
+            document.querySelector(".calc-crypto").style.display = "block";
+            document.querySelector(".calc-multy").style.display = "block";
+        } else if (value === "curr") {
+            document.querySelector(".calc-currency").style.display = "block";
+            document.querySelector(".calc-crypto").style.display = "none";
+            document.querySelector(".calc-multy").style.display = "none";
+        } else if (value === "crypto") {
+            document.querySelector(".calc-currency").style.display = "none";
+            document.querySelector(".calc-crypto").style.display = "block";
+            document.querySelector(".calc-multy").style.display = "none";
+        } else if (value === "multy") {
+            document.querySelector(".calc-currency").style.display = "none";
+            document.querySelector(".calc-crypto").style.display = "none";
+            document.querySelector(".calc-multy").style.display = "block";
+        }
+    }, [value])
+
+    console.log(value);
+    return (
+        <DashboardLayout>
+            <div className="calculator">
+                <ul id="breadcrumb">
           <span>
             <span>
             <MyLink to="/">{t('header.navbar.home')}</MyLink>|
@@ -38,266 +41,266 @@ const Calculator = () => {
               </span>
             </span>
           </span>
-        </ul>
+                </ul>
 
-        {/* <a href="#" className="glow-on-hover mb-4">
+                {/* <a href="#" className="glow-on-hover mb-4">
           Как оставить отзыв — узнать большее
           <img src="/images/Icons/ArrowRight.svg" alt="" />
         </a> */}
 
-        <h1>{t('calculator.title')}</h1>
+                <h1>{t('calculator.title')}</h1>
 
-        <div className="calc">
-          <div className="calc__top">
-            <p>{t('calculator.calculator')}</p>
+                <div className="calc">
+                    <div className="calc__top">
+                        <p>{t('calculator.calculator')}</p>
 
-            <form
-              className="sel-box"
-              onChange={(e) => setValue(e.target.value)}
-            >
-              <select id="calculator-select">
-                <option value="all" className="bg-opt">
-                {t('calculator.all')}
-                </option>
-                <option value="curr" className="bg-opt">
-                {t('calculator.select1')}
-                </option>
-                <option value="crypto" className="bg-opt">
-                {t('calculator.select2')}
-                </option>
-                <option value="multy" className="bg-opt">
-                {t('calculator.select3')}
-                </option>
-              </select>
-            </form>
-          </div>
-
-          <div className="calc__center">
-            <div className="calc__item calc-currency" data-calc="curr">
-              <p>{t('calculator.select1')}</p>
-
-              <div className="form-currency">
-                <div className="calc__item-box">
-                  <div className="calc__item-left">
-                    <input
-                      type="number"
-                      name="amountCurrency"
-                      id="amountCurrency"
-                      required
-                      placeholder="100"
-                    />
-                    <div className="sel-box">
-                      <select
-                        className="select"
-                        name="fromCurrency"
-                        id="fromCurrency"
-                        required
-                      >
-                        <option
-                          value=""
-                          disabled
-                          selected
-                          hidden
-                          className="bg-opt"
+                        <form
+                            className="sel-box"
+                            onChange={(e) => setValue(e.target.value)}
                         >
-                          Currency
-                        </option>
-                      </select>
+                            <select id="calculator-select">
+                                <option value="all" className="bg-opt">
+                                    {t('calculator.all')}
+                                </option>
+                                <option value="curr" className="bg-opt">
+                                    {t('calculator.select1')}
+                                </option>
+                                <option value="crypto" className="bg-opt">
+                                    {t('calculator.select2')}
+                                </option>
+                                <option value="multy" className="bg-opt">
+                                    {t('calculator.select3')}
+                                </option>
+                            </select>
+                        </form>
                     </div>
-                  </div>
 
-                  <div className="calc__item-center">
-                    <button
-                      type="button"
-                      className="calc__item-center-img-box"
-                      id="swapButton"
-                    >
-                      <img src="/images/Icons/ArrowsLeftRight.svg" alt="" />
-                    </button>
-                  </div>
+                    <div className="calc__center">
+                        <div className="calc__item calc-currency" data-calc="curr">
+                            <p>{t('calculator.select1')}</p>
 
-                  <div className="calc__item-right">
-                    <input
-                      type="text"
-                      id="result"
-                      required
-                      placeholder="100"
-                      disabled
-                    />
-                    <div className="sel-box">
-                      <select
-                        className="select"
-                        name="toCurrency"
-                        id="toCurrency"
-                        required
-                      >
-                        <option
-                          value=""
-                          disabled
-                          selected
-                          hidden
-                          className="bg-opt"
-                        >
-                          Currency
-                        </option>
-                      </select>
+                            <div className="form-currency">
+                                <div className="calc__item-box">
+                                    <div className="calc__item-left">
+                                        <input
+                                            type="number"
+                                            name="amountCurrency"
+                                            id="amountCurrency"
+                                            required
+                                            placeholder="100"
+                                        />
+                                        <div className="sel-box">
+                                            <select
+                                                className="select"
+                                                name="fromCurrency"
+                                                id="fromCurrency"
+                                                required
+                                            >
+                                                <option
+                                                    value=""
+                                                    disabled
+                                                    selected
+                                                    hidden
+                                                    className="bg-opt"
+                                                >
+                                                    Currency
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div className="calc__item-center">
+                                        <button
+                                            type="button"
+                                            className="calc__item-center-img-box"
+                                            id="swapButton"
+                                        >
+                                            <img src="/images/Icons/ArrowsLeftRight.svg" alt=""/>
+                                        </button>
+                                    </div>
+
+                                    <div className="calc__item-right">
+                                        <input
+                                            type="text"
+                                            id="result"
+                                            required
+                                            placeholder="100"
+                                            disabled
+                                        />
+                                        <div className="sel-box">
+                                            <select
+                                                className="select"
+                                                name="toCurrency"
+                                                id="toCurrency"
+                                                required
+                                            >
+                                                <option
+                                                    value=""
+                                                    disabled
+                                                    selected
+                                                    hidden
+                                                    className="bg-opt"
+                                                >
+                                                    Currency
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="calc__item calc-crypto" data-calc="crypto">
+                            <p>{t('calculator.select2')}</p>
+
+                            <div className="form-crypto">
+                                <div className="calc__item-box">
+                                    <div className="calc__item-left">
+                                        <input
+                                            type="number"
+                                            name="amount-crypto"
+                                            id="amount-crypto"
+                                            required
+                                            placeholder="100"
+                                        />
+                                        <div className="sel-box">
+                                            <select
+                                                className="select"
+                                                name="from-crypto"
+                                                id="from-crypto"
+                                                required
+                                            >
+                                                <option
+                                                    value=""
+                                                    disabled
+                                                    selected
+                                                    hidden
+                                                    className="bg-opt"
+                                                >
+                                                    Crypto
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div className="calc__item-center">
+                                        <button
+                                            className="calc__item-center-img-box"
+                                            id="swap-crypto"
+                                            type="button"
+                                        >
+                                            <img src="/images/Icons/ArrowsLeftRight.svg" alt=""/>
+                                        </button>
+                                    </div>
+
+                                    <div className="calc__item-right">
+                                        <input
+                                            type="text"
+                                            id="result-crypto"
+                                            required
+                                            placeholder="100"
+                                            disabled
+                                        />
+                                        <div className="sel-box">
+                                            <select
+                                                className="select"
+                                                name="to-crypto"
+                                                id="to-crypto"
+                                                required
+                                            >
+                                                <option
+                                                    value=""
+                                                    disabled
+                                                    selected
+                                                    hidden
+                                                    className="bg-opt"
+                                                >
+                                                    Crypto
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="calc__item calc-multy" data-calc="multy">
+                            <p>{t('calculator.select3')}</p>
+
+                            <div className="form-multy">
+                                <div className="calc__item-box">
+                                    <div className="calc__item-left">
+                                        <input
+                                            type="number"
+                                            name="amount-multy"
+                                            id="amount-multy"
+                                            required
+                                            placeholder="100"
+                                        />
+                                        <div className="sel-box select-parent-1">
+                                            <select
+                                                className="select"
+                                                name="from-multy"
+                                                id="from-multy"
+                                                required
+                                            >
+                                                <option
+                                                    value=""
+                                                    disabled
+                                                    selected
+                                                    hidden
+                                                    className="bg-opt"
+                                                >
+                                                    Crypto
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div className="calc__item-center">
+                                        <button
+                                            className="calc__item-center-img-box"
+                                            id="swap-multy"
+                                        >
+                                            <img src="/images/Icons/ArrowsLeftRight.svg" alt=""/>
+                                        </button>
+                                    </div>
+
+                                    <div className="calc__item-right">
+                                        <input
+                                            type="text"
+                                            id="result-multy"
+                                            required
+                                            placeholder="100"
+                                            disabled
+                                        />
+                                        <div className="sel-box select-parent-2">
+                                            <select
+                                                className="select"
+                                                name="to-multy"
+                                                id="to-multy"
+                                                required
+                                            >
+                                                <option
+                                                    value=""
+                                                    disabled
+                                                    selected
+                                                    hidden
+                                                    className="bg-opt"
+                                                >
+                                                    Currency
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
-            </div>
+                <div className="test"></div>
 
-            <div className="calc__item calc-crypto" data-calc="crypto">
-              <p>{t('calculator.select2')}</p>
-
-              <div className="form-crypto">
-                <div className="calc__item-box">
-                  <div className="calc__item-left">
-                    <input
-                      type="number"
-                      name="amount-crypto"
-                      id="amount-crypto"
-                      required
-                      placeholder="100"
-                    />
-                    <div className="sel-box">
-                      <select
-                        className="select"
-                        name="from-crypto"
-                        id="from-crypto"
-                        required
-                      >
-                        <option
-                          value=""
-                          disabled
-                          selected
-                          hidden
-                          className="bg-opt"
-                        >
-                          Crypto
-                        </option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="calc__item-center">
-                    <button
-                      className="calc__item-center-img-box"
-                      id="swap-crypto"
-                      type="button"
-                    >
-                      <img src="/images/Icons/ArrowsLeftRight.svg" alt="" />
-                    </button>
-                  </div>
-
-                  <div className="calc__item-right">
-                    <input
-                      type="text"
-                      id="result-crypto"
-                      required
-                      placeholder="100"
-                      disabled
-                    />
-                    <div className="sel-box">
-                      <select
-                        className="select"
-                        name="to-crypto"
-                        id="to-crypto"
-                        required
-                      >
-                        <option
-                          value=""
-                          disabled
-                          selected
-                          hidden
-                          className="bg-opt"
-                        >
-                          Crypto
-                        </option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="calc__item calc-multy" data-calc="multy">
-              <p>{t('calculator.select3')}</p>
-
-              <div className="form-multy">
-                <div className="calc__item-box">
-                  <div className="calc__item-left">
-                    <input
-                      type="number"
-                      name="amount-multy"
-                      id="amount-multy"
-                      required
-                      placeholder="100"
-                    />
-                    <div className="sel-box select-parent-1">
-                      <select
-                        className="select"
-                        name="from-multy"
-                        id="from-multy"
-                        required
-                      >
-                        <option
-                          value=""
-                          disabled
-                          selected
-                          hidden
-                          className="bg-opt"
-                        >
-                          Crypto
-                        </option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="calc__item-center">
-                    <button
-                      className="calc__item-center-img-box"
-                      id="swap-multy"
-                    >
-                      <img src="/images/Icons/ArrowsLeftRight.svg" alt="" />
-                    </button>
-                  </div>
-
-                  <div className="calc__item-right">
-                    <input
-                      type="text"
-                      id="result-multy"
-                      required
-                      placeholder="100"
-                      disabled
-                    />
-                    <div className="sel-box select-parent-2">
-                      <select
-                        className="select"
-                        name="to-multy"
-                        id="to-multy"
-                        required
-                      >
-                        <option
-                          value=""
-                          disabled
-                          selected
-                          hidden
-                          className="bg-opt"
-                        >
-                          Currency
-                        </option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="test"></div>
-
-        {/* <div className="methods">
+                {/* <div className="methods">
           <div className="title">
             <h3>Методы</h3>
             <p>Практика и анализ статистики</p>
@@ -347,9 +350,9 @@ const Calculator = () => {
             </div>
           </div>
         </div> */}
-      </div>
-    </DashboardLayout>
-  );
+            </div>
+        </DashboardLayout>
+    );
 };
 
 export default Calculator;
