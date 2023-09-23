@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const DashboardLayoutWrapper = styled.div`
-    font-family: "Inter" !important;
+    font-family: "Inter", sans-serif !important;
     .header{
         position: relative;
         z-index: 9999 !important;

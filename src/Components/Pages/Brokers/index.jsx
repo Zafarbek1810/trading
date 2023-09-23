@@ -243,7 +243,7 @@ const Brokers = () => {
                     </a>
                     <MyLink
                       className="gray-btn"
-                      to={`/brokers-single?id=${item.id}`}
+                      to={`/brokers/${item.id}`}
                     >
                       {item.name} {t('brokers.obzor')}
                     </MyLink>
