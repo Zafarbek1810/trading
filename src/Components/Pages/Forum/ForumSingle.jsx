@@ -15,40 +15,43 @@ const ForumSingle = ({ id }) => {
   const currentLang = i18n.language;
 
   useEffect(() => {
-    axios({
-      method: "get",
-      url: `${API_URL}/forum/${id}/`,
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then((res) => {
-        console.log(res.data);
-        setForum(res.data);
+    if(id) {
+      axios({
+        method: "get",
+        url: `${API_URL}/forum/${id}/`,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
       })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+          .then((res) => {
+            console.log(res.data);
+            setForum(res.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+    }
+  }, [id]);
   useEffect(() => {
-    axios({
-      method: "get",
-      url: `${API_URL}/forum/comments/${id}/`,
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then((res) => {
-        console.log(res.data);
-        setComment(res.data);
+    if(id) {
+      axios({
+        method: "get",
+        url: `${API_URL}/forum/comments/${id}/`,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
       })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-  console.log(forum);
+          .then((res) => {
+            console.log(res.data);
+            setComment(res.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+    }
+  }, [id]);
   return (
     <DashboardLayout>
       <Styled className="forum-single">
