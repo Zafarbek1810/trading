@@ -38,18 +38,18 @@ const Header = () => {
                             </MyLink>
                             <div className="header-top__menu">
                                 <ul>
-                                    <li className={router.route === "/brokers" ? "active" : ""} onClick={burgerClick}>
+                                    <li className={router.route === "/brokers" ? "active" : ""} >
                                         <MyLink to="/brokers">{t('header.navbar.broker')}</MyLink>
                                     </li>
-                                    <li onClick={burgerClick}
+                                    <li
                                         className={router.route === "/calculator" ? "active" : ""}
                                     >
                                         <MyLink to="/calculator">{t('header.navbar.calculator')}</MyLink>
                                     </li>
-                                    <li onClick={burgerClick} className={router.route === "/calendar" ? "active" : ""}>
+                                    <li  className={router.route === "/calendar" ? "active" : ""}>
                                         <MyLink to="/calendar">{t('header.navbar.calendar')}</MyLink>
                                     </li>
-                                    <li onClick={burgerClick}
+                                    <li
                                         className={
                                             router.route === "/complaints" ||
                                             router.route === "/complaints-single" ||
@@ -146,7 +146,7 @@ const Header = () => {
                                 <MyLink className="tg-btn" to="/#" onClick={burgerClick}>
                                     <img src="/images/Icons/soc-tg.svg" alt=""/>
                                     Telegram-канал
-                                </MyLink>
+                                </MyLink>``
 
                                 <ul>
                                     <li onClick={burgerClick}>

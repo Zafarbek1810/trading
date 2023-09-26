@@ -67,7 +67,7 @@ function MyApp({Component, pageProps}) {
                 />
                 <link rel="shortcut icon" href="./favicon.ico"/>
                 <title>Inlisting</title>
-                <link rel="stylesheet" href="css/style.min.css"/>
+                <link rel="stylesheet" href="/css/style.min.css"/>
 
                 <script
                     dangerouslySetInnerHTML={{

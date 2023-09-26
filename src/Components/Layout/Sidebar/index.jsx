@@ -74,9 +74,9 @@ const Sidebar = () => {
                       </li>
                       <li>
                         <MyLink
-                          to="/brokers-raiting"
+                          to="/brokers/rating"
                           className={
-                            router.route === "/brokers-raiting" ? "active" : ""
+                            router.route === "/brokers/rating" ? "active" : ""
                           }
                         >
                           {t("sidebar.brokers-raiting")}
